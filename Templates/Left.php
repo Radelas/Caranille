@@ -2,7 +2,7 @@
 if (isset($_SESSION['ID']))
 {	
 	?>
-	<div class="important">MMORPG</div><br />
+	<div class="important">RPG</div><br />
 	<a href="Main.php">L'actualitée</a><br />
 	<a href="Story.php">L'histoire</a><br />
 	<a href="Map.php">La carte</a><br /><br />
