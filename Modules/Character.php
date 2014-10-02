@@ -8,7 +8,6 @@
 			echo 'Bienvenue sur la page de votre personnage<br /><br />';
 			echo 'Cette page présente votre personnage avec ses caractéristiques et sont équipement.<br /><br />';
 			echo '<div class="important">Pseudo</div> : ' .htmlspecialchars(addslashes($_SESSION['Pseudo'])). '<br />';
-			echo '<div class="important">Ordre</div> : ' .htmlspecialchars(addslashes($_SESSION['Order_Name'])). '<br />';
 			echo '<div class="important">Adresse e-mail</div> : ' .htmlspecialchars(addslashes($_SESSION['Email'])). '<br />';
 			echo '<div class="important">Niveau</div> : ' .htmlspecialchars(addslashes($_SESSION['Level'])). '<br />';
 			echo '<div class="important">Force</div> : ' .htmlspecialchars(addslashes($_SESSION['Strength_Base'])). '<br />';
@@ -25,7 +24,6 @@
 			echo '<div class="important">Pièces d\'or (PO)</div> : ' .htmlspecialchars(addslashes($_SESSION['Gold'])). '<br />';
 			echo '<div class="important">Experience (XP)</div> : ' .htmlspecialchars(addslashes($_SESSION['Experience'])). '<br />';
 			echo "<div class=\"important\">Prochain niveau</div> : $Next_Level<br />";
-			echo '<div class="important">Notoriété</div> : ' .htmlspecialchars(addslashes($_SESSION['Notoriety'])). '<br />';
 			echo '<div class="important">Chapitre</div> : ' .htmlspecialchars(addslashes($_SESSION['Chapter'])). '<br />';
 			echo '<div class="important">Nombre de mission réussie</div> : ' .htmlspecialchars(addslashes($_SESSION['Mission'])). '<br />';
 			echo '<div class="important">Access</div> : ' .htmlspecialchars(addslashes($_SESSION['Access'])). '<br /><br />';

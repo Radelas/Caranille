@@ -38,7 +38,7 @@
 						$Email = htmlspecialchars(addslashes($_POST['Email']));
 						$Date = date('Y-m-d H:i:s');
 						$IP = $_SERVER["REMOTE_ADDR"];
-						$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', 'Member', :Date, :IP, 'Authorized' , 'None')");
+						$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', 'Member', :Date, :IP, 'Authorized' , 'None')");
 						$Add_Account->execute(array('Pseudo' => $Pseudo, 'Password' => $Password, 'Email' => $Email, 'Date' => $Date, 'IP' => $IP));
 							
 

@@ -13,10 +13,7 @@
 				if ($_SESSION['Monster_HP'] > 0 && $_SESSION['HP'] > 0)
 				{
 					$Monster_Image = $_SESSION['Monster_Image'];
-					if ($_SESSION['Arena'] = 0)
-					{
-						echo "<img src=\"$Monster_Image\"><br />";
-					}
+					echo "<img src=\"$Monster_Image\"><br />";
 					echo "Combat de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " Contre " .htmlspecialchars(addslashes($_SESSION['Pseudo'])). "<br /><br />";
 					echo "HP de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " " .htmlspecialchars(addslashes($_SESSION['Monster_HP'])). " HP<br />";
 					echo "Vos HP: " .htmlspecialchars(addslashes($_SESSION['HP'])). " HP<br /><br />";
@@ -686,18 +683,6 @@
 							}
 						}
 					}
-					if ($_SESSION['Arena_Battle'] == 1)
-					{
-						$_SESSION['Notoriety'] = htmlspecialchars(addslashes($_SESSION['Notoriety'])) + 1;
-						$Player_ID = htmlspecialchars(addslashes($_SESSION['Monster_ID']));
-						echo "Votre victoire dans l'arène vous rapporte 1 points de notoriete<br />";	
-							
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Notoriety= Account_Notoriety + 1 WHERE Account_ID= :ID");
-						$Update_Account->execute(array('ID'=> $ID));
-
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Notoriety= Account_Notoriety - 1 WHERE Account_ID= :Player_ID");
-						$Update_Account->execute(array('Player_ID'=> $Player_ID));
-					}
 					if ($_SESSION['Chapter_Battle'] == 1)
 					{	
 						echo '<form method="POST" action="Main.php">';
@@ -730,18 +715,6 @@
 				{
 					$_SESSION['Battle'] = 0;
 					$HP_Total = htmlspecialchars(addslashes($_SESSION['HP_Total']));
-					if ($_SESSION['Arena_Battle'] == 1)
-					{
-						echo "Vous avez perdu le combat";
-						$Player_ID = htmlspecialchars(addslashes($_SESSION['Monster_ID']));
-						echo "Votre défaite dans l'arène vous fait perdre 1 points de notorieté<br />";
-						
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :HP_Total, Account_Notoriety= Account_Notoriety - 1 AND WHERE Account_ID= :ID");
-						$Update_Account->execute(array('HP_Total'=> $HP_Total, 'ID'=> $ID));
-
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Notoriety= Account_Notoriety + 1 WHERE Account_ID= :Player_ID");
-						$Update_Account->execute(array('Player_ID'=> $Player_ID));
-					}
 					if ($_SESSION['Chapter_Battle'] == 1)
 					{
 						echo htmlspecialchars(addslashes($_SESSION['Chapter_Defeate']));

@@ -8,11 +8,9 @@ if (isset($_SESSION['ID']))
 	<a href="Map.php">La carte</a><br /><br />
 	<div class="important">Mon Compte</div><br />
 	<a href="Character.php">Mon personnage</a><br />
-	<a href="Inventory.php">Mon inventaire</a><br />
-	<a href="Order.php">Mon Ordre</a><br /><br />
+	<a href="Inventory.php">Mon inventaire</a><br /><br />
 	<div class="important">La Communauté</div><br />
 	<a href="Top.php">Top 100</a><br />
-	<a href="Battlegrounds.php">Champs de Batailles</a><br />
 	<?php echo "<a href=\"Private_Message.php\">Message privé ($Total_Private_Message Message(s))</a><br />"; ?>
 	<a href="Chat.php">Le chat</a><br /><br />
 	<a href="Logout.php">Déconnexion</a><br /><br />

@@ -48,9 +48,8 @@ if (isset($_SESSION['ID']))
 	/*
 	Mise à jour du compte en temps réel
 	*/
-	$Data_Account_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts, Caranille_Levels, Caranille_Orders
+	$Data_Account_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts, Caranille_Levels
 	WHERE Account_Pseudo= ?
-	AND Account_Order = Order_ID
 	AND Account_Level = Level_Number");
 	$Data_Account_Query->execute(array($Pseudo));
 	while ($Account_Data = $Data_Account_Query->fetch())
@@ -76,9 +75,6 @@ if (isset($_SESSION['ID']))
 		$_SESSION['Sagesse_Bonus'] = stripslashes($Account_Data['Account_Sagesse_Bonus']);
 		$_SESSION['Experience'] = stripslashes($Account_Data['Account_Experience']);
 		$_SESSION['Gold'] = stripslashes($Account_Data['Account_Golds']);
-		$_SESSION['Order_ID'] = stripslashes($Account_Data['Order_ID']);
-		$_SESSION['Order_Name'] = stripslashes($Account_Data['Order_Name']);
-		$_SESSION['Order_Description'] = stripslashes($Account_Data['Order_Description']);
 		$_SESSION['Chapter'] = stripslashes($Account_Data['Account_Chapter']);
 		$_SESSION['Mission'] = stripslashes($Account_Data['Account_Mission']);	
 		$_SESSION['Access'] = stripslashes($Account_Data['Account_Access']);

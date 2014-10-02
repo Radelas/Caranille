@@ -17,7 +17,6 @@ if (isset($_SESSION['ID']))
 		echo '<a href="Monsters.php">Gestion des Monstres</a><br />';
 		echo '<a href="News.php">Gestion des News</a><br />';
 		echo '<a href="Items.php">Gestion des Objets</a><br />';
-		echo '<a href="Orders.php">Gestion des Ordres</a><br />';
 		echo '<a href="Parchments.php">Gestion des Parchemins</a><br />';
 		echo '<a href="Towns.php">Gestion des Villes</a><br /><br />';
 		echo '<div class="important">Gestion du Design</div><br />';
