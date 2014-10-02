@@ -45,6 +45,7 @@
 				$_SESSION['Magic_Bonus'] = stripslashes($Account_Data['Account_Magic_Bonus']);
 				$_SESSION['Agility_Bonus'] = stripslashes($Account_Data['Account_Agility_Bonus']);
 				$_SESSION['Defense_Bonus'] = stripslashes($Account_Data['Account_Defense_Bonus']);
+				$_SESSION['Sagesse_Bonus'] = stripslashes($Account_Data['Account_Sagesse_Bonus']);
 				$_SESSION['Experience'] = stripslashes($Account_Data['Account_Experience']);
 				$_SESSION['Gold'] = stripslashes($Account_Data['Account_Golds']);
 				$_SESSION['Order_ID'] = stripslashes($Account_Data['Order_ID']);

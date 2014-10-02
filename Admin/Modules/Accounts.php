@@ -46,6 +46,7 @@
 				$Account_Magic_Bonus = stripslashes($Account_List['Account_Magic_Bonus']);
 				$Account_Agility_Bonus = stripslashes($Account_List['Account_Agility_Bonus']);
 				$Account_Defense_Bonus = stripslashes($Account_List['Account_Defense_Bonus']);
+				$Account_Sagesse_Bonus = stripslashes($Account_List['Account_Sagesse_Bonus']);
 				$Account_Experience = stripslashes($Account_List['Account_Experience']);
 				$Account_Golds = stripslashes($Account_List['Account_Golds']);
 				$Account_Notoriety = stripslashes($Account_List['Account_Notoriety']);
@@ -68,6 +69,7 @@
 			echo "Magie Bonus<br /> <input type=\"text\" name=\"Account_Magic_Bonus\" value=\"$Account_Magic_Bonus\"><br /><br />";
 			echo "Agility_Bonus<br /> <input type=\"text\" name=\"Account_Agility_Bonus\" value=\"$Account_Agility_Bonus\"><br /><br />";
 			echo "Defense_Bonus<br /> <input type=\"text\" name=\"Account_Defense_Bonus\" value=\"$Account_Defense_Bonus\"><br /><br />";
+			echo "Sagesse_Bonus<br /> <input type=\"text\" name=\"Account_Sagesse_Bonus\" value=\"$Account_Sagesse_Bonus\"><br /><br />";
 			echo "Experience (XP)<br /> <input type=\"text\" name=\"Account_Experience\" value=\"$Account_Experience\"><br /><br />";
 			echo "Pièces d'or (PO)<br /> <input type=\"text\" name=\"Account_Golds\" value=\"$Account_Golds\"><br /><br />";
 			echo "Notoriete<br /> <input type=\"text\" name=\"Account_Notoriety\" value=\"$Account_Notoriety\"><br /><br />";	
@@ -113,6 +115,7 @@
 				$Account_Magic_Bonus = htmlspecialchars(addslashes($_POST['Account_Magic_Bonus']));
 				$Account_Agility_Bonus = htmlspecialchars(addslashes($_POST['Account_Agility_Bonus']));
 				$Account_Defense_Bonus = htmlspecialchars(addslashes($_POST['Account_Defense_Bonus']));
+				$Account_Sagesse_Bonus = htmlspecialchars(addslashes($_POST['Account_Sagesse_Bonus']));
 				$Account_Experience = htmlspecialchars(addslashes($_POST['Account_Experience']));
 				$Account_Golds = htmlspecialchars(addslashes($_POST['Account_Golds']));
 				$Account_Notoriety = htmlspecialchars(addslashes($_POST['Account_Notoriety']));
@@ -120,8 +123,47 @@
 				$Account_Mission = htmlspecialchars(addslashes($_POST['Account_Mission']));
 				$Account_Access = htmlspecialchars(addslashes($_POST['Account_Access']));
 
-				$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Pseudo= :Account_Pseudo, Account_Email= :Account_Email, Account_Level= :Account_Level, Account_HP_Remaining= :Account_HP_Remaining, Account_HP_Bonus= :Account_HP_Bonus, Account_MP_Remaining= :Account_MP_Remaining, Account_MP_Bonus= :Account_MP_Bonus, Account_Strength_Bonus= :Account_Strength_Bonus, Account_Magic_Bonus= :Account_Magic_Bonus, Account_Agility_Bonus= :Account_Agility_Bonus, Account_Defense_Bonus= :Account_Defense_Bonus, Account_Experience= :Account_Experience, Account_Golds= :Account_Golds, Account_Notoriety= :Account_Notoriety, Account_Chapter= :Account_Chapter, Account_Mission= :Account_Mission, Account_Access= :Account_Access WHERE Account_ID= :Account_ID");
-				$Update_Account->execute(array('Account_Pseudo'=> $Account_Pseudo, 'Account_Email'=> $Account_Email, 'Account_Level'=> $Account_Level, 'Account_HP_Remaining'=> $Account_HP_Remaining, 'Account_HP_Bonus'=> $Account_HP_Bonus, 'Account_MP_Remaining'=> $Account_MP_Remaining, 'Account_MP_Bonus'=> $Account_MP_Bonus, 'Account_Strength_Bonus'=> $Account_Strength_Bonus, 'Account_Magic_Bonus'=> $Account_Magic_Bonus, 'Account_Agility_Bonus'=> $Account_Agility_Bonus, 'Account_Defense_Bonus'=> $Account_Defense_Bonus, 'Account_Experience'=> $Account_Experience, 'Account_Golds'=> $Account_Golds, 'Account_Notoriety'=> $Account_Notoriety, 'Account_Chapter'=> $Account_Chapter, 'Account_Mission'=> $Account_Mission, 'Account_Access'=> $Account_Access, 'Account_ID'=> $Account_ID));
+				$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts 
+				SET Account_Pseudo= :Account_Pseudo, 
+				Account_Email= :Account_Email, 
+				Account_Level= :Account_Level, 
+				Account_HP_Remaining= :Account_HP_Remaining, 
+				Account_HP_Bonus= :Account_HP_Bonus, 
+				Account_MP_Remaining= :Account_MP_Remaining, 
+				Account_MP_Bonus= :Account_MP_Bonus, 
+				Account_Strength_Bonus= :Account_Strength_Bonus, 
+				Account_Magic_Bonus= :Account_Magic_Bonus, 
+				Account_Agility_Bonus= :Account_Agility_Bonus, 
+				Account_Defense_Bonus= :Account_Defense_Bonus, 
+				Account_Sagesse_Bonus= :Account_Sagesse_Bonus, 
+				Account_Experience= :Account_Experience, 
+				Account_Golds= :Account_Golds, 
+				Account_Notoriety= :Account_Notoriety, 
+				Account_Chapter= :Account_Chapter, 
+				Account_Mission= :Account_Mission, 
+				Account_Access= :Account_Access 
+				WHERE Account_ID= :Account_ID");
+				
+				$Update_Account->execute(array(
+				'Account_Pseudo'=> $Account_Pseudo, 
+				'Account_Email'=> $Account_Email, 
+				'Account_Level'=> $Account_Level, 
+				'Account_HP_Remaining'=> $Account_HP_Remaining, 
+				'Account_HP_Bonus'=> $Account_HP_Bonus, 
+				'Account_MP_Remaining'=> $Account_MP_Remaining, 
+				'Account_MP_Bonus'=> $Account_MP_Bonus, 
+				'Account_Strength_Bonus'=> $Account_Strength_Bonus, 
+				'Account_Magic_Bonus'=> $Account_Magic_Bonus, 
+				'Account_Agility_Bonus'=> $Account_Agility_Bonus, 
+				'Account_Defense_Bonus'=> $Account_Defense_Bonus, 
+				'Account_Sagesse_Bonus'=> $Account_Sagesse_Bonus, 
+				'Account_Experience'=> $Account_Experience, 
+				'Account_Golds'=> $Account_Golds, 
+				'Account_Notoriety'=> $Account_Notoriety, 
+				'Account_Chapter'=> $Account_Chapter, 
+				'Account_Mission'=> $Account_Mission, 
+				'Account_Access'=> $Account_Access, 
+				'Account_ID'=> $Account_ID));
 				
 				echo 'Le compte a bien été modifié';
 			}

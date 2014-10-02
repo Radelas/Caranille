@@ -574,7 +574,9 @@
 					else
 					{
 						$Experience_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Experience']));
-						echo "Experience (XP) + $Experience_Gained <br />";
+						$Experience_Bonus = $_SESSION['Sagesse_Bonus'] * $Experience_Gained /100;
+						$Experience_Total = $Experience_Gained + $Experience_Bonus;
+						echo "Experience (XP) + $Experience_Total <br />";
 						if ($_SESSION['Monster_Item_One'] >= 1)
 						{
 							$Monster_Item_One_Rate = mt_rand(0, 100);
@@ -702,20 +704,20 @@
 						echo "Votre niveau dans l'histoire augmente de 1 point<br />";								
 						echo $_SESSION['Chapter_Ending'];
 						$_SESSION['Chapter'] = htmlspecialchars(addslashes($_SESSION['Chapter'])) + 1;
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Gained, Account_Golds= Account_Golds + :Gold_Gained, Account_Chapter= Account_Chapter + 1 WHERE Account_ID= :ID");
-						$Update_Account->execute(array('Experience_Gained'=> $Experience_Gained, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
+						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained, Account_Chapter= Account_Chapter + 1 WHERE Account_ID= :ID");
+						$Update_Account->execute(array('Experience_Total'=> $Experience_Total, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
 					}
 					if ($_SESSION['Dungeon_Battle'] == 1)
 					{
 						echo '<form method="POST" action="Map.php">';
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Gained, Account_Golds= Account_Golds + :Gold_Gained WHERE Account_ID= :ID");
-						$Update_Account->execute(array('Experience_Gained'=> $Experience_Gained, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
+						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained WHERE Account_ID= :ID");
+						$Update_Account->execute(array('Experience_Total'=> $Experience_Total, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
 					}
 					if ($_SESSION['Mission_Battle'] == 1)
 					{
 						echo '<form method="POST" action="Map.php">';
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Gained, Account_Golds= Account_Golds + :Gold_Gained, Account_Mission = Account_Mission + 1 WHERE Account_ID= :ID");
-						$Update_Account->execute(array('Experience_Gained'=> $Experience_Gained, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
+						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained, Account_Mission = Account_Mission + 1 WHERE Account_ID= :ID");
+						$Update_Account->execute(array('Experience_Total'=> $Experience_Total, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
 					}
 					
 					

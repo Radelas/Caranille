@@ -65,7 +65,7 @@ session_start();
 					<?php
 
 					//Version du rpg de caranille
-					\$version = \"4.6.0\";
+					\$version = \"5.0.0\";
 					
 					\$bdd = new PDO('mysql:host=$Server;dbname=$Database', '$User', '$Password');
 						
@@ -86,22 +86,22 @@ session_start();
 					{
 						echo 'Le fichier de configuration n\'a pu être crée. Veuillez vérifier que PHP à bien les droits d\'écriture';
 					}
-                                        }
+                }
 				if (isset($_POST['Choose_Curve']))
 				{
-                                    ?>
-                                    Veuillez choisir la courbe d'experience
-                                    <form method="POST" action="index.php">
-                                    Gain de HP par niveau: <br /> <input type="text" name="HP_Level"><br /><br />
-                                    Gain de MP par niveau: <br /> <input type="text" name="MP_Level"><br /><br />
-                                    Gain de Force par niveau: <br /> <input type="text" name="Strength_Level"><br /><br />
-                                    Gain de Magie par niveau: <br /> <input type="text" name="Magic_Level"><br /><br />
-                                    Gain de Agilité par niveau: <br /> <input type="text" name="Agility_Level"><br /><br />  
-                                    Gain de Defense par niveau: <br /> <input type="text" name="Defense_Level"><br /><br />                                  
-                                    Experience demandé en plus par niveau: <br /> <input type="text" name="Experience_Level"><br /><br />
-                                    <input type="submit" name="Start_Installation" value="Lancer l'installation">
-                                    </form>
-                                    <?php
+					?>
+					Veuillez choisir la courbe d'experience
+					<form method="POST" action="index.php">
+					Gain de HP par niveau: <br /> <input type="text" name="HP_Level"><br /><br />
+					Gain de MP par niveau: <br /> <input type="text" name="MP_Level"><br /><br />
+					Gain de Force par niveau: <br /> <input type="text" name="Strength_Level"><br /><br />
+					Gain de Magie par niveau: <br /> <input type="text" name="Magic_Level"><br /><br />
+					Gain de Agilité par niveau: <br /> <input type="text" name="Agility_Level"><br /><br />  
+					Gain de Défense par niveau: <br /> <input type="text" name="Defense_Level"><br /><br />                                  
+					Experience demandé en plus par niveau: <br /> <input type="text" name="Experience_Level"><br /><br />
+					<input type="submit" name="Start_Installation" value="Lancer l'installation">
+					</form>
+					<?php
 				}
 				if (isset($_POST['Start_Installation']))
 				{
@@ -125,6 +125,7 @@ session_start();
 					`Account_Magic_Bonus` int(11) NOT NULL,
 					`Account_Agility_Bonus` int(11) NOT NULL,
 					`Account_Defense_Bonus` int(11) NOT NULL,
+					`Account_Sagesse_Bonus` int(11) NOT NULL,
 					`Account_Experience` bigint(255) NOT NULL,
 					`Account_Golds` int(11) NOT NULL,
 					`Account_Order` int(11) NOT NULL,
@@ -210,6 +211,7 @@ session_start();
 					`Item_Magic_Effect` int(11) NOT NULL,
 					`Item_Agility_Effect` int(11) NOT NULL,
 					`Item_Defense_Effect` int(11) NOT NULL,
+					`Item_Sagesse_Effect` int(11) NOT NULL,
 					`Item_Town` int(5) NOT NULL,
 					`Item_Purchase_Price` int(11) NOT NULL,
 					`Item_Sale_Price` int(11) NOT NULL
@@ -414,7 +416,7 @@ session_start();
 							$Date = date('Y-m-d H:i:s');
 							$IP = $_SERVER["REMOTE_ADDR"];
 							$Password = md5(htmlspecialchars(addslashes($_POST['Password'])));
-							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
+							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
 							$Add_Account->execute(array('Pseudo' => $Pseudo, 'Password' => $Password, 'Email' => $Email, 'Date' => $Date, 'IP' => $IP));
 							
 							$MMORPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES('', :MMORPG_Name, :Presentation, 'Yes')");
@@ -449,14 +451,14 @@ session_start();
 							$bdd->exec("INSERT INTO Caranille_Monsters VALUES('', 'http://localhost', 'Dragon', 'Monstre qui crache du feu', '1', '50', '30', '1000', '100', '100', '100', '1', '', '', '', '', '', '', 'Mission')");
 							$bdd->exec("INSERT INTO Caranille_Monsters VALUES('', 'http://localhost', 'Plop doree', 'Petit monstre en or', '1', '75', '10', '300', '30', '5', '5', '1', '', '', '', '', '', '', 'Chapter')");
 
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Weapon', '1', 'Epée de cuivre', 'Une petite Epée', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Armor', '1', 'Armure de cuivre', 'Une petite armure', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Boots', '1', 'Bottes de cuivre', 'Des petites bottes', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Gloves', '1', 'Gants de cuivre', 'Des petits gants', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Helmet', '1', 'Casque de cuivre', 'Un petit casque', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Parchment', '1', 'Parchemin vide', 'Un parchemin vide', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Health', '1', 'Potion', 'Redonne 50 HP', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Magic', '1', 'Ether', 'Redonne 5 MP', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Weapon', '1', 'Epée de cuivre', 'Une petite Epée', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Armor', '1', 'Armure de cuivre', 'Une petite armure', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Boots', '1', 'Bottes de cuivre', 'Des petites bottes', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Gloves', '1', 'Gants de cuivre', 'Des petits gants', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Helmet', '1', 'Casque de cuivre', 'Un petit casque', '0', '0', '0', '0', '0', '0', '0', '1', '0', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Parchment', '1', 'Parchemin vide', 'Un parchemin vide', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Health', '1', 'Potion', 'Redonne 50 HP', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Magic', '1', 'Ether', 'Redonne 5 MP', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
 					
 							$bdd->exec("INSERT INTO Caranille_Towns VALUES('', 'http://localhost', 'Indicia', 'Petite ville cotière', '10', '1')");
 						

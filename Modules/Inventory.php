@@ -892,6 +892,7 @@
 						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
 						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
 						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_Sagesse_Effect']). ' Sagesse';
 					echo '</td>';
 				
 					echo '<td>';
@@ -1059,6 +1060,7 @@
 				$_SESSION['Item_Magic_Effect'] = $Item_List['Item_Magic_Effect'];
 				$_SESSION['Item_Agility_Effect'] = $Item_List['Item_Agility_Effect'];
 				$_SESSION['Item_Defense_Effect'] = $Item_List['Item_Defense_Effect'];
+				$_SESSION['Item_Sagesse_Effect'] = $Item_List['Item_Sagesse_Effect'];
 			}
 				$Item_HP_Effect = $_SESSION['Item_HP_Effect'];
 				$Item_MP_Effect = $_SESSION['Item_MP_Effect'];
@@ -1066,17 +1068,18 @@
 				$Item_Magic_Effect = $_SESSION['Item_Magic_Effect'];
 				$Item_Agility_Effect = $_SESSION['Item_Agility_Effect'];
 				$Item_Defense_Effect = $_SESSION['Item_Agility_Effect'];
+				$Item_Sagesse_Effect = $_SESSION['Item_Sagesse_Effect'];
 				$Item_Quantity = $_SESSION['Inventory_Item_Quantity'];
 		
 			if ($Item_Quantity >= 2)
 			{
-		       		$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory
+		       	$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory
 				SET Inventory_Item_Quantity = Inventory_Item_Quantity -1
 				WHERE Inventory_ID = :Inventory_ID");
 				$Update_Account->execute(array('Inventory_ID'=> $Inventory_ID));
 			
-		    		$Update_Stats = $bdd->prepare("UPDATE Caranille_Accounts
-				SET Account_HP_Bonus = Account_HP_Bonus + :Item_HP_Effect, Account_MP_Bonus = Account_MP_Bonus + :Item_MP_Effect, Account_Strength_Bonus = Account_Strength_Bonus + :Item_Strength_Effect, Account_Magic_Bonus = Account_Magic_Bonus + :Item_Magic_Effect, Account_Agility_Bonus = Account_Agility_Bonus + :Item_Agility_Effect, Account_Defense_Bonus = Account_Defense_Bonus + :Item_Defense_Effect
+		    	$Update_Stats = $bdd->prepare("UPDATE Caranille_Accounts
+				SET Account_HP_Bonus = Account_HP_Bonus + :Item_HP_Effect, Account_MP_Bonus = Account_MP_Bonus + :Item_MP_Effect, Account_Strength_Bonus = Account_Strength_Bonus + :Item_Strength_Effect, Account_Magic_Bonus = Account_Magic_Bonus + :Item_Magic_Effect, Account_Agility_Bonus = Account_Agility_Bonus + :Item_Agility_Effect, Account_Defense_Bonus = Account_Defense_Bonus + :Item_Defense_Effect, Account_Sagesse_Bonus + :Item_Sagesse_Effect
 				WHERE Account_ID = :ID");
 				$Update_Stats->execute(array('Item_HP_Effect' => $Item_HP_Effect, 'Item_MP_Effect' => $Item_MP_Effect, 'Item_Strength_Effect' => $Item_Strength_Effect, 'Item_Magic_Effect' => $Item_Magic_Effect, 'Item_Agility_Effect' => $Item_Agility_Effect, 'Item_Defense_Effect' => $Item_Defense_Effect, 'ID' => $ID));
 				echo "Le parchemin à bien été utilisé 2";
@@ -1088,10 +1091,10 @@
 				WHERE Inventory_ID = :Inventory_ID");
 				$Update_Account->execute(array('Inventory_ID'=> $Inventory_ID));
 			
-		    		$Update_Stats = $bdd->prepare("UPDATE Caranille_Accounts
-				SET Account_HP_Bonus = Account_HP_Bonus + :Item_HP_Effect, Account_MP_Bonus = Account_MP_Bonus + :Item_MP_Effect, Account_Strength_Bonus = Account_Strength_Bonus + :Item_Strength_Effect, Account_Magic_Bonus = Account_Magic_Bonus + :Item_Magic_Effect, Account_Agility_Bonus = Account_Agility_Bonus + :Item_Agility_Effect, Account_Defense_Bonus = Account_Defense_Bonus + :Item_Defense_Effect
+		    	$Update_Stats = $bdd->prepare("UPDATE Caranille_Accounts
+				SET Account_HP_Bonus = Account_HP_Bonus + :Item_HP_Effect, Account_MP_Bonus = Account_MP_Bonus + :Item_MP_Effect, Account_Strength_Bonus = Account_Strength_Bonus + :Item_Strength_Effect, Account_Magic_Bonus = Account_Magic_Bonus + :Item_Magic_Effect, Account_Agility_Bonus = Account_Agility_Bonus + :Item_Agility_Effect, Account_Defense_Bonus = Account_Defense_Bonus + :Item_Defense_Effect, Account_Sagesse_Bonus + :Item_Sagesse_Effect
 				WHERE Account_ID = :ID");
-				$Update_Stats->execute(array('Item_HP_Effect' => $Item_HP_Effect, 'Item_MP_Effect' => $Item_MP_Effect, 'Item_Strength_Effect' => $Item_Strength_Effect, 'Item_Magic_Effect' => $Item_Magic_Effect, 'Item_Agility_Effect' => $Item_Agility_Effect, 'Item_Defense_Effect' => $Item_Defense_Effect, 'ID' => $ID));
+				$Update_Stats->execute(array('Item_HP_Effect' => $Item_HP_Effect, 'Item_MP_Effect' => $Item_MP_Effect, 'Item_Strength_Effect' => $Item_Strength_Effect, 'Item_Magic_Effect' => $Item_Magic_Effect, 'Item_Agility_Effect' => $Item_Agility_Effect, 'Item_Defense_Effect' => $Item_Defense_Effect, 'Item_Sagesse_Effect' => $Item_Sagesse_Effect, 'ID' => $ID));
 				echo "Le parchemin à bien été utilisé 2";
 			}
 		}

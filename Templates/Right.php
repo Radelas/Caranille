@@ -11,6 +11,7 @@ if (isset($_SESSION['ID']))
 		<div class="important">Magie</div> : <?php echo $_SESSION['Magic_Total']; ?> <br />
 		<div class="important">Agilité</div> : <?php echo $_SESSION['Agility_Total']; ?> <br />
 		<div class="important">Défense</div> : <?php echo $_SESSION['Defense_Total']; ?> <br />
+		<div class="important">Sagesse</div> : <?php echo $_SESSION['Sagesse_Bonus']; ?> <br />
 		<div class="important">HP</div> : <?php echo $_SESSION['HP']. "/" .$_SESSION['HP_Total']; ?> <br />
 		<div class="important">MP</div> : <?php echo $_SESSION['MP']. "/" .$_SESSION['MP_Total']; ?> <br /><br />
 		<div class="important">PO</div> : <?php echo $_SESSION['Gold']; ?> <br />

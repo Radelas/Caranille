@@ -48,6 +48,7 @@
 				$Item_Magic_Effect = stripslashes($Parchement_List['Item_Magic_Effect']);
 				$Item_Agility_Effect = stripslashes($Parchement_List['Item_Agility_Effect']);
 				$Item_Defense_Effect = stripslashes($Parchement_List['Item_Defense_Effect']);
+				$Item_Sagesse_Effect = stripslashes($Parchement_List['Item_Sagesse_Effect']);
 				$Item_Purchase_Price = stripslashes($Parchement_List['Item_Purchase_Price']);
 				$Item_Sale_Price = stripslashes($Parchement_List['Item_Sale_Price']);
 				$Item_Town = stripslashes($Parchement_List['Item_Town']);
@@ -67,6 +68,7 @@
 			echo "Magie +<br /> <input type=\"text\" name=\"Item_Magic_Effect\" value=\"$Item_Magic_Effect\"><br /><br />";
 			echo "Agilité +<br /> <input type=\"text\" name=\"Item_Agility_Effect\" value=\"$Item_Agility_Effect\"><br /><br />";
 			echo "Defense +<br /> <input type=\"text\" name=\"Item_Defense_Effect\" value=\"$Item_Defense_Effect\"><br /><br />";
+			echo "Sagesse +<br /> <input type=\"text\" name=\"Item_Sagesse_Effect\" value=\"$Item_Sagesse_Effect\"><br /><br />";
 			echo "Prix d'achat de l'objet<br /> <input type=\"text\" name=\"Item_Purchase_Price\" value=\"$Item_Purchase_Price\"><br /><br />";
 			echo "Prix de vente de l'objet<br /> <input type=\"text\" name=\"Item_Sale_Price\" value=\"$Item_Sale_Price\"><br /><br />";
 			echo '<div class="important">Dans quelle ville se trouve t\'il ?<br /></div>';
@@ -99,6 +101,7 @@
 				$Item_Magic_Effect = htmlspecialchars(addslashes($_POST['Item_Magic_Effect']));
 				$Item_Agility_Effect = htmlspecialchars(addslashes($_POST['Item_Agility_Effect']));
 				$Item_Defense_Effect = htmlspecialchars(addslashes($_POST['Item_Defense_Effect']));
+				$Item_Sagesse_Effect = htmlspecialchars(addslashes($_POST['Item_Sagesse_Effect']));
 				$Item_Purchase_Price = htmlspecialchars(addslashes($_POST['Item_Purchase_Price']));
 				$Item_Sale_Price = htmlspecialchars(addslashes($_POST['Item_Sale_Price']));
 				$Item_Town = htmlspecialchars(addslashes($_POST['Item_Town']));
@@ -119,8 +122,8 @@
 					}
 					$Town_ID_List_Query->closeCursor();
 				}
-				$Edit = $bdd->prepare("UPDATE Caranille_Items SET Item_Image= :Item_Image, Item_Level_Required= :Item_Level_Required, Item_Name= :Item_Name, Item_Description= :Item_Description, Item_HP_Effect= :Item_HP_Effect, Item_MP_Effect= :Item_MP_Effect, Item_Strength_Effect= :Item_Strength_Effect, Item_Magic_Effect= :Item_Magic_Effect, Item_Agility_Effect= :Item_Agility_Effect, Item_Defense_Effect= :Item_Defense_Effect, Item_Town= :Town_ID, Item_Purchase_Price= :Item_Purchase_Price, Item_Sale_Price= :Item_Sale_Price WHERE Item_ID= :Item_ID");
-				$Edit->execute(array('Item_Image'=> $Item_Image, 'Item_Level_Required'=> $Item_Level_Required, 'Item_Name'=> $Item_Name, 'Item_Description'=> $Item_Description, 'Item_HP_Effect'=> $Item_HP_Effect, 'Item_MP_Effect'=> $Item_MP_Effect, 'Item_Strength_Effect'=> $Item_Strength_Effect, 'Item_Magic_Effect'=> $Item_Magic_Effect, 'Item_Agility_Effect'=> $Item_Agility_Effect, 'Item_Defense_Effect'=> $Item_Defense_Effect, 'Town_ID'=> $Town_ID, 'Item_Purchase_Price'=> $Item_Purchase_Price, 'Item_Sale_Price'=> $Item_Sale_Price, 'Item_ID'=> $Item_ID));
+				$Edit = $bdd->prepare("UPDATE Caranille_Items SET Item_Image= :Item_Image, Item_Level_Required= :Item_Level_Required, Item_Name= :Item_Name, Item_Description= :Item_Description, Item_HP_Effect= :Item_HP_Effect, Item_MP_Effect= :Item_MP_Effect, Item_Strength_Effect= :Item_Strength_Effect, Item_Magic_Effect= :Item_Magic_Effect, Item_Agility_Effect= :Item_Agility_Effect, Item_Defense_Effect= :Item_Defense_Effect, Item_Sagesse_Effect = :Item_Sagesse_Effect, Item_Town= :Town_ID, Item_Purchase_Price= :Item_Purchase_Price, Item_Sale_Price= :Item_Sale_Price WHERE Item_ID= :Item_ID");
+				$Edit->execute(array('Item_Image'=> $Item_Image, 'Item_Level_Required'=> $Item_Level_Required, 'Item_Name'=> $Item_Name, 'Item_Description'=> $Item_Description, 'Item_HP_Effect'=> $Item_HP_Effect, 'Item_MP_Effect'=> $Item_MP_Effect, 'Item_Strength_Effect'=> $Item_Strength_Effect, 'Item_Magic_Effect'=> $Item_Magic_Effect, 'Item_Agility_Effect'=> $Item_Agility_Effect, 'Item_Defense_Effect'=> $Item_Defense_Effect, 'Item_Sagesse_Effect'=> $Item_Sagesse_Effect, 'Town_ID'=> $Town_ID, 'Item_Purchase_Price'=> $Item_Purchase_Price, 'Item_Sale_Price'=> $Item_Sale_Price, 'Item_ID'=> $Item_ID));
 				echo 'Equipement mis à jour';
 			}
 			else
@@ -150,6 +153,7 @@
 			echo 'Magie +<br /> <input type="text" name="Item_Magic_Effect"><br /><br />';
 			echo 'Agilité +<br /> <input type="text" name="Item_Agility_Effect"><br /><br />';
 			echo 'Defense +<br /> <input type="text" name="Item_Defense_Effect"><br /><br />';
+			echo 'Sagesse +<br /> <input type="text" name="Item_Sagesse_Effect"><br /><br />';
 			echo 'Prix d\'achat de l\'objet<br /> <input type="text" name="Item_Purchase_Price"><br /><br />';
 			echo 'Prix de vente de l\'objet<br /> <input type="text" name="Item_Sale_Price"><br /><br />';
 			echo '<div class="important">Dans quelle ville se trouve t\'il ?<br /></div>';
@@ -181,6 +185,7 @@
 				$Item_Magic_Effect = htmlspecialchars(addslashes($_POST['Item_Magic_Effect']));
 				$Item_Agility_Effect = htmlspecialchars(addslashes($_POST['Item_Agility_Effect']));
 				$Item_Defense_Effect = htmlspecialchars(addslashes($_POST['Item_Defense_Effect']));
+				$Item_Sagesse_Effect = htmlspecialchars(addslashes($_POST['Item_Sagesse_Effect']));
 				$Item_Purchase_Price = htmlspecialchars(addslashes($_POST['Item_Purchase_Price']));
 				$Item_Sale_Price = htmlspecialchars(addslashes($_POST['Item_Sale_Price']));
 				$Item_Town = htmlspecialchars(addslashes($_POST['Item_Town']));
@@ -201,8 +206,8 @@
 					}
 					$Town_ID_List_Query->closeCursor();
 				}
-				$Add = $bdd->prepare("INSERT INTO Caranille_Items VALUES('', :Item_Image, 'Parchment', :Item_Level_Required, :Item_Name, :Item_Description, :Item_HP_Effect, :Item_MP_Effect, :Item_Strength_Effect, :Item_Magic_Effect, :Item_Agility_Effect, :Item_Defense_Effect, :Town_ID, :Item_Purchase_Price, :Item_Sale_Price)");
-				$Add->execute(array('Item_Image'=> $Item_Image, 'Item_Level_Required'=> $Item_Level_Required, 'Item_Name'=> $Item_Name, 'Item_Description'=> $Item_Description, 'Item_HP_Effect'=> $Item_HP_Effect, 'Item_MP_Effect'=> $Item_MP_Effect, 'Item_Strength_Effect'=> $Item_Strength_Effect, 'Item_Magic_Effect'=> $Item_Magic_Effect, 'Item_Agility_Effect'=> $Item_Agility_Effect, 'Item_Defense_Effect'=> $Item_Defense_Effect, 'Town_ID'=> $Town_ID, 'Item_Purchase_Price'=> $Item_Purchase_Price, 'Item_Sale_Price'=> $Item_Sale_Price));
+				$Add = $bdd->prepare("INSERT INTO Caranille_Items VALUES('', :Item_Image, 'Parchment', :Item_Level_Required, :Item_Name, :Item_Description, :Item_HP_Effect, :Item_MP_Effect, :Item_Strength_Effect, :Item_Magic_Effect, :Item_Agility_Effect, :Item_Defense_Effect, :Item_Sagesse_Effect, :Town_ID, :Item_Purchase_Price, :Item_Sale_Price)");
+				$Add->execute(array('Item_Image'=> $Item_Image, 'Item_Level_Required'=> $Item_Level_Required, 'Item_Name'=> $Item_Name, 'Item_Description'=> $Item_Description, 'Item_HP_Effect'=> $Item_HP_Effect, 'Item_MP_Effect'=> $Item_MP_Effect, 'Item_Strength_Effect'=> $Item_Strength_Effect, 'Item_Magic_Effect'=> $Item_Magic_Effect, 'Item_Agility_Effect'=> $Item_Agility_Effect, 'Item_Defense_Effect'=> $Item_Defense_Effect, 'Item_Sagesse_Effect'=> $Item_Sagesse_Effect, 'Town_ID'=> $Town_ID, 'Item_Purchase_Price'=> $Item_Purchase_Price, 'Item_Sale_Price'=> $Item_Sale_Price));
 			}
 			else
 			{

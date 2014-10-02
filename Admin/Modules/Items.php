@@ -45,10 +45,6 @@
 				$Item_Description = stripslashes($Items_List['Item_Description']);
 				$Item_HP_Effect = stripslashes($Items_List['Item_HP_Effect']);
 				$Item_MP_Effect = stripslashes($Items_List['Item_MP_Effect']);
-				$Item_Strength_Effect = stripslashes($Items_List['Item_Strength_Effect']);
-				$Item_Magic_Effect = stripslashes($Items_List['Item_Magic_Effect']);
-				$Item_Agility_Effect = stripslashes($Items_List['Item_Agility_Effect']);
-				$Item_Defense_Effect = stripslashes($Items_List['Item_Defense_Effect']);
 				$Item_Purchase_Price = stripslashes($Items_List['Item_Purchase_Price']);
 				$Item_Sale_Price = stripslashes($Items_List['Item_Sale_Price']);
 				$Item_Town = stripslashes($Items_List['Item_Town']);
@@ -63,9 +59,6 @@
 			echo '<select name="Item_Type" ID="Item_Type">';
 				echo '<option value="Health">Potion de Vie</option>';
 				echo '<option value="Magic">Potion de Magie</option>';
-				/*
-				echo '<option value="Parchment">Parchemins</option>';
-				*/
 			echo '</select><br /><br />';
 			echo "Niveau requis<br /> <input type=\"text\" name=\"Item_Level_Required\" value=\"$Item_Level_Required\"><br /><br />";
 			echo "Nom<br /> <input type=\"text\" name=\"Item_Name\" value=\"$Item_Name\"><br /><br />";

@@ -9,6 +9,7 @@ if (isset($_SESSION['ID']))
 	$IP = $_SERVER["REMOTE_ADDR"];
 	$Pseudo = $_SESSION['Pseudo'];
 	$Order_ID = $_SESSION['Order_ID'];
+
 	$_SESSION['HP_Total'] = $_SESSION['HP_MAX'] + $_SESSION['HP_Bonus'] + $_SESSION['Armor_HP_Effect'] + $_SESSION['Boots_HP_Effect'] + $_SESSION['Gloves_HP_Effect'] + $_SESSION['Helmet_HP_Effect'] + $_SESSION['Weapon_HP_Effect'];
 	$_SESSION['MP_Total'] = $_SESSION['MP_MAX'] + $_SESSION['MP_Bonus'] + $_SESSION['Armor_MP_Effect'] + $_SESSION['Boots_MP_Effect'] + $_SESSION['Gloves_MP_Effect'] + $_SESSION['Helmet_MP_Effect'] + $_SESSION['Weapon_MP_Effect'];;
 	
@@ -24,7 +25,6 @@ if (isset($_SESSION['ID']))
 	$_SESSION['Defense_Base'] = $_SESSION['Defense'] + $_SESSION['Defense_Bonus'];
 	$_SESSION['Defense_Total'] = $_SESSION['Defense_Base'] + $_SESSION['Armor_Defense_Effect'] + $_SESSION['Boots_Defense_Effect'] + $_SESSION['Gloves_Defense_Effect'] + $_SESSION['Helmet_Defense_Effect'] + $_SESSION['Weapon_Defense_Effect'];;
 
-	
 	/*
 	Vérification des sanctions pour l'utilisateur
 	*/
@@ -55,7 +55,7 @@ if (isset($_SESSION['ID']))
 	$Data_Account_Query->execute(array($Pseudo));
 	while ($Account_Data = $Data_Account_Query->fetch())
 	{
-		$_SESSION['Account'] = stripslashes($Account_Data);
+		$_SESSION['ID'] = stripslashes($Account_Data['Account_ID']);
 		$_SESSION['Pseudo'] = stripslashes($Account_Data['Account_Pseudo']);
 		$_SESSION['Email'] = stripslashes($Account_Data['Account_Email']);
 		$_SESSION['Level'] = stripslashes($Account_Data['Account_Level']);
@@ -73,6 +73,7 @@ if (isset($_SESSION['ID']))
 		$_SESSION['Magic_Bonus'] = stripslashes($Account_Data['Account_Magic_Bonus']);
 		$_SESSION['Agility_Bonus'] = stripslashes($Account_Data['Account_Agility_Bonus']);
 		$_SESSION['Defense_Bonus'] = stripslashes($Account_Data['Account_Defense_Bonus']);
+		$_SESSION['Sagesse_Bonus'] = stripslashes($Account_Data['Account_Sagesse_Bonus']);
 		$_SESSION['Experience'] = stripslashes($Account_Data['Account_Experience']);
 		$_SESSION['Gold'] = stripslashes($Account_Data['Account_Golds']);
 		$_SESSION['Order_ID'] = stripslashes($Account_Data['Order_ID']);
