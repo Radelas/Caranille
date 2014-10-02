@@ -7,8 +7,8 @@ if (isset($_SESSION['ID']))
 		
 		echo '<div class="important">Administration du RPG</div><br />';
 		echo '<a href="Accounts.php">Gestion des Comptes</a><br />';
-		echo '<a href="Configuration.php">Gestion du MMORPG</a><br /><br />';
-		echo '<div class="important">Contenu du MMORPG</div><br />';
+		echo '<a href="Configuration.php">Gestion du RPG</a><br /><br />';
+		echo '<div class="important">Contenu du RPG</div><br />';
 		echo '<a href="Chapters.php">Gestion des Chapitres</a><br />';
 		echo '<a href="Invocations.php">Gestion des Chimères</a><br />';
 		echo '<a href="Equipment.php">Gestion des Equipements</a><br />';

@@ -15,11 +15,11 @@
 				echo '<form method="POST" action="Configuration.php">';
 				if ($Configuration_Access == 'No')
 				{
-					echo '<div class="important"><br />Le MMORPG est actuellement fermé aux joueurs</div><br />';
+					echo '<div class="important"><br />Le RPG est actuellement fermé aux joueurs</div><br />';
 				}
 				else
 				{
-					echo '<div class="important"><br />Le MMORPG est actuellement ouvert aux joueurs</div><br />';
+					echo '<div class="important"><br />Le RPG est actuellement ouvert aux joueurs</div><br />';
 				}
 				echo '<input type="radio" name="Configuration_Access" value="Yes" ID="Yes" /> <label for="Yes">Ouvrir le mmorpg aux joueurs</label><br />';
 				echo '<input type="radio" name="Configuration_Access" value="No" ID="No" /> <label for="No">Fermer le rpg aux joueurs</label><br /><br />';
