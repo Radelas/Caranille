@@ -3,7 +3,7 @@
 	require_once("../../Global.php");
 	if ($_SESSION['Access'] == "Admin")
 	{
-		if (empty($_POST['Edit']) && empty($_POST['End_Edit']) && (empty($_POST['Delete'])))
+		if (empty($_POST['Edit']) && empty($_POST['Second_Edit']) && empty($_POST['End_Edit']) && (empty($_POST['Delete'])))
 		{
 			echo 'Que souhaitez-vous faire ?<br />';
 			echo '<form method="POST" action="Accounts.php">';
@@ -19,14 +19,14 @@
 				$Account_ID = htmlspecialchars(addslashes($Account_List['Account_ID']));
 				echo '<form method="POST" action="Accounts.php">';
 				echo "<input type=\"hidden\" name=\"Account_ID\" value=\"$Account_ID\">";
-				echo '<input type="submit" name="End_Edit" value="modifier">';
+				echo '<input type="submit" name="Second_Edit" value="modifier">';
 				echo '<input type="submit" name="Delete" value="supprimer">';
 				echo '</form>';
 			}
 			$Account_List_Query->closeCursor();
 
 		}
-		if (isset($_POST['End_Edit']))
+		if (isset($_POST['Second_Edit']))
 		{
 			$Account_ID = htmlspecialchars(addslashes($_POST['Account_ID']));
 			$Account_List_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts WHERE Account_ID= ?");
