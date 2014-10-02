@@ -23,7 +23,7 @@ session_start();
 					<div class="important">Installation de caranille - Etape 1/5 (License d'utilisation)</div><p>
 					Bienvenue dans l'assistant d'installation de Caranille<br />
 					Cet assistant vous guidera tout au long de l'installation de Caranille<br />
-					pour vous offrir la meilleur experience possible dans la création de votre MMORPG<p>
+					pour vous offrir la meilleur experience possible dans la création de votre RPG<p>
 					
 					Pour commencer l'installation de Caranille veuillez lire et accepter la license d'utilisation<br /><br />
 					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr">Licence Creative Commons Attribution 4.0 International</a>.
@@ -98,7 +98,7 @@ session_start();
 					Gain de Magie par niveau: <br /> <input type="text" name="Magic_Level"><br /><br />
 					Gain de Agilité par niveau: <br /> <input type="text" name="Agility_Level"><br /><br />  
 					Gain de Défense par niveau: <br /> <input type="text" name="Defense_Level"><br /><br />                                  
-					Experience demandé en plus par niveau: <br /> <input type="text" name="Experience_Level"><br /><br />
+					Experience demandée en plus par niveau: <br /> <input type="text" name="Experience_Level"><br /><br />
 					<input type="submit" name="Start_Installation" value="Lancer l'installation">
 					</form>
 					<?php
@@ -158,7 +158,7 @@ session_start();
 
 					$bdd->exec("CREATE TABLE `Caranille_Configuration` (
 					`Configuration_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-					`Configuration_MMORPG_Name` VARCHAR(30) NOT NULL,
+					`Configuration_RPG_Name` VARCHAR(30) NOT NULL,
 					`Configuration_Presentation` TEXT NOT NULL,
 					`Configuration_Access` VARCHAR(10) NOT NULL
 					)");
@@ -360,7 +360,7 @@ session_start();
 						
 					?>
 					Installation de caranille terminée avec succès<br />
-					Dans la suite de l'installation vous allez devoir configurer les bases de votre MMORPG<br />
+					Dans la suite de l'installation vous allez devoir configurer les bases de votre RPG<br />
 					<form method="POST" action="index.php">
 					<input type="submit" name="Configure" value="Configurer mon MMORPG">
 					</form>
@@ -370,14 +370,14 @@ session_start();
 				{
 					require("../Config.php");
 					?>
-					<div class="important">Installation de caranille - Etape 4/5 (Préparation de la configuration de base du MMORPG)</div><br /><br />
-					Dernière étape avant de pouvoir commencer votre MMORPG<p>
+					<div class="important">Installation de caranille - Etape 4/5 (Préparation de la configuration de base du RPG)</div><br /><br />
+					Dernière étape avant de pouvoir commencer votre RPG<p>
 					Cette étape est l'une des plus importantes pour votre jeu<br />
-					C'est ici que vous allez devoir donner un nom à votre MMORPG ainsi que une courte introduction<br /><br />
+					C'est ici que vous allez devoir donner un nom à votre RPG ainsi que une courte introduction<br /><br />
 					
 					De plus vous allez créer votre propre compte qui sera le compte administrateur</p>
 					<form method="POST" action="index.php">
-					Nom de votre MMORPG<br /> <input type="text" name="MMORPG_Name"><br /><br />
+					Nom de votre RPG<br /> <input type="text" name="RPG_Name"><br /><br />
 					Présentation<br /><textarea name="Presentation" ID="Presentation" rows="10" cols="50"></textarea><br /><br />
 					Pseudo<br /> <input type="text" name="Pseudo"><br /><br />
 					Mot de passe<br /> <input type="password" name="Password"><br /><br />
@@ -391,7 +391,7 @@ session_start();
 				{
 					require("../Config.php");
 					echo '<div class="important">Installation de caranille - Etape 5/5 (Installation des données de base du MMORPG)</div><br /><br />';
-					$MMORPG_Name = htmlspecialchars(addslashes($_POST['MMORPG_Name']));
+					$RPG_Name = htmlspecialchars(addslashes($_POST['RPG_Name']));
 					$Presentation = htmlspecialchars(addslashes($_POST['Presentation']));
 					$Pseudo = htmlspecialchars(addslashes($_POST['Pseudo']));
 					$Email = htmlspecialchars(addslashes($_POST['Email']));
@@ -410,8 +410,8 @@ session_start();
 							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
 							$Add_Account->execute(array('Pseudo' => $Pseudo, 'Password' => $Password, 'Email' => $Email, 'Date' => $Date, 'IP' => $IP));
 							
-							$MMORPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES('', :MMORPG_Name, :Presentation, 'Yes')");
-							$MMORPG->execute(array('MMORPG_Name' => $MMORPG_Name, 'Presentation' => $Presentation));
+							$MMORPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES('', :RPG_Name, :Presentation, 'Yes')");
+							$MMORPG->execute(array('RPG_Name' => $RPG_Name, 'Presentation' => $Presentation));
 
 							$bdd->exec("INSERT into Caranille_Guilds_competences VALUES('1', '1', '1', '1', '1')");
 							
@@ -450,7 +450,7 @@ session_start();
 							$bdd->exec("INSERT INTO Caranille_Towns VALUES('', 'http://localhost', 'Indicia', 'Petite ville cotière', '10', '1')");
 						
 							?>
-							Félicitation Votre MMORPG a bien été crée<p/>
+							Félicitation Votre RPG a bien été crée<p/>
 							Vous allez maintenant pouvoir créer et modifier votre jeu et donner vie à une communauté de joueurs<br /><br />
 							
 							Par mesure de sécurité veuillez de supprimer le répertoire "Install" de votre serveur FTP<br />

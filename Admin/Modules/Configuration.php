@@ -22,7 +22,7 @@
 					echo '<div class="important"><br />Le MMORPG est actuellement ouvert aux joueurs</div><br />';
 				}
 				echo '<input type="radio" name="Configuration_Access" value="Yes" ID="Yes" /> <label for="Yes">Ouvrir le mmorpg aux joueurs</label><br />';
-				echo '<input type="radio" name="Configuration_Access" value="No" ID="No" /> <label for="No">Fermer le mmorpg aux joueurs</label><br /><br />';
+				echo '<input type="radio" name="Configuration_Access" value="No" ID="No" /> <label for="No">Fermer le rpg aux joueurs</label><br /><br />';
 				echo "Présentation : <br /><textarea name=\"Configuration_Presentation\" ID=\"message\" rows=\"10\" cols=\"50\">$Configuration_Presentation</textarea><br /><br />";
 				echo '<input type="submit" name="End_Edit" value="Terminer">';
 				echo '</form>';

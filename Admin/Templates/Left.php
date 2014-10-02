@@ -3,9 +3,9 @@ if (isset($_SESSION['ID']))
 {
 	if ($_SESSION['Access'] == 'Admin')
 	{
-		echo '<a href="../../index.php"><div class="important">Retour au MMORPG</div></a><br /><br />';
+		echo '<a href="../../index.php"><div class="important">Retour au RPG</div></a><br /><br />';
 		
-		echo '<div class="important">Administration du MMORPG</div><br />';
+		echo '<div class="important">Administration du RPG</div><br />';
 		echo '<a href="Accounts.php">Gestion des Comptes</a><br />';
 		echo '<a href="Configuration.php">Gestion du MMORPG</a><br /><br />';
 		echo '<div class="important">Contenu du MMORPG</div><br />';
