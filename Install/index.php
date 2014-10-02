@@ -396,7 +396,7 @@ session_start();
 					$Pseudo = htmlspecialchars(addslashes($_POST['Pseudo']));
 					$Email = htmlspecialchars(addslashes($_POST['Email']));
 
-					if (isset($_POST['MMORPG_Name']) && ($_POST['Presentation']) && ($_POST['Pseudo']) && ($_POST['Password']) && ($_POST['Email']))
+					if (isset($_POST['RPG_Name']) && ($_POST['Presentation']) && ($_POST['Pseudo']) && ($_POST['Password']) && ($_POST['Email']))
 					{
 						$Password = htmlspecialchars(addslashes($_POST['Password']));
 						$Password_Confirm = htmlspecialchars(addslashes($_POST['Password_Confirm']));
