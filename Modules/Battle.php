@@ -575,7 +575,7 @@
 					{
 						$Experience_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Experience']));
 						$Experience_Bonus = $_SESSION['Sagesse_Bonus'] * $Experience_Gained /100;
-						$Experience_Total = $Experience_Gained + $Experience_Bonus;
+						$Experience_Total = $Experience_Gained + round($Experience_Bonus);
 						echo "Experience (XP) + $Experience_Total <br />";
 						if ($_SESSION['Monster_Item_One'] >= 1)
 						{
