@@ -49,7 +49,6 @@
 				$Account_Sagesse_Bonus = stripslashes($Account_List['Account_Sagesse_Bonus']);
 				$Account_Experience = stripslashes($Account_List['Account_Experience']);
 				$Account_Golds = stripslashes($Account_List['Account_Golds']);
-				$Account_Notoriety = stripslashes($Account_List['Account_Notoriety']);
 				$Account_Chapter = stripslashes($Account_List['Account_Chapter']);
 				$Account_Mission = stripslashes($Account_List['Account_Mission']);
 				$Account_Access = stripslashes($Account_List['Account_Access']);
@@ -67,12 +66,11 @@
 			echo "MP Bonus<br /> <input type=\"text\" name=\"Account_MP_Bonus\" value=\"$Account_MP_Bonus\"><br /><br />";
 			echo "Force Bonus<br /> <input type=\"text\" name=\"Account_Strength_Bonus\" value=\"$Account_Strength_Bonus\"><br /><br />";
 			echo "Magie Bonus<br /> <input type=\"text\" name=\"Account_Magic_Bonus\" value=\"$Account_Magic_Bonus\"><br /><br />";
-			echo "Agility_Bonus<br /> <input type=\"text\" name=\"Account_Agility_Bonus\" value=\"$Account_Agility_Bonus\"><br /><br />";
-			echo "Defense_Bonus<br /> <input type=\"text\" name=\"Account_Defense_Bonus\" value=\"$Account_Defense_Bonus\"><br /><br />";
-			echo "Sagesse_Bonus<br /> <input type=\"text\" name=\"Account_Sagesse_Bonus\" value=\"$Account_Sagesse_Bonus\"><br /><br />";
+			echo "Agilité Bonus<br /> <input type=\"text\" name=\"Account_Agility_Bonus\" value=\"$Account_Agility_Bonus\"><br /><br />";
+			echo "Defense Bonus<br /> <input type=\"text\" name=\"Account_Defense_Bonus\" value=\"$Account_Defense_Bonus\"><br /><br />";
+			echo "Sagesse Bonus<br /> <input type=\"text\" name=\"Account_Sagesse_Bonus\" value=\"$Account_Sagesse_Bonus\"><br /><br />";
 			echo "Experience (XP)<br /> <input type=\"text\" name=\"Account_Experience\" value=\"$Account_Experience\"><br /><br />";
 			echo "Pièces d'or (PO)<br /> <input type=\"text\" name=\"Account_Golds\" value=\"$Account_Golds\"><br /><br />";
-			echo "Notoriete<br /> <input type=\"text\" name=\"Account_Notoriety\" value=\"$Account_Notoriety\"><br /><br />";	
 			echo "Niveau chapitre<br /> <input type=\"text\" name=\"Account_Chapter\" value=\"$Account_Chapter\"><br /><br />";
 			echo "Niveau Mission<br /> <input type=\"text\" name=\"Account_Mission\" value=\"$Account_Mission\"><br /><br />";
 			echo "Access du compte<br /> <select name=\"Account_Access\" ID=\"Account_Access\">";
@@ -118,7 +116,6 @@
 				$Account_Sagesse_Bonus = htmlspecialchars(addslashes($_POST['Account_Sagesse_Bonus']));
 				$Account_Experience = htmlspecialchars(addslashes($_POST['Account_Experience']));
 				$Account_Golds = htmlspecialchars(addslashes($_POST['Account_Golds']));
-				$Account_Notoriety = htmlspecialchars(addslashes($_POST['Account_Notoriety']));
 				$Account_Chapter = htmlspecialchars(addslashes($_POST['Account_Chapter']));
 				$Account_Mission = htmlspecialchars(addslashes($_POST['Account_Mission']));
 				$Account_Access = htmlspecialchars(addslashes($_POST['Account_Access']));
@@ -138,7 +135,6 @@
 				Account_Sagesse_Bonus= :Account_Sagesse_Bonus, 
 				Account_Experience= :Account_Experience, 
 				Account_Golds= :Account_Golds, 
-				Account_Notoriety= :Account_Notoriety, 
 				Account_Chapter= :Account_Chapter, 
 				Account_Mission= :Account_Mission, 
 				Account_Access= :Account_Access 
@@ -159,7 +155,6 @@
 				'Account_Sagesse_Bonus'=> $Account_Sagesse_Bonus, 
 				'Account_Experience'=> $Account_Experience, 
 				'Account_Golds'=> $Account_Golds, 
-				'Account_Notoriety'=> $Account_Notoriety, 
 				'Account_Chapter'=> $Account_Chapter, 
 				'Account_Mission'=> $Account_Mission, 
 				'Account_Access'=> $Account_Access, 

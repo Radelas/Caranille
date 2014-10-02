@@ -79,7 +79,6 @@ if (isset($_SESSION['ID']))
 		$_SESSION['Order_ID'] = stripslashes($Account_Data['Order_ID']);
 		$_SESSION['Order_Name'] = stripslashes($Account_Data['Order_Name']);
 		$_SESSION['Order_Description'] = stripslashes($Account_Data['Order_Description']);
-		$_SESSION['Notoriety'] = stripslashes($Account_Data['Account_Notoriety']);
 		$_SESSION['Chapter'] = stripslashes($Account_Data['Account_Chapter']);
 		$_SESSION['Mission'] = stripslashes($Account_Data['Account_Mission']);	
 		$_SESSION['Access'] = stripslashes($Account_Data['Account_Access']);

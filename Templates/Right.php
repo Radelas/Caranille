@@ -16,8 +16,7 @@ if (isset($_SESSION['ID']))
 		<div class="important">MP</div> : <?php echo $_SESSION['MP']. "/" .$_SESSION['MP_Total']; ?> <br /><br />
 		<div class="important">PO</div> : <?php echo $_SESSION['Gold']; ?> <br />
 		<div class="important">XP</div> : <?php echo $_SESSION['Experience']; ?> <br />
-		<div class="important">Prochain niveau</div> : <?php echo $Next_Level; ?><br />
-		<div class="important">Notoriété</div> : <?php echo $_SESSION['Notoriety']; ?><br /><br />
+		<div class="important">Prochain niveau</div> : <?php echo $Next_Level; ?><br /><br />
 		<?php
 	}
 	?>

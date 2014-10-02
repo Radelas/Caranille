@@ -128,8 +128,6 @@ session_start();
 					`Account_Sagesse_Bonus` int(11) NOT NULL,
 					`Account_Experience` bigint(255) NOT NULL,
 					`Account_Golds` int(11) NOT NULL,
-					`Account_Order` int(11) NOT NULL,
-					`Account_Notoriety` int(11) NOT NULL,
 					`Account_Chapter` int(11) NOT NULL,
 					`Account_Mission` int(11) NOT NULL,
 					`Account_Access` VARCHAR(10) NOT NULL,
@@ -416,7 +414,7 @@ session_start();
 							$Date = date('Y-m-d H:i:s');
 							$IP = $_SERVER["REMOTE_ADDR"];
 							$Password = md5(htmlspecialchars(addslashes($_POST['Password'])));
-							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
+							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '1', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
 							$Add_Account->execute(array('Pseudo' => $Pseudo, 'Password' => $Password, 'Email' => $Email, 'Date' => $Date, 'IP' => $IP));
 							
 							$MMORPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES('', :MMORPG_Name, :Presentation, 'Yes')");
