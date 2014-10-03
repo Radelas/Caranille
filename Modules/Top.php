@@ -34,7 +34,7 @@
 
 				echo '<td>';
 				 echo '' .stripslashes($Account['Account_Pseudo']). ''; 
-				echo '</td'>;
+				echo '</td>';
 				
 			echo '</tr>';
 		}
