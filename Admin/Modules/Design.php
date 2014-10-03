@@ -11,10 +11,10 @@
 			$Left = file_get_contents("../../Templates/Left.php");
 			$Right = file_get_contents("../../Templates/Right.php");
 			echo '<form method="POST" action="Design.php">';
-			echo "Code CSS de votre MMORPG: <br /><textarea name=\"Design\" ID=\"message\" rows=\"20\" cols=\"75\">$Design</textarea><br /><br />";
-			echo "En tête du MMORPG: <br /><textarea name=\"Header\" ID=\"message\" rows=\"20\" cols=\"75\">$Header</textarea><br /><br />";
-			echo "Pied de page du MMORPG: <br /><textarea name=\"Footer\" ID=\"message\" rows=\"20\" cols=\"75\">$Footer</textarea><br /><br />";
-			echo "Colone de Gauche (Menu du MMORPG): <br /><textarea name=\"Left\" ID=\"message\" rows=\"20\" cols=\"75\">$Left</textarea><br /><br />";
+			echo "Code CSS de votre RPG: <br /><textarea name=\"Design\" ID=\"message\" rows=\"20\" cols=\"75\">$Design</textarea><br /><br />";
+			echo "En tête du RPG: <br /><textarea name=\"Header\" ID=\"message\" rows=\"20\" cols=\"75\">$Header</textarea><br /><br />";
+			echo "Pied de page du RPG: <br /><textarea name=\"Footer\" ID=\"message\" rows=\"20\" cols=\"75\">$Footer</textarea><br /><br />";
+			echo "Colone de Gauche (Menu du RPG): <br /><textarea name=\"Left\" ID=\"message\" rows=\"20\" cols=\"75\">$Left</textarea><br /><br />";
 			echo "Colone de droit (Statistiques): <br /><textarea name=\"Right\" ID=\"message\" rows=\"20\" cols=\"75\">$Right</textarea><br /><br />";
 			echo '<input type="submit" name="End_Edit" value="Terminer">';
 			echo '</form>';
