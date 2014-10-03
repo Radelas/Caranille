@@ -124,7 +124,7 @@
 				}
 				$Edit = $bdd->prepare("UPDATE Caranille_Items SET Item_Image= :Item_Image, Item_Level_Required= :Item_Level_Required, Item_Name= :Item_Name, Item_Description= :Item_Description, Item_HP_Effect= :Item_HP_Effect, Item_MP_Effect= :Item_MP_Effect, Item_Strength_Effect= :Item_Strength_Effect, Item_Magic_Effect= :Item_Magic_Effect, Item_Agility_Effect= :Item_Agility_Effect, Item_Defense_Effect= :Item_Defense_Effect, Item_Sagesse_Effect = :Item_Sagesse_Effect, Item_Town= :Town_ID, Item_Purchase_Price= :Item_Purchase_Price, Item_Sale_Price= :Item_Sale_Price WHERE Item_ID= :Item_ID");
 				$Edit->execute(array('Item_Image'=> $Item_Image, 'Item_Level_Required'=> $Item_Level_Required, 'Item_Name'=> $Item_Name, 'Item_Description'=> $Item_Description, 'Item_HP_Effect'=> $Item_HP_Effect, 'Item_MP_Effect'=> $Item_MP_Effect, 'Item_Strength_Effect'=> $Item_Strength_Effect, 'Item_Magic_Effect'=> $Item_Magic_Effect, 'Item_Agility_Effect'=> $Item_Agility_Effect, 'Item_Defense_Effect'=> $Item_Defense_Effect, 'Item_Sagesse_Effect'=> $Item_Sagesse_Effect, 'Town_ID'=> $Town_ID, 'Item_Purchase_Price'=> $Item_Purchase_Price, 'Item_Sale_Price'=> $Item_Sale_Price, 'Item_ID'=> $Item_ID));
-				echo 'Equipement mis à jour';
+				echo 'Parchemin mis à jour';
 			}
 			else
 			{
@@ -137,7 +137,7 @@
 			$Delete = $bdd->prepare("DELETE FROM Caranille_Items WHERE Item_ID= ?");
 			$Delete->execute(array($Item_ID));
 
-			echo 'L\'équipement a bien été supprimé';
+			echo 'Le parchemin a bien été supprimé';
 		}
 		if (isset($_POST['Add']))
 		{
