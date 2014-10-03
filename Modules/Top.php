@@ -14,30 +14,6 @@
 				echo '<td>';
 				echo 'Pseudo';
 				echo '</td>';
-
-				echo '<td>';
-				echo 'HP';
-				echo '</td>';
-
-				echo '<td>';
-				echo 'MP';
-				echo '</td>';
-
-				echo '<td>';
-				echo 'Force';
-				echo '</td>';
-
-				echo '<td>';
-				echo 'Magie';
-				echo '</td>';
-
-				echo '<td>';
-				echo 'Agilité';
-				echo '</td>';
-
-				echo '<td>';
-				echo 'Défense';
-				echo '</td>';
 			
 			echo '</tr>';
 	
@@ -58,32 +34,8 @@
 
 				echo '<td>';
 				 echo '' .stripslashes($Account['Account_Pseudo']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Account_HP_Remaining']). '/' .stripslashes($Account['Level_HP']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Account_MP_Remaining']). '/' .stripslashes($Account['Level_MP']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Level_Strength']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Level_Magic']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Level_Agility']). ''; 
-				echo '</td>';
-
-				echo '<td>';
-				 echo '' .stripslashes($Account['Level_Defense']). ''; 
-				echo '</td>';
-
+				echo '</td'>;
+				
 			echo '</tr>';
 		}
 		$Account_Query->closeCursor();
