@@ -329,7 +329,16 @@ session_start();
 					$Agility = 10;
 					$Defense = 10;
                                         
-					$bdd->exec("INSERT INTO Caranille_Levels VALUES('', '$Level', '$Experience', '$HP', '$MP', '$Strength', '$Magic', '$Agility', '$Defense')");
+					$bdd->exec("INSERT INTO Caranille_Levels VALUES(
+					'', 
+					'$Level', 
+					'$Experience', 
+					'$HP', 
+					'$MP', 
+					'$Strength', 
+					'$Magic', 
+					'$Agility', 
+					'$Defense')");
                                         
                                         $HP_Choice = $_POST['HP_Level'];
                                         $MP_Choice = $_POST['MP_Level'];
@@ -341,21 +350,24 @@ session_start();
 					while ($Level < 200)
 					{
 						$HP = $HP + $HP_Choice;
-
 						$MP = $MP + $MP_Choice;
-
 						$Strength = $Strength + $MP_Choice;
-
 						$Magic = $Magic + $Magic_Choice;
-
 						$Agility = $Agility + $Agility_Choice;
-						
 						$Defense = $Defense + $Defense_Choice;
-						
 						$Experience = $Experience + $Experience_Choice;
 
 						$Level = $Level +1;
-						$bdd->exec("INSERT INTO Caranille_Levels VALUES('', '$Level', '$Experience', '$HP', '$MP', '$Strength', '$Magic', '$Agility', '$Defense')");
+						$bdd->exec("INSERT INTO Caranille_Levels VALUES(
+						'', 
+						'$Level', 
+						'$Experience', 
+						'$HP', 
+						'$MP', 
+						'$Strength', 
+						'$Magic', 
+						'$Agility', 
+						'$Defense')");
 					}
 						
 					?>
@@ -402,52 +414,375 @@ session_start();
 						$Password_Confirm = htmlspecialchars(addslashes($_POST['Password_Confirm']));
 						if ($Password == $Password_Confirm)
 						{
-							$bdd->exec("INSERT INTO Caranille_Invocations VALUES('', 'http://localhost', 'Trident', 'Chimère qui provient du fond des océans', '10', '1', '200')");
+							$bdd->exec("INSERT INTO Caranille_Invocations VALUES(
+							'', 
+							'http://localhost', 
+							'Trident', 
+							'Chimère qui provient du fond des océans', 
+							'10',
+							'1', 
+							'200')");
 
 							$Date = date('Y-m-d H:i:s');
 							$IP = $_SERVER["REMOTE_ADDR"];
 							$Password = md5(htmlspecialchars(addslashes($_POST['Password'])));
-							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES('', '0', :Pseudo, :Password, :Email, '1', '100', '0', '10', '0', '0', '0', '0', '0', '0', '0', '0', '1', '1', 'Admin', :Date, :IP, 'Authorized' , 'None')");
-							$Add_Account->execute(array('Pseudo' => $Pseudo, 'Password' => $Password, 'Email' => $Email, 'Date' => $Date, 'IP' => $IP));
+
+							$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES(
+							'', 
+							'0', 
+							:Pseudo, 
+							:Password, 
+							:Email, 
+							'1', 
+							'100', 
+							'0', 
+							'10', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'1', 
+							'Admin', 
+							:Date, 
+							:IP, 
+							'Authorized' , 
+							'None')");
+
+							$Add_Account->execute(array(
+							'Pseudo' => $Pseudo, 
+							'Password' => $Password, 
+							'Email' => $Email, 
+							'Date' => $Date, 
+							'IP' => $IP));
 							
-							$MMORPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES('', :RPG_Name, :Presentation, 'Yes')");
-							$MMORPG->execute(array('RPG_Name' => $RPG_Name, 'Presentation' => $Presentation));
+							$RPG = $bdd->prepare("INSERT into Caranille_Configuration VALUES(
+							'', 
+							:RPG_Name, 
+							:Presentation, 
+							'Yes')");
 
-							$bdd->exec("INSERT into Caranille_Guilds_competences VALUES('1', '1', '1', '1', '1')");
+							$RPG->execute(array(
+							'RPG_Name' => $RPG_Name, 
+							'Presentation' => $Presentation));
+
+							$bdd->exec("INSERT into Caranille_Guilds_competences VALUES(
+							'1', 
+							'1', 
+							'1', 
+							'1', 
+							'1')");
 							
-							$bdd->exec("INSERT into Caranille_Chapters VALUES('', '1', 'Chapitre 1 - Le commencement', 'Bienvenue dans Indicia, une ville d\'habitude très agréable, malheureusement un monstre bloque l\'accé à la ville', 'Vous avez sauvé la ville', 'Vous êtes morts en héro', '3')");
+							$bdd->exec("INSERT into Caranille_Chapters VALUES(
+							'', 
+							'1', 
+							'Chapitre 1 - Le commencement', 
+							'Bienvenue dans Indicia, une ville d\'habitude très agréable, malheureusement un monstre bloque l\'accé à la ville', 
+							'Vous avez sauvé la ville', 
+							'Vous êtes morts en héro', 
+							'3')");
 
-							$bdd->exec("INSERT INTO Caranille_Inventory VALUES('', '1', '1', '1', 'No')");
-							$bdd->exec("INSERT INTO Caranille_Inventory VALUES('', '1', '2', '1', 'No')");
-							$bdd->exec("INSERT INTO Caranille_Inventory VALUES('', '1', '3', '1', 'No')");
-							$bdd->exec("INSERT INTO Caranille_Inventory VALUES('', '1', '4', '1', 'No')");
-							$bdd->exec("INSERT INTO Caranille_Inventory VALUES('', '1', '5', '1', 'No')");
+							$bdd->exec("INSERT INTO Caranille_Inventory VALUES(
+							'', 
+							'1', 
+							'1', 
+							'1', 
+							'No')");
 
-							$bdd->exec("INSERT INTO Caranille_Inventory_Invocations VALUES('1', '1')");
+							$bdd->exec("INSERT INTO Caranille_Inventory VALUES(
+							'', 
+							'1', 
+							'2', 
+							'1', 
+							'No')");
 
-							$bdd->exec("INSERT INTO Caranille_Inventory_Magics VALUES('1', '1')");
+							$bdd->exec("INSERT INTO Caranille_Inventory VALUES(
+							'', 
+							'1', 
+							'3', 
+							'1', 
+							'No')");
 
-							$bdd->exec("INSERT INTO Caranille_News VALUES('', 'Installation de Caranille', 'Félicitation Caranille est bien installé, vous pouvez éditer cette news ou la supprimer', '$Pseudo', '$Date')");
+							$bdd->exec("INSERT INTO Caranille_Inventory VALUES(
+							'', 
+							'1', 
+							'4', 
+							'1', 
+							'No')");
 
-							$bdd->exec("INSERT INTO Caranille_Magics VALUES('', 'http://localhost', 'Feu', 'Petite boule de feu', 'Attack', '5', '10', '1', '50')");
-							$bdd->exec("INSERT INTO Caranille_Magics VALUES('', 'http://localhost', 'Soin', 'Un peu de HP en plus', 'Health', '10', '5', '1', '50')");
+							$bdd->exec("INSERT INTO Caranille_Inventory VALUES(
+							'', 
+							'1', 
+							'5', 
+							'1', 
+							'No')");
 
-							$bdd->exec("INSERT INTO Caranille_Missions VALUES('', '1', '1', 'Mission 01 - Affronter un dragon', 'Un dragon menace le village de Indicia, aller l\'affronter pour sauver le village', 'Vous avez sauvé le village', 'Le dragon vient de détruire le village', '2')");
+							$bdd->exec("INSERT INTO Caranille_Inventory_Invocations VALUES(
+							'1', 
+							'1')");
+
+							$bdd->exec("INSERT INTO Caranille_Inventory_Magics VALUES(
+							'1', 
+							'1')");
+
+							$bdd->exec("INSERT INTO Caranille_News VALUES(
+							'', 
+							'Installation de Caranille', 
+							'Félicitation Caranille est bien installé, vous pouvez éditer cette news ou la supprimer', 
+							'$Pseudo', 
+							'$Date')");
+
+							$bdd->exec("INSERT INTO Caranille_Magics VALUES(
+							'', 
+							'http://localhost', 
+							'Feu', 
+							'Petite boule de feu', 
+							'Attack', 
+							'5', 
+							'10', 
+							'1', 
+							'50')");
+
+							$bdd->exec("INSERT INTO Caranille_Magics VALUES(
+							'', 
+							'http://localhost', 
+							'Soin', 
+							'Un peu de HP en plus', 
+							'Health', 
+							'10', 
+							'5', 
+							'1', 
+							'50')");
+
+							$bdd->exec("INSERT INTO Caranille_Missions VALUES(
+							'', 
+							'1', 
+							'1', 
+							'Mission 01 - Affronter un dragon', 
+							'Un dragon menace le village de Indicia, aller l\'affronter pour sauver le village', 
+							'Vous avez sauvé le village', 
+							'Le dragon vient de détruire le village', 
+							'2')");
 						
-							$bdd->exec("INSERT INTO Caranille_Monsters VALUES('', 'http://localhost', 'Plop', 'Petit monstre vert', '1', '15', '5', '40', '30', '5', '5', '1', '', '', '', '', '', '', 'Battle')");
-							$bdd->exec("INSERT INTO Caranille_Monsters VALUES('', 'http://localhost', 'Dragon', 'Monstre qui crache du feu', '1', '50', '30', '1000', '100', '100', '100', '1', '', '', '', '', '', '', 'Mission')");
-							$bdd->exec("INSERT INTO Caranille_Monsters VALUES('', 'http://localhost', 'Plop doree', 'Petit monstre en or', '1', '75', '10', '300', '30', '5', '5', '1', '', '', '', '', '', '', 'Chapter')");
+							$bdd->exec("INSERT INTO Caranille_Monsters VALUES(
+							'', 
+							'http://localhost', 
+							'Plop', 
+							'Petit monstre vert', 
+							'1', 
+							'15', 
+							'5', 
+							'40', 
+							'30', 
+							'5', 
+							'5', 
+							'1', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'Battle')");
 
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Weapon', '1', 'Epée de cuivre', 'Une petite Epée', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Armor', '1', 'Armure de cuivre', 'Une petite armure', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Boots', '1', 'Bottes de cuivre', 'Des petites bottes', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Gloves', '1', 'Gants de cuivre', 'Des petits gants', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Helmet', '1', 'Casque de cuivre', 'Un petit casque', '0', '0', '0', '0', '0', '0', '0', '1', '0', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Parchment', '1', 'Parchemin vide', 'Un parchemin vide', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Health', '1', 'Potion', 'Redonne 50 HP', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
-							$bdd->exec("INSERT INTO Caranille_Items VALUES('', 'http://localhost', 'Magic', '1', 'Ether', 'Redonne 5 MP', '0', '0', '0', '0', '0', '0', '0', '1', '10', '5')");
+							$bdd->exec("INSERT INTO Caranille_Monsters VALUES(
+							'', 
+							'http://localhost', 
+							'Dragon', 
+							'Monstre qui crache du feu', 
+							'1', 
+							'50', 
+							'30', 
+							'1000', 
+							'100', 
+							'100', 
+							'100', 
+							'1', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'Mission')");
+
+							$bdd->exec("INSERT INTO Caranille_Monsters VALUES(
+							'', 
+							'http://localhost', 
+							'Plop doree', 
+							'Petit monstre en or', 
+							'1', 
+							'75', 
+							'10', 
+							'300', 
+							'30', 
+							'5', 
+							'5', 
+							'1', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'', 
+							'Chapter')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Weapon', 
+							'1', 
+							'Epée de cuivre', 
+							'Une petite Epée', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Armor', 
+							'1', 
+							'Armure de cuivre', 
+							'Une petite armure', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Boots', 
+							'1', 
+							'Bottes de cuivre', 
+							'Des petites bottes', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Gloves',
+							'1', 
+							'Gants de cuivre', 
+							'Des petits gants', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Helmet', 
+							'1', 
+							'Casque de cuivre', 
+							'Un petit casque', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'0', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Parchment', 
+							'1', 
+							'Parchemin vide', 
+							'Un parchemin vide', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Health', 
+							'1', 
+							'Potion', 
+							'Redonne 50 HP', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
+
+							$bdd->exec("INSERT INTO Caranille_Items VALUES(
+							'', 
+							'http://localhost', 
+							'Magic', 
+							'1', 
+							'Ether', 
+							'Redonne 5 MP', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'0', 
+							'1', 
+							'10', 
+							'5')");
 					
-							$bdd->exec("INSERT INTO Caranille_Towns VALUES('', 'http://localhost', 'Indicia', 'Petite ville cotière', '10', '1')");
+							$bdd->exec("INSERT INTO Caranille_Towns VALUES(
+							'', 
+							'http://localhost', 
+							'Indicia', 
+							'Petite ville cotière', 
+							'10', 
+							'1')");
 						
 							?>
 							Félicitation Votre RPG a bien été crée<p/>
