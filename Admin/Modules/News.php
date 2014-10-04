@@ -48,7 +48,7 @@
 
 			echo '</form><br /><br />';
 			echo '<form method="POST" action="News.php">';
-			echo "Titre de la News_List<br /> <input type=\"text\" name=\"Titre de la news\" value=\"$News_Title\"><br /><br />";
+			echo "Titre de la News_List<br /> <input type=\"text\" name=\"News_Title\" value=\"$News_Title\"><br /><br />";
 			echo "Message de la News_List<br /><textarea name=\"News_Message\" ID=\"message\" rows=\"10\" cols=\"50\">$News_Message</textarea><br /><br />";
 			echo '<input type="submit" name="End_Edit" value="Terminer">';
 			echo '</form>';
@@ -84,7 +84,7 @@
 		{
 			echo '</form><br /><br />';
 			echo '<form method="POST" action="News.php">';
-			echo 'Titre de la News<br /> <input type="text" name="Titre de la news"><br /><br />';
+			echo 'Titre de la News<br /> <input type="text" name="News_Title"><br /><br />';
 			echo 'Message de la News<br /><textarea name="News_Message" ID="message" rows="10" cols="50"></textarea><br /><br />';
 			echo '<input type="submit" name="End_Add" value="Terminer">';
 			echo '</form>';
