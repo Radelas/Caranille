@@ -33,7 +33,7 @@ if (isset($_SESSION['ID']))
 else
 {
 	?>
-	<div class="important">MMORPG</div><br />
+	<div class="important">RPG</div><br />
 	<a href="Main.php">Accueil</a><br />
 	<a href="Presentation.php">Présentation</a><br /><br />
 	<div class="important">Espace Joueurs</div><br />
