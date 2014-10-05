@@ -279,6 +279,10 @@ session_start();
 					`Monster_Item_Two_Rate` int(11) NOT NULL,
 					`Monster_Item_Three` int(11) NOT NULL,
 					`Monster_Item_Three_Rate` int(11) NOT NULL,
+					`Monster_Item_Four` int(11) NOT NULL,
+					`Monster_Item_Four_Rate` int(11) NOT NULL,
+					`Monster_Item_Five` int(11) NOT NULL,
+					`Monster_Item_Five_Rate` int(11) NOT NULL,
 					`Monster_Access` VARCHAR(30) NOT NULL
 					)");
 					echo "Table Caranille_Monsters installée<br />";
@@ -587,6 +591,10 @@ session_start();
 							'', 
 							'', 
 							'', 
+							'',
+							'',
+							'',
+							'', 
 							'Battle')");
 
 							$bdd->exec("INSERT INTO Caranille_Monsters VALUES(
@@ -608,6 +616,10 @@ session_start();
 							'', 
 							'', 
 							'', 
+							'',
+							'',
+							'',
+							'', 
 							'Mission')");
 
 							$bdd->exec("INSERT INTO Caranille_Monsters VALUES(
@@ -628,6 +640,10 @@ session_start();
 							'', 
 							'', 
 							'', 
+							'',
+							'',
+							'',
+							'',
 							'', 
 							'Chapter')");
 

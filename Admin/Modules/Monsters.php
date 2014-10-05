@@ -55,6 +55,10 @@
 				$Monster_Item_Two_Rate = stripslashes($Monsters_List['Monster_Item_Two_Rate']);
 				$Monster_Item_Three = stripslashes($Monsters_List['Monster_Item_Three']);
 				$Monster_Item_Three_Rate = stripslashes($Monsters_List['Monster_Item_Three_Rate']);
+				$Monster_Item_Four = stripslashes($Monsters_List['Monster_Item_Four']);
+				$Monster_Item_Four_Rate = stripslashes($Monsters_List['Monster_Item_Four_Rate']);
+				$Monster_Item_Five = stripslashes($Monsters_List['Monster_Item_Five']);
+				$Monster_Item_Five_Rate = stripslashes($Monsters_List['Monster_Item_Five_Rate']);
 				$Monster_Access = stripslashes($Monsters_List['Monster_Access']);	
 			}
 
@@ -124,10 +128,9 @@
 			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
 			while ($Items_List = $Items_List_Query->fetch())
 			{
-				$Monster_Item_One = stripslashes($Items_List['Item_Name']);
-				echo "<option value=\"$Monster_Item_One\">$Monster_Item_One</option>";
+				$Monster_Item_Two = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Two\">$Monster_Item_Two</option>";
 			}
-
 			$Items_List_Query->closeCursor();
 
 			echo '</select><br /><br />';
@@ -149,13 +152,61 @@
 			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
 			while ($Items_List = $Items_List_Query->fetch())
 			{
-				$Monster_Item_One = stripslashes($Items_List['Item_Name']);
-				echo "<option value=\"$Monster_Item_One\">$Monster_Item_One</option>";
+				$Monster_Item_Three = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Three\">$Monster_Item_Three</option>";
 			}
 			$Items_List_Query->closeCursor();
 
 			echo '</select><br /><br />';
 			echo "Taux d'obtention de l'objet<br /><input type=\"text\" name=\"Monster_Item_Three_Rate\" value=\"$Monster_Item_Three_Rate\">%<br /><br />";
+
+			echo 'Objet N°4<br />';
+			echo '<select name="Monster_Item_Four" ID="Monster_Item_Four">';
+
+			$Item_Four_Query = $bdd->prepare("SELECT * FROM Caranille_Items WHERE 
+			Item_ID= ?");
+			$Item_Four_Query->execute(array($Monster_Item_Four));
+
+			while ($Item_Four = $Item_Four_Query->fetch())
+			{
+				$nom_Monster_Item_Four = stripslashes($Item_Four['Item_Name']);
+			}
+			echo "<option value=\"$nom_Monster_Item_Four\">$nom_Monster_Item_Four</option>";
+			echo '<option value="Aucun objet">Aucun objet</option>';
+			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
+			while ($Items_List = $Items_List_Query->fetch())
+			{
+				$Monster_Item_Four = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Four\">$Monster_Item_Four</option>";
+			}
+			$Items_List_Query->closeCursor();
+
+			echo '</select><br /><br />';
+			echo "Taux d'obtention de l'objet<br /><input type=\"text\" name=\"Monster_Item_Four_Rate\" value=\"$Monster_Item_Four_Rate\">%<br /><br />";
+
+			echo 'Objet N°5<br />';
+			echo '<select name="Monster_Item_Five" ID="Monster_Item_Five">';
+
+			$Item_Five_Query = $bdd->prepare("SELECT * FROM Caranille_Items WHERE 
+			Item_ID= ?");
+			$Item_Five_Query->execute(array($Monster_Item_Five));
+
+			while ($Item_Five = $Item_Five_Query->fetch())
+			{
+				$nom_Monster_Item_Five = stripslashes($Item_Five['Item_Name']);
+			}
+			echo "<option value=\"$nom_Monster_Item_Five\">$nom_Monster_Item_Five</option>";
+			echo '<option value="Aucun objet">Aucun objet</option>';
+			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
+			while ($Items_List = $Items_List_Query->fetch())
+			{
+				$Monster_Item_Five = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Five\">$Monster_Item_Five</option>";
+			}
+			$Items_List_Query->closeCursor();
+
+			echo '</select><br /><br />';
+			echo "Taux d'obtention de l'objet<br /><input type=\"text\" name=\"Monster_Item_Five_Rate\" value=\"$Monster_Item_Five_Rate\">%<br /><br />";
 
 			echo '<div class="important">Quel est le type du monstre ?</div><br />';
 			echo '<select name="Monster_Access" ID="Monster_Access">';
@@ -235,7 +286,7 @@
 				$Monster_Item_Two = htmlspecialchars(addslashes($_POST['Monster_Item_Two']));
 				if ($Monster_Item_Two == "Aucun objet" || $Monster_Item_Two == "")
 				{
-					$Item_ID_TWO = 0;
+					$Item_ID_Two = 0;
 					$Monster_Item_Two_Rate = 0;
 				}
 				else
@@ -247,7 +298,7 @@
 
 					while ($Item_ID = $Item_ID_Two_List_Query->fetch())
 					{
-						$Item_ID_TWO = $Item_ID['Item_ID'];
+						$Item_ID_Two = $Item_ID['Item_ID'];
 					}
 
 					$Item_ID_Two_List_Query->closeCursor();
@@ -278,11 +329,104 @@
 					$Monster_Item_Three_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Three_Rate']));
 				}
 
+				$Monster_Item_Four = htmlspecialchars(addslashes($_POST['Monster_Item_Four']));
+				if ($Monster_Item_Four== "Aucun objet" || $Monster_Item_Four == "")
+				{
+					$Item_ID_Four = 0;
+					$Monster_Item_Four_Rate = 0;
+				}
+				else
+				{
+					$Item_ID_Four_List_Query = $bdd->prepare("SELECT Item_ID 
+					FROM Caranille_Items
+					WHERE Item_Name = ?");
+					$Item_ID_Four_List_Query->execute(array($Monster_Item_Four));
+
+					while ($Item_ID = $Item_ID_Four_List_Query->fetch())
+					{
+						$Item_ID_Four = $Item_ID['Item_ID'];
+					}
+
+					$Item_ID_Four_List_Query->closeCursor();
+
+					$Monster_Item_Four_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Four_Rate']));
+				}
+
+				$Monster_Item_Five = htmlspecialchars(addslashes($_POST['Monster_Item_Five']));
+				if ($Monster_Item_Five == "Aucun objet" || $Monster_Item_Five == "")
+				{
+					$Item_ID_Five = 0;
+					$Monster_Item_Five_Rate = 0;
+				}
+				else
+				{
+					$Item_ID_Five_List_Query = $bdd->prepare("SELECT Item_ID 
+					FROM Caranille_Items
+					WHERE Item_Name = ?");
+					$Item_ID_Five_List_Query->execute(array($Monster_Item_Five));
+
+					while ($Item_ID = $Item_ID_Five_List_Query->fetch())
+					{
+						$Item_ID_Five = $Item_ID['Item_ID'];
+					}
+
+					$Item_ID_Five_List_Query->closeCursor();
+
+					$Monster_Item_Five_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Five_Rate']));
+				}
+
 				$Monster_Access = $_POST['Monster_Access'];
 				$Monster_Town = htmlspecialchars(addslashes($_POST['Monster_Town']));
 				
-				$Edit = $bdd->prepare("UPDATE Caranille_Monsters SET Monster_Image= :Monster_Image, Monster_Name= :Monster_Name, Monster_Description= :Monster_Description, Monster_Level = :Monster_Level, Monster_Strength= :Monster_Strength, Monster_Defense= :Monster_Defense, Monster_HP= :Monster_HP, Monster_MP= :Monster_MP, Monster_Experience= :Monster_Experience, Monster_Golds= :Monster_Golds, Monster_Level= :Town_ID_choisit, Monster_Item_One= :Item_ID1_monstre, Monster_Item_One_Rate= :Monster_Item_One_Rate, Monster_Item_Two= :Item_ID2_monstre, Monster_Item_Two_Rate= :Monster_Item_Two_Rate, Monster_Item_Three= :Item_ID3_monstre, Monster_Item_Three_Rate= :Monster_Item_Three_Rate, Monster_Access= :Monster_Access WHERE Monster_ID= :Monster_ID");
-				$Edit->execute(array('Monster_Image'=> $Monster_Image, 'Monster_Name'=> $Monster_Name, 'Monster_Description'=> $Monster_Description, 'Monster_Level'=> $Monster_Level, 'Monster_Strength'=> $Monster_Strength, 'Monster_Defense'=> $Monster_Defense, 'Monster_HP'=> $Monster_HP, 'Monster_MP'=> $Monster_MP, 'Monster_Experience'=> $Monster_Experience, 'Monster_Golds'=> $Monster_Golds, 'Town_ID_choisit'=> $Town_ID, 'Item_ID1_monstre'=> $Item_ID_One, 'Monster_Item_One_Rate'=> $Monster_Item_One_Rate, 'Item_ID2_monstre'=> $Item_ID_TWO, 'Monster_Item_Two_Rate'=> $Monster_Item_Two_Rate, 'Item_ID3_monstre'=> $Item_ID_Three, 'Monster_Item_Three_Rate'=> $Monster_Item_Three_Rate, 'Monster_Access'=> $Monster_Access, 'Monster_ID'=> $Monster_ID));
+				$Edit = $bdd->prepare("UPDATE Caranille_Monsters SET 
+				Monster_Image= :Monster_Image, 
+				Monster_Name= :Monster_Name, 
+				Monster_Description= :Monster_Description, 
+				Monster_Level = :Monster_Level, 
+				Monster_Strength= :Monster_Strength, 
+				Monster_Defense= :Monster_Defense, 
+				Monster_HP= :Monster_HP, 
+				Monster_MP= :Monster_MP, 
+				Monster_Experience= :Monster_Experience, 
+				Monster_Golds= :Monster_Golds, 
+				Monster_Town= :Town_ID_choisit, 
+				Monster_Item_One= :Item_ID_One_monstre, 
+				Monster_Item_One_Rate= :Monster_Item_One_Rate, 
+				Monster_Item_Two= :Item_ID_Two_monstre, 
+				Monster_Item_Two_Rate= :Monster_Item_Two_Rate, 
+				Monster_Item_Three= :Item_ID_Three_monstre, 
+				Monster_Item_Three_Rate= :Monster_Item_Three_Rate,
+				Monster_Item_Four= :Item_ID_Four_monstre,  
+				Monster_Item_Four_Rate= :Monster_Item_Four_Rate, 
+				Monster_Item_Five= :Item_ID_Five_monstre, 
+				Monster_Item_Five_Rate= :Monster_Item_Five_Rate, 
+				Monster_Access= :Monster_Access 
+				WHERE Monster_ID= :Monster_ID");
+
+				$Edit->execute(array(
+				'Monster_Image'=> $Monster_Image, 
+				'Monster_Name'=> $Monster_Name, 
+				'Monster_Description'=> $Monster_Description, 
+				'Monster_Level'=> $Monster_Level, 
+				'Monster_Strength'=> $Monster_Strength, 
+				'Monster_Defense'=> $Monster_Defense, 
+				'Monster_HP'=> $Monster_HP, 
+				'Monster_MP'=> $Monster_MP, 
+				'Monster_Experience'=> $Monster_Experience, 
+				'Monster_Golds'=> $Monster_Golds, 
+				'Town_ID_choisit'=> $Town_ID, 
+				'Item_ID_One_monstre'=> $Item_ID_One, 
+				'Monster_Item_One_Rate'=> $Monster_Item_One_Rate, 
+				'Item_ID_Two_monstre'=> $Item_ID_Two, 
+				'Monster_Item_Two_Rate'=> $Monster_Item_Two_Rate, 
+				'Item_ID_Three_monstre'=> $Item_ID_Three, 
+				'Monster_Item_Three_Rate'=> $Monster_Item_Three_Rate, 
+				'Item_ID_Four_monstre'=> $Item_ID_Four, 
+				'Monster_Item_Four_Rate'=> $Monster_Item_Four_Rate, 
+				'Item_ID_Five_monstre'=> $Item_ID_Five, 
+				'Monster_Item_Five_Rate'=> $Monster_Item_Five_Rate, 
+				'Monster_Access'=> $Monster_Access, 
+				'Monster_ID'=> $Monster_ID));
 				echo 'Monstre mis à jour';
 			}
 			else
@@ -343,27 +487,53 @@
 			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
 			while ($Items_List = $Items_List_Query->fetch())
 			{
-				$Monster_Item_One = stripslashes($Items_List['Item_Name']);
-				echo "<option value=\"$Monster_Item_One\">$Monster_Item_One</option>";
+				$Monster_Item_Two = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Two\">$Monster_Item_Two</option>";
 			}
 			$Items_List_Query->closeCursor();
-
 			echo '</select><br /><br />';
 			echo 'Taux d\'obtention de l\'objet<br /><input type="text" name="Monster_Item_Two_Rate">%<br /><br />';
+
 			echo 'Objet N°3<br />';
 			echo '<select name="Monster_Item_Three" ID="Monster_Item_Three">';
 			echo '<option value="Aucun objet">Aucun objet</option>';
 			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
 			while ($Items_List = $Items_List_Query->fetch())
 			{
-				$Monster_Item_One = stripslashes($Items_List['Item_Name']);
-				echo "<option value=\"$Monster_Item_One\">$Monster_Item_One</option>";
+				$Monster_Item_Three = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Three\">$Monster_Item_Three</option>";
+			}
+			$Items_List_Query->closeCursor();
+			echo '</select><br /><br />';
+			echo 'Taux d\'obtention de l\'objet<br /><input type="text" name="Monster_Item_Three_Rate">%<br /><br />';
+
+			echo 'Objet N°4<br />';
+			echo '<select name="Monster_Item_Four" ID="Monster_Item_Four">';
+			echo '<option value="Aucun objet">Aucun objet</option>';
+			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
+			while ($Items_List = $Items_List_Query->fetch())
+			{
+				$Monster_Item_Four = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Four\">$Monster_Item_Four</option>";
+			}
+			$Items_List_Query->closeCursor();
+			echo '</select><br /><br />';
+			echo 'Taux d\'obtention de l\'objet<br /><input type="text" name="Monster_Item_Four_Rate">%<br /><br />';
+
+			echo 'Objet N°5<br />';
+			echo '<select name="Monster_Item_Five" ID="Monster_Item_Five">';
+			echo '<option value="Aucun objet">Aucun objet</option>';
+			$Items_List_Query = $bdd->query("SELECT * FROM Caranille_Items");
+			while ($Items_List = $Items_List_Query->fetch())
+			{
+				$Monster_Item_Five = stripslashes($Items_List['Item_Name']);
+				echo "<option value=\"$Monster_Item_Five\">$Monster_Item_Five</option>";
 			}
 			$Items_List_Query->closeCursor();
 
 			echo '</select><br /><br />';
-			echo 'Taux d\'obtention de l\'objet<br /><input type="text" name="Monster_Item_Three_Rate">%<br /><br />';
-			echo '<div class="important">Quel est le Access du monstre ?</div><br />';
+			echo 'Taux d\'obtention de l\'objet<br /><input type="text" name="Monster_Item_Five_Rate">%<br /><br />';
+			echo '<div class="important">Quel est le type du monstre ?</div><br />';
 			echo '<select name="Monster_Access" ID="Monster_Access">';
 				echo '<option value="Chapter">Histoire</option>';
 				echo '<option value="Battle">Donjon</option>';
@@ -421,7 +591,7 @@
 				$Monster_Item_Two = htmlspecialchars(addslashes($_POST['Monster_Item_Two']));
 				if ($Monster_Item_Two == "Aucun objet")
 				{
-					$Item_ID_TWO = 0;
+					$Item_ID_Two = 0;
 					$Monster_Item_Two_Rate = 0;
 				}
 				else
@@ -433,7 +603,7 @@
 
 					while ($Item_ID = $Item_ID_Two_List_Query->fetch())
 					{
-						$Item_ID_TWO = stripslashes($Item_ID['Item_ID']);
+						$Item_ID_Two = stripslashes($Item_ID['Item_ID']);
 					}
 
 					$Item_ID_Two_List_Query->closeCursor();
@@ -462,11 +632,103 @@
 
 					$Monster_Item_Three_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Three_Rate']));
 				}
+
+				$Monster_Item_Four = htmlspecialchars(addslashes($_POST['Monster_Item_Four']));
+				if ($Monster_Item_Four== "Aucun objet")
+				{
+					$Item_ID_Four = 0;
+					$Monster_Item_Four_Rate = 0;
+				}
+				else
+				{
+					$Item_ID_Four_List_Query = $bdd->prepare("SELECT Item_ID 
+					FROM Caranille_Items
+					WHERE Item_Name = ?");
+					$Item_ID_Four_List_Query->execute(array($Monster_Item_Four));
+
+					while ($Item_ID = $Item_ID_Four_List_Query->fetch())
+					{
+						$Item_ID_Four = $Item_ID['Item_ID'];
+					}
+
+					$Item_ID_Four_List_Query->closeCursor();
+
+					$Monster_Item_Four_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Four_Rate']));
+				}
+
+				$Monster_Item_Five = htmlspecialchars(addslashes($_POST['Monster_Item_Five']));
+				if ($Monster_Item_Five == "Aucun objet")
+				{
+					$Item_ID_Five = 0;
+					$Monster_Item_Five_Rate = 0;
+				}
+				else
+				{
+					$Item_ID_Five_List_Query = $bdd->prepare("SELECT Item_ID 
+					FROM Caranille_Items
+					WHERE Item_Name = ?");
+					$Item_ID_Five_List_Query->execute(array($Monster_Item_Five));
+
+					while ($Item_ID = $Item_ID_Five_List_Query->fetch())
+					{
+						$Item_ID_Five = $Item_ID['Item_ID'];
+					}
+
+					$Item_ID_Five_List_Query->closeCursor();
+
+					$Monster_Item_Five_Rate = htmlspecialchars(addslashes($_POST['Monster_Item_Five_Rate']));
+				}
 				$Monster_Access = htmlspecialchars(addslashes($_POST['Monster_Access']));
 				$Monster_Town = htmlspecialchars(addslashes($_POST['Monster_Town']));
 
-				$Add = $bdd->prepare("INSERT INTO Caranille_Monsters VALUES('', :Monster_Image, :Monster_Name, :Monster_Description, :Monster_Level, :Monster_Strength, :Monster_Defense, :Monster_HP, :Monster_MP, :Monster_Experience, :Monster_Golds, :Town_ID_choisit, :Item_ID1_monstre, :Monster_Item_One_Rate, :Item_ID2_monstre, :Monster_Item_Two_Rate, :Item_ID3_monstre, :Monster_Item_Three_Rate, :Monster_Access)");
-				$Add->execute(array('Monster_Image'=> $Monster_Image, 'Monster_Name'=> $Monster_Name, 'Monster_Description'=> $Monster_Description, 'Monster_Level'=> $Monster_Level, 'Monster_Strength'=> $Monster_Strength, 'Monster_Defense'=> $Monster_Defense, 'Monster_HP'=> $Monster_HP, 'Monster_MP'=> $Monster_MP, 'Monster_Experience'=> $Monster_Experience, 'Monster_Golds'=> $Monster_Golds, 'Town_ID_choisit'=> $Town_ID, 'Item_ID1_monstre'=> $Item_ID_One, 'Monster_Item_One_Rate'=> $Monster_Item_One_Rate, 'Item_ID2_monstre'=> $Item_ID_TWO, 'Monster_Item_Two_Rate'=> $Monster_Item_Two_Rate, 'Item_ID3_monstre'=> $Item_ID_Three, 'Monster_Item_Three_Rate'=> $Monster_Item_Three_Rate, 'Monster_Access'=> $Monster_Access));
+				$Add = $bdd->prepare("INSERT INTO Caranille_Monsters VALUES(
+				'', 
+				:Monster_Image, 
+				:Monster_Name, 
+				:Monster_Description, 
+				:Monster_Level, 
+				:Monster_Strength, 
+				:Monster_Defense, 
+				:Monster_HP, 
+				:Monster_MP, 
+				:Monster_Experience, 
+				:Monster_Golds, 
+				:Town_ID_choisit, 
+				:Item_ID_One, 
+				:Monster_Item_One_Rate, 
+				:Item_ID_Two, 
+				:Monster_Item_Two_Rate, 
+				:Item_ID_Three, 
+				:Monster_Item_Three_Rate,
+				:Item_ID_Four, 
+				:Monster_Item_Four_Rate, 
+				:Item_ID_Five, 
+				:Monster_Item_Five_Rate,  
+				:Monster_Access)");
+
+				$Add->execute(array(
+				'Monster_Image'=> $Monster_Image, 
+				'Monster_Name'=> $Monster_Name, 
+				'Monster_Description'=> $Monster_Description, 
+				'Monster_Level'=> $Monster_Level, 
+				'Monster_Strength'=> $Monster_Strength, 
+				'Monster_Defense'=> $Monster_Defense, 
+				'Monster_HP'=> $Monster_HP, 
+				'Monster_MP'=> $Monster_MP, 
+				'Monster_Experience'=> $Monster_Experience, 
+				'Monster_Golds'=> $Monster_Golds, 
+				'Town_ID_choisit'=> $Town_ID, 
+				'Item_ID_One'=> $Item_ID_One, 
+				'Monster_Item_One_Rate'=> $Monster_Item_One_Rate, 
+				'Item_ID_Two'=> $Item_ID_Two, 
+				'Monster_Item_Two_Rate'=> $Monster_Item_Two_Rate, 
+				'Item_ID_Three'=> $Item_ID_Three, 
+				'Monster_Item_Three_Rate'=> $Monster_Item_Three_Rate, 
+				'Item_ID_Four'=> $Item_ID_Four, 
+				'Monster_Item_Four_Rate'=> $Monster_Item_Four_Rate, 
+				'Item_ID_Five'=> $Item_ID_Five, 
+				'Monster_Item_Five_Rate'=> $Monster_Item_Five_Rate, 
+				'Monster_Access'=> $Monster_Access));
 				echo 'Monstre ajouté';
 			}
 			else
