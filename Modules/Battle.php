@@ -564,123 +564,188 @@
 					$_SESSION['Battle'] = 0;
 					echo "Vous avez remporté le combat !!!<br /><br />";
 					echo "Pièces d'or (PO) + $Gold_Gained <br /><br />";
-					if ($_SESSION['Arena_Battle'] == 1)
+					$Experience_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Experience']));
+					$Experience_Bonus = $_SESSION['Sagesse_Bonus'] * $Experience_Gained /100;
+					$Experience_Total = $Experience_Gained + round($Experience_Bonus);
+					echo "Experience (XP) + $Experience_Total <br />";
+					if ($_SESSION['Monster_Item_One'] >= 1)
 					{
-					
+						$Monster_Item_One_Rate = mt_rand(0, 100);
+						if ($Monster_Item_One_Rate <= $_SESSION['Monster_Item_One_Rate'])
+						{
+							$Monster_Item_One = htmlspecialchars(addslashes($_SESSION['Monster_Item_One']));
+							$Item_One = $bdd->prepare("SELECT * From Caranille_Items
+							WHERE Item_ID= ?");
+							$Item_One->execute(array($Monster_Item_One));
+							while ($Item_Name = $Item_One->fetch())
+							{
+								$Item_Name_One = stripslashes($Item_Name['Item_Name']);
+								echo "Vous avez gagné l'objet suivant: $Item_Name_One<br />";
+
+								$One_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
+								WHERE Inventory_Item_ID= ?
+								AND Inventory_Account_ID= ?");
+								$One_Item_Verification->execute(array($Monster_Item_One, $ID));
+
+								$Item_Quantity = $One_Item_Verification->rowCount();
+								if ($Item_Quantity>=1)
+								{
+									$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
+									WHERE Inventory_Account_ID = :ID
+									AND Inventory_Item_ID= :Monster_Item_One");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_One'=> $Monster_Item_One));
+								}
+								else
+								{
+									$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_One, '1', 'No')");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_One'=> $Monster_Item_One));
+								}
+							}
+							$Item_One->closeCursor();
+						}
 					}
-					else
+					if ($_SESSION['Monster_Item_Two'] >= 1)
 					{
-						$Experience_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Experience']));
-						$Experience_Bonus = $_SESSION['Sagesse_Bonus'] * $Experience_Gained /100;
-						$Experience_Total = $Experience_Gained + round($Experience_Bonus);
-						echo "Experience (XP) + $Experience_Total <br />";
-						if ($_SESSION['Monster_Item_One'] >= 1)
+						$Monster_Item_Two_Rate = mt_rand(0, 100);
+						if ($Monster_Item_Two_Rate <= $_SESSION['Monster_Item_One_Rate'])
 						{
-							$Monster_Item_One_Rate = mt_rand(0, 100);
-							if ($Monster_Item_One_Rate <= $_SESSION['Monster_Item_One_Rate'])
+							$Monster_Item_Two = htmlspecialchars(addslashes($_SESSION['Monster_Item_Two']));
+							$Item_Two = $bdd->prepare("SELECT * From Caranille_Items
+							WHERE Item_ID= ?");
+							$Item_Two->execute(array($Monster_Item_Two));
+							while ($Item_Name = $Item_Two->fetch())
 							{
-								$Monster_Item_One = htmlspecialchars(addslashes($_SESSION['Monster_Item_One']));
-								$Item_One = $bdd->prepare("SELECT * From Caranille_Items
-								WHERE Item_ID= ?");
-								$Item_One->execute(array($Monster_Item_One));
-								while ($Item_Name = $Item_One->fetch())
+								$Item_Name_Two = stripslashes($Item_Name['Item_Name']);
+								echo "Vous avez gagné l'objet suivant: $Item_Name_Two<br />";
+
+								$Two_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
+								WHERE Inventory_Item_ID= ?
+								AND Inventory_Account_ID= ?");
+								$Two_Item_Verification->execute(array($Monster_Item_Two, $ID));
+
+								$Item_Quantity = $Two_Item_Verification->rowCount();
+								if ($Item_Quantity>=1)
 								{
-									$Item_Name_One = stripslashes($Item_Name['Item_Name']);
-									echo "Vous avez gagné l'objet suivant: $Item_Name_One<br />";
-
-									$One_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
-									WHERE Inventory_Item_ID= ?
-									AND Inventory_Account_ID= ?");
-									$One_Item_Verification->execute(array($Monster_Item_One, $ID));
-
-									$Item_Quantity = $One_Item_Verification->rowCount();
-									if ($Item_Quantity>=1)
-									{
-										$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
-										WHERE Inventory_Account_ID = :ID
-										AND Inventory_Item_ID= :Monster_Item_One");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_One'=> $Monster_Item_One));
-									}
-									else
-									{
-										$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_One, '1', 'No')");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_One'=> $Monster_Item_One));
-									}
+									$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
+									WHERE Inventory_Account_ID = :ID
+									AND Inventory_Item_ID= :Monster_Item_Two");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Two'=> $Monster_Item_Two));
 								}
-								$Item_One->closeCursor();
+								else
+								{
+									$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Two, '1', 'No')");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Two'=> $Monster_Item_Two));
+								}
 							}
+							$Item_Two->closeCursor();
 						}
-						if ($_SESSION['Monster_Item_Two'] >= 1)
+					}
+					if ($_SESSION['Monster_Item_Three'] >= 1)
+					{
+						$Monster_Item_Three_Rate = mt_rand(0, 100);
+						if ($Monster_Item_Three_Rate <= $_SESSION['Monster_Item_Three_Rate'])
 						{
-							$Monster_Item_Two_Rate = mt_rand(0, 100);
-							if ($Monster_Item_Two_Rate <= $_SESSION['Monster_Item_One_Rate'])
+							$Monster_Item_Three = htmlspecialchars(addslashes($_SESSION['Monster_Item_Three']));
+							$Item_Three = $bdd->prepare("SELECT * From Caranille_Items
+							WHERE Item_ID= ?");
+							$Item_Three->execute(array($Monster_Item_Three));
+							while ($Item_Name = $Item_Three->fetch())
 							{
-								$Monster_Item_Two = htmlspecialchars(addslashes($_SESSION['Monster_Item_Two']));
-								$Item_Two = $bdd->prepare("SELECT * From Caranille_Items
-								WHERE Item_ID= ?");
-								$Item_Two->execute(array($Monster_Item_Two));
-								while ($Item_Name = $Item_Two->fetch())
+								$Item_Name_Three = stripslashes($Item_Name['Item_Name']);
+								echo "Vous avez gagné l'objet suivant: $Item_Name_Three<br />";
+
+								$Three_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
+								WHERE Inventory_Item_ID= ?
+								AND Inventory_Account_ID= ?");
+								$Three_Item_Verification->execute(array($Monster_Item_Three, $ID));
+
+								$Item_Quantity = $Three_Item_Verification->rowCount();
+								if ($Item_Quantity>=1)
 								{
-									$Item_Name_Two = stripslashes($Item_Name['Item_Name']);
-									echo "Vous avez gagné l'objet suivant: $Item_Name_Two<br />";
-
-									$Two_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
-									WHERE Inventory_Item_ID= ?
-									AND Inventory_Account_ID= ?");
-									$Two_Item_Verification->execute(array($Monster_Item_Two, $ID));
-
-									$Item_Quantity = $Two_Item_Verification->rowCount();
-									if ($Item_Quantity>=1)
-									{
-										$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
-										WHERE Inventory_Account_ID = :ID
-										AND Inventory_Item_ID= :Monster_Item_Two");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Two'=> $Monster_Item_Two));
-									}
-									else
-									{
-										$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Two, '1', 'No')");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Two'=> $Monster_Item_Two));
-									}
+									$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
+									WHERE Inventory_Account_ID = :ID
+									AND Inventory_Item_ID= :Monster_Item_Three");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Three'=> $Monster_Item_Three));
 								}
-								$Item_Two->closeCursor();
+								else
+								{
+									$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Three, '1', 'No')");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Three'=> $Monster_Item_Three));
+								}
 							}
+							$Item_Three->closeCursor();
 						}
-						if ($_SESSION['Monster_Item_Three'] >= 1)
+					}
+					if ($_SESSION['Monster_Item_Four'] >= 1)
+					{
+						$Monster_Item_Four_Rate = mt_rand(0, 100);
+						if ($Monster_Item_Four_Rate <= $_SESSION['Monster_Item_Four_Rate'])
 						{
-							$Monster_Item_Three_Rate = mt_rand(0, 100);
-							if ($Monster_Item_Three_Rate <= $_SESSION['Monster_Item_Three_Rate'])
+							$Monster_Item_Four = htmlspecialchars(addslashes($_SESSION['Monster_Item_Four']));
+							$Item_Four = $bdd->prepare("SELECT * From Caranille_Items
+							WHERE Item_ID= ?");
+							$Item_Four->execute(array($Monster_Item_Four));
+							while ($Item_Name = $Item_Four->fetch())
 							{
-								$Monster_Item_Three = htmlspecialchars(addslashes($_SESSION['Monster_Item_Three']));
-								$Item_Three = $bdd->prepare("SELECT * From Caranille_Items
-								WHERE Item_ID= ?");
-								$Item_Three->execute(array($Monster_Item_Three));
-								while ($Item_Name = $Item_Three->fetch())
+								$Item_Name_Four = stripslashes($Item_Name['Item_Name']);
+								echo "Vous avez gagné l'objet suivant: $Item_Name_Four<br />";
+
+								$Four_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
+								WHERE Inventory_Item_ID= ?
+								AND Inventory_Account_ID= ?");
+								$Four_Item_Verification->execute(array($Monster_Item_Four, $ID));
+
+								$Item_Quantity = $Four_Item_Verification->rowCount();
+								if ($Item_Quantity>=1)
 								{
-									$Item_Name_Three = stripslashes($Item_Name['Item_Name']);
-									echo "Vous avez gagné l'objet suivant: $Item_Name_Three<br />";
-
-									$Three_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
-									WHERE Inventory_Item_ID= ?
-									AND Inventory_Account_ID= ?");
-									$Three_Item_Verification->execute(array($Monster_Item_Three, $ID));
-
-									$Item_Quantity = $Three_Item_Verification->rowCount();
-									if ($Item_Quantity>=1)
-									{
-										$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
-										WHERE Inventory_Account_ID = :ID
-										AND Inventory_Item_ID= :Monster_Item_Three");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Three'=> $Monster_Item_Three));
-									}
-									else
-									{
-										$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Three, '1', 'No')");
-										$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Three'=> $Monster_Item_Three));
-									}
+									$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
+									WHERE Inventory_Account_ID = :ID
+									AND Inventory_Item_ID= :Monster_Item_Four");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Four'=> $Monster_Item_Four));
 								}
-								$Item_Three->closeCursor();
+								else
+								{
+									$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Four, '1', 'No')");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Four'=> $Monster_Item_Four));
+								}
 							}
+							$Item_Four->closeCursor();
+						}
+					}
+					if ($_SESSION['Monster_Item_Five'] >= 1)
+					{
+						$Monster_Item_Five_Rate = mt_rand(0, 100);
+						if ($Monster_Item_Five_Rate <= $_SESSION['Monster_Item_Five_Rate'])
+						{
+							$Monster_Item_Five = htmlspecialchars(addslashes($_SESSION['Monster_Item_Five']));
+							$Item_Five = $bdd->prepare("SELECT * From Caranille_Items
+							WHERE Item_ID= ?");
+							$Item_Five->execute(array($Monster_Item_Five));
+							while ($Item_Name = $Item_Five->fetch())
+							{
+								$Item_Name_Five = stripslashes($Item_Name['Item_Name']);
+								echo "Vous avez gagné l'objet suivant: $Item_Name_Five<br />";
+
+								$Five_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
+								WHERE Inventory_Item_ID= ?
+								AND Inventory_Account_ID= ?");
+								$Five_Item_Verification->execute(array($Monster_Item_Five, $ID));
+
+								$Item_Quantity = $Five_Item_Verification->rowCount();
+								if ($Item_Quantity>=1)
+								{
+									$Update_Account = $bdd->prepare("UPDATE Caranille_Inventory SET Inventory_Item_Quantity = Inventory_Item_Quantity + 1
+									WHERE Inventory_Account_ID = :ID
+									AND Inventory_Item_ID= :Monster_Item_Five");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Five'=> $Monster_Item_Five));
+								}
+								else
+								{
+									$Update_Account = $bdd->prepare("INSERT INTO Caranille_Inventory VALUES('', :ID, :Monster_Item_Five, '1', 'No')");
+									$Update_Account->execute(array('ID'=> $ID, 'Monster_Item_Five'=> $Monster_Item_Five));
+								}
+							}
+							$Item_Five->closeCursor();
 						}
 					}
 					if ($_SESSION['Chapter_Battle'] == 1)
