@@ -10,7 +10,7 @@
 		<p>
 
 		<footer>
-			<a href="http://www.caranille.com">RPG crée avec Caranille</a>
+			<a href="https://github.com/Caranille/Caranille">RPG crée avec Caranille</a>
 		</footer>
 
 		</p>
