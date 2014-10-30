@@ -6,7 +6,7 @@
 
 		echo '<div class="important">Modération du jeu</div><br />';
 		echo '<a href="Sanctions.php">Gestion de sanctions</a><br />';
-		echo '<a href="Warning.php">Gestion des Avertissements</a><br />';
+		echo '<a href="Warnings.php">Gestion des Avertissements</a><br />';
 	}
 	//Si le Access est autre que Admin, afficher le menu classique
 	else

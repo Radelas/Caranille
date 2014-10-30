@@ -8,15 +8,15 @@
 		{
 			echo 'Que souhaitez-vous faire ?<br />';
 			echo '<form method="POST" action="Warnings.php">';
-			echo '<input type="submit" name="Add" value="Ajouter une sanction">';
+			echo '<input type="submit" name="Add" value="Ajouter un avertissement">';
 			echo '</form>';
 		}
 		if (isset($_POST['Add']))
 		{
 			echo '</form><br /><br />';
 			echo '<form method="POST" action="Warnings.php">';
-			echo 'Type de la sanction <br /> <input type="text" name="Sanction_Type"><br /><br />';	
-			echo 'Message<br /> <input type="text" name="Sanction_Message"><br /><br />';
+			echo 'Type de l\'avertissement <br /> <input type="text" name="Avert_Type"><br /><br />';	
+			echo 'Message<br /> <input type="text" name="Avert_Message"><br /><br />';
 			echo '<label for="Receiver">Choix du joueur</label><br />';
 			echo '<select name="Receiver" ID="Receiver">';
 			$Players_List_Query = $bdd->query("SELECT * FROM Caranille_Accounts ORDER BY Account_Pseudo ASC");
@@ -34,26 +34,26 @@
 		}
 		if (isset($_POST['End_Add']))
 		{
-			if (isset($_POST['Sanction_Type']) && ($_POST['Sanction_Message']) && ($_POST['Receiver']))
+			if (isset($_POST['Avert_Type']) && ($_POST['Avert_Message']) && ($_POST['Receiver']))
 			{
-				$Sanction_Type = htmlspecialchars(addslashes($_POST['Sanction_Type']));	
-				$Sanction_Message = htmlspecialchars(addslashes($_POST['Sanction_Message']));
-				$Sanction_Transmitter = htmlspecialchars(addslashes($_SESSION['Pseudo']));
+				$Avert_Type = htmlspecialchars(addslashes($_POST['Avert_Type']));	
+				$Avert_Message = htmlspecialchars(addslashes($_POST['Avert_Message']));
+				$Avert_Transmitter = htmlspecialchars(addslashes($_SESSION['Pseudo']));
 				$Account_Pseudo = htmlspecialchars(addslashes($_POST['Receiver']));
 
-				$recherche_Sanction_Receiver = $bdd->prepare("SELECT Account_ID 
+				$recherche_Avert_Receiver = $bdd->prepare("SELECT Account_ID 
 				FROM Caranille_Accounts
 				WHERE Account_Pseudo = ?");
-				$recherche_Sanction_Receiver->execute(array($Account_Pseudo));
+				$recherche_Avert_Receiver->execute(array($Account_Pseudo));
 
-				while ($Account_ID = $recherche_Sanction_Receiver->fetch())
+				while ($Account_ID = $recherche_Avert_Receiver->fetch())
 				{
-					$Sanction_Receiver = stripslashes($Account_ID['Account_ID']);
+					$Avert_Receiver = stripslashes($Account_ID['Account_ID']);
 				}
-				$recherche_Sanction_Receiver->closeCursor();
+				$recherche_Avert_Receiver->closeCursor();
 
-				$Add_Sanction = $bdd->prepare("INSERT INTO Caranille_Warnings.php VALUES ('', :Sanction_Type, :Sanction_Message, :Sanction_Transmitter, :Sanction_Receiver)");
-				$Add_Sanction->execute(array('Sanction_Type'=> $Sanction_Type, 'Sanction_Message'=> $Sanction_Message, 'Sanction_Transmitter'=> $Sanction_Transmitter, 'Sanction_Receiver'=> $Sanction_Receiver));
+				$Add_Avert = $bdd->prepare("INSERT INTO Caranille_Sanctions VALUES ('', :Avert_Type, :Avert_Message, :Avert_Transmitter, :Avert_Receiver)");
+				$Add_Avert->execute(array('Avert_Type'=> $Avert_Type, 'Avert_Message'=> $Avert_Message, 'Avert_Transmitter'=> $Avert_Transmitter, 'Avert_Receiver'=> $Avert_Receiver));
 				echo 'Avertissement ajoutée';
 			}
 			else
