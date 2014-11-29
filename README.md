@@ -63,4 +63,3 @@ Quels sont les cycles de sortie des nouvelles versions ?
 Les sources sont mises à disposition en temps réel, dès qu'une modification a lieu dans sur la version stable ou instable. Les utilisateurs peuvent télécharger à tout moment la dernière version.
 
 Le projet à été lancé le 10 octobre 2010 par Jérémy Colombier
-Le projet à été repris en mai 2014 par Dimitri Moeson
