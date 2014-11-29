@@ -2,7 +2,7 @@ CARANILLE
 
 Voici un projet qui me tient à cœur et que j'ai commencé il y a de cela presque 3 ans : ce projet se nomme Caranille. Pourquoi un tel nom ? Caranille est la contraction de Caramel et Vanille qui sont deux animaux que j'ai perdus il y a longtemps mais que j'ai énormément adorés.
 
-Pour vous présenter Caranille sachez que c'est un logiciel/programme/script qui a pour but de vous aider à bâtir rapidement et gratuitement votre propre MMORPG ( massively multiplayer online role-playing game, c'est-à-dire jeu de rôle en ligne massivement multijoueur) pour votre site web personnel, pour une animation ou autres… Étant une personne qui utilise uniquement GNU/Linux et appréciant sa façon d'être (à savoir le partage des sources), j'ai décidé de mettre Caranille sous licence GNU GPL, ce qui permettra aux utilisateurs avancés de le modifier, de rajouter des modules et de les redistribuer selon la licence Creative Commons.
+Pour vous présenter Caranille sachez que c'est un logiciel/programme/script qui a pour but de vous aider à bâtir rapidement et gratuitement votre propre RPG ( role-playing game, c'est-à-dire jeu de rôle en ligne ) pour votre site web personnel, pour une animation ou autres… Étant une personne qui utilise uniquement GNU/Linux et appréciant sa façon d'être (à savoir le partage des sources), j'ai décidé de mettre Caranille sous licence GNU GPL, ce qui permettra aux utilisateurs avancés de le modifier, de rajouter des modules et de les redistribuer selon la licence Creative Commons.
 
 Possibilités
 
@@ -15,12 +15,6 @@ Fonctionnalités JdR :
     des objets (armes, protection, objets de soin comme des potions etc.)
     des chimères à invoquer lors des combats
 
-Fonctionnalités MMORPG :
-
-    faire du PVP (Player Versus Player)
-    fonder sa propre guilde
-    discuter en direct avec tous les autres joueurs
-
 De plus pour les habitués des grands JdR de Square Enix (ou anciennement SquareSoft) le menu de combat est présenté de la même façon à savoir :
 
     Attaquer (porter une attaque physique)
@@ -31,7 +25,7 @@ De plus pour les habitués des grands JdR de Square Enix (ou anciennement Square
 
 Avantages
 
-Le gros avantage de Caranille est dans sa simplicité d'utilisation, celui-ci a été conçu de façon à ce qu'une personne ne connaissant rien en développement puisse l’utiliser et créer son MMORPG et sa communauté de joueurs.
+Le gros avantage de Caranille est dans sa simplicité d'utilisation, celui-ci a été conçu de façon à ce qu'une personne ne connaissant rien en développement puisse l’utiliser et créer son RPG et sa communauté de joueurs.
 
 Caranille est programmé en PHP5 et utilise MySQL pour le stockage des données ce qui vous permet de l'utiliser sur tous les hébergements mutualisés actuellement proposés ou pourquoi pas sur votre propre ordinateur avec un serveur WAMPP ou LAMPP.
 
@@ -43,18 +37,18 @@ Cela permet pour l'utilisateur final d'y jouer sur (presque) tous les terminaux 
     Un smartphone voir même téléphone
     Toutes les dernières consoles de jeu portables ou fixes
 
-En conclusion le but de Caranille est de fournir une plate-forme complète de développement de MMORPG gratuits et ces derniers pourront être joués partout comme chez vous, dans le bus pendant vos vacances via un cybercafé et même au travail, la seule condition étant de posséder un navigateur web et internet.
+En conclusion le but de Caranille est de fournir une plate-forme complète de développement de RPG gratuits et ces derniers pourront être joués partout comme chez vous, dans le bus pendant vos vacances via un cybercafé et même au travail, la seule condition étant de posséder un navigateur web et internet.
 FAQ
 
 Voici les questions les plus fréquentes :
 
 À qui est destiné Caranille ?
 
-    Caranille est destiné à toutes les personnes ou entités qui souhaitent mettre en place un MMORPG sur leur site web.
+    Caranille est destiné à toutes les personnes ou entités qui souhaitent mettre en place un RPG sur leur site web.
 
 Pourquoi n'y a-t'il pas de 2D, voir même 3D ?
 
-    Simplement car les éditeurs de MMORPG actuel qui utilisent de la 2D ou 3D utilisent forcément du javascript ainsi que la technologie AJAX. Ce qui au final ne permettrait plus à Caranille de fonctionner sur tous les terminaux ce qui est l'un des principes fondamentaux de l'éditeur.
+    Simplement car les éditeurs de RPG actuel qui utilisent de la 2D ou 3D utilisent forcément du javascript ainsi que la technologie AJAX. Ce qui au final ne permettrait plus à Caranille de fonctionner sur tous les terminaux ce qui est l'un des principes fondamentaux de l'éditeur.
 
 Quels sont les cycles de sortie des nouvelles versions ?
 
