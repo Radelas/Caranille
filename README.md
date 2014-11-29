@@ -7,27 +7,27 @@ Pour vous présenter Caranille sachez que c'est un logiciel/programme/script qui
 Possibilités
 
 Fonctionnalités JdR :
-une histoire principale pour votre jeu
-plusieurs villes (qui peuvent être débloquées en fonction de l'avancée dans l'histoire)
-des missions propre à chaque ville
-des monstres et de choisir les objets qui pourront être gagnés lors de la victoire du joueur
-des objets (armes, protection, objets de soin comme des potions etc.)
-des chimères à invoquer lors des combats
 
+    une histoire principale pour votre jeu
+    plusieurs villes (qui peuvent être débloquées en fonction de l'avancée dans l'histoire)
+    des missions propre à chaque ville
+    des monstres et de choisir les objets qui pourront être gagnés lors de la victoire du joueur
+    des objets (armes, protection, objets de soin comme des potions etc.)
+    des chimères à invoquer lors des combats
 
 Fonctionnalités MMORPG :
-faire du PVP (Player Versus Player)
-fonder sa propre guilde
-discuter en direct avec tous les autres joueurs
 
+    faire du PVP (Player Versus Player)
+    fonder sa propre guilde
+    discuter en direct avec tous les autres joueurs
 
 De plus pour les habitués des grands JdR de Square Enix (ou anciennement SquareSoft) le menu de combat est présenté de la même façon à savoir :
-Attaquer (porter une attaque physique)
-Magie (lancer un sort sur ennemi)
-Invocation (invoquer une puissante chimère)
-Objets (utiliser un objet comme une potion)
-Fuir (trop faible face à l’ennemi ? Fuyiez)
 
+    Attaquer (porter une attaque physique)
+    Magie (lancer un sort sur ennemi)
+    Invocation (invoquer une puissante chimère)
+    Objets (utiliser un objet comme une potion)
+    Fuir (trop faible face à l’ennemi ? Fuyiez)
 
 Avantages
 
@@ -38,25 +38,29 @@ Caranille est programmé en PHP5 et utilise MySQL pour le stockage des données 
 L'un des principes fondamentaux de Caranille est de fonctionner sur tous les appareils disposant d'un navigateur internet (même des plus anciens).
 
 Cela permet pour l'utilisateur final d'y jouer sur (presque) tous les terminaux confondus à savoir :
-Un ordinateur (Fixe ou portable)
-Un smartphone voir même téléphone
-Toutes les dernières consoles de jeu portables ou fixes
 
+    Un ordinateur (Fixe ou portable)
+    Un smartphone voir même téléphone
+    Toutes les dernières consoles de jeu portables ou fixes
 
-En conclusion le but de Caranille est de fournir une plate-forme complète de développement de MMORPG gratuits et ces derniers pourront être joués partout comme chez vous, dans le bus pendant vos vacances via un cybercafé et même au travail, la seule condition étant de posséder un navigateur web et internet. FAQ
+En conclusion le but de Caranille est de fournir une plate-forme complète de développement de MMORPG gratuits et ces derniers pourront être joués partout comme chez vous, dans le bus pendant vos vacances via un cybercafé et même au travail, la seule condition étant de posséder un navigateur web et internet.
+FAQ
 
 Voici les questions les plus fréquentes :
 
 À qui est destiné Caranille ?
-Caranille est destiné à toutes les personnes ou entités qui souhaitent mettre en place un MMORPG sur leur site web.
 
+    Caranille est destiné à toutes les personnes ou entités qui souhaitent mettre en place un MMORPG sur leur site web.
 
 Pourquoi n'y a-t'il pas de 2D, voir même 3D ?
-Simplement car les éditeurs de MMORPG actuel qui utilisent de la 2D ou 3D utilisent forcément du javascript ainsi que la technologie AJAX. Ce qui au final ne permettrait plus à Caranille de fonctionner sur tous les terminaux ce qui est l'un des principes fondamentaux de l'éditeur.
 
+    Simplement car les éditeurs de MMORPG actuel qui utilisent de la 2D ou 3D utilisent forcément du javascript ainsi que la technologie AJAX. Ce qui au final ne permettrait plus à Caranille de fonctionner sur tous les terminaux ce qui est l'un des principes fondamentaux de l'éditeur.
 
 Quels sont les cycles de sortie des nouvelles versions ?
-Il sort une nouvelle version en moyenne tous les 3 mois, le temps de corriger les derniers bogues de la version actuelle et de mettre en place les nouveautés de la prochaine version
 
+    Il sort une nouvelle version en moyenne tous les 3 mois, le temps de corriger les derniers bogues de la version actuelle et de mettre en place les nouveautés de la prochaine version
 
 Les sources sont mises à disposition en temps réel, dès qu'une modification a lieu dans sur la version stable ou instable. Les utilisateurs peuvent télécharger à tout moment la dernière version.
+
+Le projet à été lancé le 10 octobre 2010 par Jérémy Colombier
+Le projet à été repris en mai 2014 par Dimitri Moeson
