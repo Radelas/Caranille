@@ -1,10 +1,12 @@
 <?php
 session_start();
+require_once("../Language/Words.php");
+require_once("../Config.php");
 ?>
 <!DOCTYPE html>
 <html>
 		<head>
-			<title>Caranille - Installation du MMORPG</title>
+			<title><?php echo $Install_0; ?></title>
 			<meta charset="utf-8" />
 			<link rel="stylesheet" media="screen" type="text/css" title="design" href="../Design/Design.css" />
 		</head>
@@ -20,37 +22,28 @@ session_start();
 				if (empty($_POST['Accept']) && empty($_POST['Create_Configuration']) && empty($_POST['Choose_Curve']) && empty($_POST['Start_Installation']) && empty($_POST['Configure']) && empty($_POST['Finish']))
 				{
 					?>
-					<div class="important">Installation de caranille - Etape 1/5 (License d'utilisation)</div><p>
-					Bienvenue dans l'assistant d'installation de Caranille<br />
-					Cet assistant vous guidera tout au long de l'installation de Caranille<br />
-					pour vous offrir la meilleur experience possible dans la création de votre RPG<p>
-					
-					Pour commencer l'installation de Caranille veuillez lire et accepter la license d'utilisation<br /><br />
+					<div class="important"><?php echo $Install_1; ?></div><p>
+					<?php echo $Install_2; ?>
 					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr">Licence Creative Commons Attribution 4.0 International</a>.
 					<br /><br /><iframe src="../LICENCE.txt">
 					</iframe><br /><br />
 					<form method="POST" action="index.php">
-					<input type="submit" name="Accept" value="J'accepte la license d'utilisation de caranille et je la respecte"><br /><br />
-					<div class="important">Si vous n'acceptez pas la license d'utilisation, veuillez supprimer caranille</div>
+					<input type="submit" name="Accept" value="<?php echo $Install_3; ?>"><br /><br />
+					<div class="important"><?php echo $Install_4; ?></div>
 					</form>
 					<?php
 				}
 				if (isset($_POST['Accept']))
 				{
 					?>
-					<div class="important">Installation de caranille - Etape 2/5 (Configuration de la base de donnée)</div>
-					<p>Caranille à besoins d'une base de donnée pour stocker toutes les informations de votre jeu<br />
-					en passant par les données des joueurs, des objets, des monstres etc...</p>
-					
-					<p>Veuillez compléter le formulaire suivant avec les informations de connexion à votre base de donnée<br />
-					Si vous possedez un hébergement mutualisé il vous suffit de vous connecter sur le site de votre prestataire<br />
-					et de chercher les informations de votre base de donnée</p>
+					<div class="important"><?php echo $Install_5; ?></div>
+					<?php echo $Install_6; ?>
 					<form method="POST" action="index.php">
-					Adresse de votre serveur SQL<br /><input type="text" name="Server"><br /><br />
-					Nom d'utilisateur<br /> <input type="text" name="User"><br /><br />
-					Mot de passe<br /> <input type="password" name="Password"><br /><br />
-					Nom de la base<br /> <input type="text" name="Database"><br /><br />
-					<input type="submit" name="Create_Configuration" value="Creer la configuration du MMORPG">
+					<?php echo $Install_7; ?><br /><input type="text" name="Server"><br /><br />
+					<?php echo $Install_8; ?><br /> <input type="text" name="User"><br /><br />
+					<?php echo $Install_9; ?><br /> <input type="password" name="Password"><br /><br />
+					<?php echo $Install_10; ?><br /> <input type="text" name="Database"><br /><br />
+					<input type="submit" name="Create_Configuration" value="<?php echo $Install_11; ?>">
 					</form>
 					<?php
 				}
@@ -64,8 +57,8 @@ session_start();
 					fwrite($Open_Config, "
 					<?php
 
-					//Version du rpg de caranille
-					\$version = \"5.0.0\";
+					//Version of Caranille RPG
+					\$version = \"6.0.0\";
 					
 					\$bdd = new PDO('mysql:host=$Server;dbname=$Database', '$User', '$Password');
 						
@@ -75,31 +68,30 @@ session_start();
 					{
 						?>
 						<form method="POST" action="index.php">
-						Félicitation Le fichier de configuration à votre base de donnée à bien été crée<p>
-						Ce fichier va permettre à Caranille de communiquer à votre base de donnée.<br />
+						<?php echo $Install_12; ?>
 						<br /><br />
-						<input type="submit" name="Choose_Curve" value="Continuer">
+						<input type="submit" name="Choose_Curve" value="<?php echo $Install_13; ?>">
 						</form>
 						<?php
 					}
 					else
 					{
-						echo 'Le fichier de configuration n\'a pu être crée. Veuillez vérifier que PHP à bien les droits d\'écriture';
+						echo $Install_14;
 					}
                 }
 				if (isset($_POST['Choose_Curve']))
 				{
 					?>
-					Veuillez choisir la courbe d'experience
+					<?php echo $Install_15; ?>
 					<form method="POST" action="index.php">
-					Gain de HP par niveau: <br /> <input type="text" name="HP_Level"><br /><br />
-					Gain de MP par niveau: <br /> <input type="text" name="MP_Level"><br /><br />
-					Gain de Force par niveau: <br /> <input type="text" name="Strength_Level"><br /><br />
-					Gain de Magie par niveau: <br /> <input type="text" name="Magic_Level"><br /><br />
-					Gain de Agilité par niveau: <br /> <input type="text" name="Agility_Level"><br /><br />  
-					Gain de Défense par niveau: <br /> <input type="text" name="Defense_Level"><br /><br />                                  
-					Experience demandée en plus par niveau: <br /> <input type="text" name="Experience_Level"><br /><br />
-					<input type="submit" name="Start_Installation" value="Lancer l'installation">
+					<?php echo $Install_16; ?> <br /> <input type="text" name="HP_Level"><br /><br />
+					<?php echo $Install_17; ?> <br /> <input type="text" name="MP_Level"><br /><br />
+					<?php echo $Install_18; ?> <br /> <input type="text" name="Strength_Level"><br /><br />
+					<?php echo $Install_19; ?> <br /> <input type="text" name="Magic_Level"><br /><br />
+					<?php echo $Install_20; ?> <br /> <input type="text" name="Agility_Level"><br /><br />  
+					<?php echo $Install_21; ?> <br /> <input type="text" name="Defense_Level"><br /><br />                                  
+					<?php echo $Install_22; ?> <br /> <input type="text" name="Experience_Level"><br /><br />
+					<input type="submit" name="Start_Installation" value="<?php echo $Install_23; ?>">
 					</form>
 					<?php
 				}
@@ -107,7 +99,7 @@ session_start();
 				{
 					require("../Config.php");
 					?>
-					<div class="important">Installation de caranille - Etape 3/5 (Création des tables dans la base de donnée)</div><br /><br />
+					<div class="important"><?php echo $Install_24; ?></div><br /><br />
 					<?php
 					
 					$bdd->exec("CREATE TABLE `Caranille_Accounts` (
@@ -136,7 +128,6 @@ session_start();
 					`Account_Status` TEXT NOT NULL,
 					`Account_Reason` TEXT NOT NULL
 					)");
-					echo "Table Caranille_Accounts installée<br />";
 				
 					$bdd->exec("CREATE TABLE `Caranille_Chapters` (
 					`Chapter_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -147,14 +138,12 @@ session_start();
 					`Chapter_Defeate` TEXT NOT NULL,
 					`Chapter_Monster` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Chapters installée<br />";
 
 					$bdd->exec("CREATE TABLE `Caranille_Chat` (
 					`Chat_Message_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					`Chat_Pseudo_ID` INT(5) NOT NULL,
 					`Chat_Message` TEXT NOT NULL
 					)");
-					echo "Table Caranile_Chat installée<br />";
 
 					$bdd->exec("CREATE TABLE `Caranille_Configuration` (
 					`Configuration_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -162,7 +151,6 @@ session_start();
 					`Configuration_Presentation` TEXT NOT NULL,
 					`Configuration_Access` VARCHAR(10) NOT NULL
 					)");
-					echo "Table Caranille_Configuration installée<br />";
 
 					$bdd->exec("CREATE TABLE `Caranille_Inventory` (
 					`Inventory_ID` INT(5) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -171,19 +159,16 @@ session_start();
 					`Inventory_Item_Quantity` int(5) NOT NULL,
 					`Inventory_Item_Equipped` VARCHAR(10) NOT NULL
 					)");
-					echo "Table Caranille_Inventory installée<br />";
 				
 					$bdd->exec("CREATE TABLE `Caranille_Inventory_Invocations` (
 					`Inventory_Invocation_Account_ID` int(5) NOT NULL,
 					`Inventory_Invocation_Invocation_ID` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Inventory_Invocations installée<br />";
 				
 					$bdd->exec("CREATE TABLE `Caranille_Inventory_Magics` (
 					`Inventory_Magic_Account_ID` int(5) NOT NULL,
 					`Inventory_Magic_Magic_ID` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Inventory_Magics installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Invocations` (
 					`Invocation_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -194,7 +179,6 @@ session_start();
 					`Invocation_Town` int(5) NOT NULL,
 					`Invocation_Price` int(11) NOT NULL
 					)");
-					echo "Table caranille_chimères installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Items` (
 					`Item_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -214,7 +198,6 @@ session_start();
 					`Item_Purchase_Price` int(11) NOT NULL,
 					`Item_Sale_Price` int(11) NOT NULL
 					)");
-					echo "Table Caranille_Items installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Levels` (
 					`Level_ID` int(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -227,7 +210,6 @@ session_start();
 					`Level_Agility` bigint(255) NOT NULL,
 					`Level_Defense` bigint(255) NOT NULL
 					);");
-					echo "Table Caranille_Levels installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Magics` (
 					`Magic_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -240,7 +222,6 @@ session_start();
 					`Magic_Town` int(5) NOT NULL,
 					`Magic_Price` int(11) NOT NULL
 					)");
-					echo "Table Caranille_Magics installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Missions` (
 					`Mission_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -252,13 +233,11 @@ session_start();
 					`Mission_Defeate` TEXT NOT NULL,
 					`Mission_Monster` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Missions installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_Missions_Successful` (
 					`Mission_Successful_Mission_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 					`Mission_Successful_Account_ID` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Missions_Successful installée<br />";
 
 					$bdd->exec("CREATE TABLE `Caranille_Monsters` (
 					`Monster_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -285,7 +264,6 @@ session_start();
 					`Monster_Item_Five_Rate` int(11) NOT NULL,
 					`Monster_Access` VARCHAR(30) NOT NULL
 					)");
-					echo "Table Caranille_Monsters installée<br />";
 					
 					$bdd->exec("CREATE TABLE `Caranille_News` (
 					`News_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -294,7 +272,6 @@ session_start();
 					`News_Account_Pseudo` VARCHAR(15) NOT NULL,
 					`News_Date` DATETIME NOT NULL
 					)");
-					echo "Table Caranille_News installée<br />";
 		
 					$bdd->exec("CREATE TABLE `Caranille_Private_Messages` (
 					`Private_Message_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -303,7 +280,6 @@ session_start();
 					`Private_Message_Subject` TEXT NOT NULL,
 					`Private_Message_Message` TEXT NOT NULL
 					)");
-					echo "Table Caranille_Private_Messages installée<br />";
 				
 					$bdd->exec("CREATE TABLE `Caranille_Sanctions` (
 					`Sanction_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -312,7 +288,6 @@ session_start();
 					`Sanction_Transmitter` VARCHAR(50) NOT NULL,
 					`Sanction_Receiver` INT(11) NOT NULL
 					)");
-					echo "Table Caranille_Sanctions installée<br />";
 
 					$bdd->exec("CREATE TABLE `Caranille_Towns` (
 					`Town_ID` INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -322,7 +297,6 @@ session_start();
 					`Town_Price_INN` int(10) NOT NULL,
 					`Town_Chapter` int(5) NOT NULL
 					)");
-					echo "Table Caranille_Towns installée<br />";
 
 					$Level = 1;
 					$Experience = 0;
@@ -344,13 +318,13 @@ session_start();
 					'$Agility', 
 					'$Defense')");
                                         
-                                        $HP_Choice = $_POST['HP_Level'];
-                                        $MP_Choice = $_POST['MP_Level'];
-                                        $MP_Choice = $_POST['Strength_Level'];
-                                        $Magic_Choice = $_POST['Magic_Level'];
-                                        $Agility_Choice = $_POST['Agility_Level'];
-                                        $Defense_Choice = $_POST['Defense_Level'];
-                                        $Experience_Choice = $_POST['Experience_Level'];
+					$HP_Choice = $_POST['HP_Level'];
+					$MP_Choice = $_POST['MP_Level'];
+					$MP_Choice = $_POST['Strength_Level'];
+					$Magic_Choice = $_POST['Magic_Level'];
+					$Agility_Choice = $_POST['Agility_Level'];
+					$Defense_Choice = $_POST['Defense_Level'];
+					$Experience_Choice = $_POST['Experience_Level'];
 					while ($Level < 200)
 					{
 						$HP = $HP + $HP_Choice;
@@ -375,38 +349,33 @@ session_start();
 					}
 						
 					?>
-					Installation de caranille terminée avec succès<br />
-					Dans la suite de l'installation vous allez devoir configurer les bases de votre RPG<br />
+					<?php echo $Install_25; ?>
 					<form method="POST" action="index.php">
-					<input type="submit" name="Configure" value="Configurer mon MMORPG">
+					<input type="submit" name="Configure" value="<?php echo $Install_26; ?>">
 					</form>
 					<?php
 				}
 				if (isset($_POST['Configure']))
 				{
-					require("../Config.php");
-					?>
-					<div class="important">Installation de caranille - Etape 4/5 (Préparation de la configuration de base du RPG)</div><br /><br />
-					Dernière étape avant de pouvoir commencer votre RPG<p>
-					Cette étape est l'une des plus importantes pour votre jeu<br />
-					C'est ici que vous allez devoir donner un nom à votre RPG ainsi que une courte introduction<br /><br />
 					
-					De plus vous allez créer votre propre compte qui sera le compte administrateur</p>
+					?>
+					<div class="important"><?php echo $Install_27; ?></div><br /><br />
+					<?php echo $Install_28; ?>
 					<form method="POST" action="index.php">
-					Nom de votre RPG<br /> <input type="text" name="RPG_Name"><br /><br />
-					Présentation<br /><textarea name="Presentation" ID="Presentation" rows="10" cols="50"></textarea><br /><br />
-					Pseudo<br /> <input type="text" name="Pseudo"><br /><br />
-					Mot de passe<br /> <input type="password" name="Password"><br /><br />
-					Confirmer le mot de passe<br /> <input type="password" name="Password_Confirm"><br /><br />
-					Adresse e-mail<br /> <input type="text" name="Email"><br /><br />
-					<input type="submit" name="Finish" value="Terminer">
+					<?php echo $Install_29; ?><br /> <input type="text" name="RPG_Name"><br /><br />
+					<?php echo $Install_30; ?><br /><textarea name="Presentation" ID="Presentation" rows="10" cols="50"></textarea><br /><br />
+					<?php echo $Install_31; ?><br /> <input type="text" name="Pseudo"><br /><br />
+					<?php echo $Install_32; ?><br /> <input type="password" name="Password"><br /><br />
+					<?php echo $Install_33; ?><br /> <input type="password" name="Password_Confirm"><br /><br />
+					<?php echo $Install_34; ?><br /> <input type="text" name="Email"><br /><br />
+					<input type="submit" name="Finish" value="<?php echo $Install_35; ?>">
 					</form>
 					<?php
 				}
 				if (isset($_POST['Finish']))
 				{
 					require("../Config.php");
-					echo '<div class="important">Installation de caranille - Etape 5/5 (Installation des données de base du MMORPG)</div><br /><br />';
+					echo "<div class=\"important\"><?php echo $Install_36; ?></div><br /><br />";
 					$RPG_Name = htmlspecialchars(addslashes($_POST['RPG_Name']));
 					$Presentation = htmlspecialchars(addslashes($_POST['Presentation']));
 					$Pseudo = htmlspecialchars(addslashes($_POST['Pseudo']));
@@ -801,21 +770,18 @@ session_start();
 							'1')");
 						
 							?>
-							Félicitation Votre RPG a bien été crée<p/>
-							Vous allez maintenant pouvoir créer et modifier votre jeu et donner vie à une communauté de joueurs<br /><br />
-							
-							Par mesure de sécurité veuillez de supprimer le répertoire "Install" de votre serveur FTP<br />
+							<?php echo $Install_37; ?>
 							<form method="POST" action="../index.php">
-							<input type="submit" name="accueil" value="retourner à l'accueil">
+							<input type="submit" name="accueil" value="<?php echo $Install_38; ?>">
 							</form>
 							<?php
 						}
 						else
 						{
 							?>
-							ATTENTION: Les deux mots de passe entrée ne sont pas identiques
+							<?php echo $Install_39; ?>
 							<form method="POST" action="index.php">
-							<input type="submit" name="Finish" value="Recommencer">
+							<input type="submit" name="Finish" value="<?php echo $Install_40; ?>">
 							</form>
 							<?php
 						}
@@ -823,9 +789,9 @@ session_start();
 					else
 					{
 						?>
-						ATTENTION: Vous n'avez pas rempli tous les champs correctement
+						<?php echo $Install_41; ?>
 						<form method="POST" action="index.php">
-						<input type="submit" name="Finish" value="Recommencer">
+						<input type="submit" name="Finish" value="<?php echo $Install_42; ?>">
 						</form>
 						<?php
 					}
