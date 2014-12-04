@@ -1,4 +1,5 @@
 <?php
+//TRADUCTION OF INSTALL
 $Install_0 = "Caranille - Installation du MMORPG";
 $Install_1 = "Installation de caranille - Etape 1/5 (License d'utilisation)";
 $Install_2 = "Bienvenue dans l'assistant d'installation de Caranille<br />Cet assistant vous guidera tout au long de l'installation de Caranille<br />pour vous offrir la meilleur experience possible dans la création de votre RPG<p>Pour commencer l'installation de Caranille veuillez lire et accepter la license d'utilisation<br /><br />";
@@ -42,4 +43,17 @@ $Install_39 = "ATTENTION: Les deux mots de passe entrée ne sont pas identiques"
 $Install_40 = "Recommencer";
 $Install_41 = "ATTENTION: Vous n'avez pas rempli tous les champs correctement";
 $Install_42 = "Recommencer";
+
+//TRADUCTION OF MAIN
+$Main_0 = "News publiée le ";
+
+//TRADUCTION OF INN
+$Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
+$Inn_1 = "Pièce d'or<br />";
+$Inn_2 = "Accepter";
+$Inn_3 = "Vous avez récupéré toutes vos forces<br />";
+$Inn_4 = "Retourner en ville";
+$Inn_5 = "Vous n'avez pas assez d'argent";
+$Inn_6 = "Vous n'êtes dans aucune ville";
+$Inn_7 = "Vous devez être connecté pour accèder à cette zone";
 ?>

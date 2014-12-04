@@ -9,7 +9,7 @@
 		echo '<table>';
 			echo '<tr>';
 				echo '<th>';
-					echo "News publiée le " .$News['News_Date']. " Par " .$News['News_Account_Pseudo']. "";
+					echo "$Main_0 " .$News['News_Date']. " Par " .$News['News_Account_Pseudo']. "";
 				echo '</th>';
 			echo '</tr>';
 			
