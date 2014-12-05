@@ -14,23 +14,23 @@
 				{
 					$Monster_Image = $_SESSION['Monster_Image'];
 					echo "<img src=\"$Monster_Image\"><br />";
-					echo "Combat de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " Contre " .htmlspecialchars(addslashes($_SESSION['Pseudo'])). "<br /><br />";
-					echo "HP de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " " .htmlspecialchars(addslashes($_SESSION['Monster_HP'])). " HP<br />";
-					echo "Vos HP: " .htmlspecialchars(addslashes($_SESSION['HP'])). " HP<br /><br />";
+					echo "$Battle_0 " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " $Battle_1 " .htmlspecialchars(addslashes($_SESSION['Pseudo'])). "<br /><br />";
+					echo "$Battle_2 " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " " .htmlspecialchars(addslashes($_SESSION['Monster_HP'])). " HP<br />";
+					echo "$Battle_3 " .htmlspecialchars(addslashes($_SESSION['HP'])). " $Battle_4<br /><br />";
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Attack" value="Attaquer"><br />';
+					echo "<input type=\"submit\" name=\"Attack\" value=\"$Battle_5\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Magics" value="Magies"><br />';
+					echo "<input type=\"submit\" name=\"Magics\" value=\"$Battle_6\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Invocations" value="Invocation"><br />';
+					echo "<input type=\"submit\" name=\"Invocations\" value=\"$Battle_7\"><br />";
+					echo '</form>';
+					echo '<form method="POST" action=\"Battle.php\">';
+					echo "<input type=\"submit\" name=\"Items\" value=\"$Battle_8\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Items" value="Objets"><br />';
-					echo '</form>';
-					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Escape" value="fuir"><br />';
+					echo "<input type=\"submit\" name=\"Escape\" value=\"$Battle_9\"><br />";
 					echo '</form>';
 				}
 			}
@@ -67,21 +67,21 @@
 				$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) - htmlspecialchars(addslashes($Total_Damage_Monster));
 				$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 				echo "<img src=\"$Monster_Image\"><br />";
-				echo "Votre attaque a infligé $Total_Damage_Player HP de dégat au " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). "<br /><br />";
-				echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+				echo "$Battle_10 $Total_Damage_Player HP <br /><br />";
+				echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
 
 				$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP WHERE Account_ID= :ID");
 				$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'ID'=> $ID));
 
 				echo '<form method="POST" action="Battle.php">';
-				echo '<input type="submit" name="Continue" value="continuer">';
+				echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 				echo '</form>';
 				
 			}
 			if (isset($_POST['Magics']))
 			{
 					echo '<form method="POST" action="Battle.php">';
-					echo 'Quelle magie souhaitez-vous utiliser ?<br /><br />';
+					echo "$Battle_13<br /><br />";
 					echo '<select name="Magic" ID="Magic">';
 		
 					$List_Query_Magics = $bdd->prepare("SELECT * FROM Caranille_Inventory_Magics, Caranille_Magics 
@@ -96,7 +96,7 @@
 						$Magic_Description = stripslashes($List_Magics['Magic_Description']);
 						$Magic = stripslashes($List_Magics['Magic_Name']);
 						echo "<option value=\"$Magic\">$Magic ($Magic_Description, $Magic_MP_Cost MP)</option>";
-						echo "<br />Description: $Magic_Description<br /><br />";
+						echo "<br />$Battle_14: $Magic_Description<br /><br />";
 					}
 
 					$List_Query_Magics->closeCursor();
@@ -104,10 +104,10 @@
 					
 					echo '</select><br /><br />';
 					echo "<input type=\"hidden\" name=\"Magic_MP_Cost\" value=\"$Magic_MP_Cost\">";
-					echo '<input type="submit" name="End_Magics" value="Lancer le sort">';
+					echo "<input type=\"submit\" name=\"End_Magics\" value=\"$Battle_15">\">";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Cancel" value="Annuler"><br />';
+					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
 					echo '</form>';
 			}
 			if (isset($_POST['End_Magics']))
@@ -208,22 +208,23 @@
 						$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) - htmlspecialchars(addslashes($Magic_MP_Cost));
 						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Magic_Name vous a soigné de $Player_Health <br /><br />";
-						echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+						
+						echo "$Battle_17 $Player_Health HP <br /><br />";
+						echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
 						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
 						
 						echo '<form method="POST" action="Battle.php">';
-						echo '<input type="submit" name="Continue" value="continuer">';
+						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 						echo '</form>';
 					}
 				}
 				else
 				{
-					echo 'Vous n\'avez pas assez de MP';
+					echo "$Battle_18";
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Continue" value="continuer">';
+					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 					echo '</form>';
 				}
 			}
