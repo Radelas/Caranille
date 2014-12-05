@@ -1,5 +1,6 @@
 <?php
-$Install_0 = "Caranille - Installation du RPG";
+//TRADUCTION OF INSTALL
+$Install_0 = "Caranille - Installation du MMORPG";
 $Install_1 = "Installation de caranille - Etape 1/5 (License d'utilisation)";
 $Install_2 = "Bienvenue dans l'assistant d'installation de Caranille<br />Cet assistant vous guidera tout au long de l'installation de Caranille<br />pour vous offrir la meilleur experience possible dans la création de votre RPG<p>Pour commencer l'installation de Caranille veuillez lire et accepter la license d'utilisation<br /><br />";
 $Install_3 = "J'accepte la license d'utilisation de caranille et je la respecte";
@@ -42,4 +43,46 @@ $Install_39 = "ATTENTION: Les deux mots de passe entrée ne sont pas identiques"
 $Install_40 = "Recommencer";
 $Install_41 = "ATTENTION: Vous n'avez pas rempli tous les champs correctement";
 $Install_42 = "Recommencer";
+
+//TRADUCTION OF MAIN
+$Main_0 = "News publiée le ";
+
+//TRADUCTION OF INN
+$Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
+$Inn_1 = "Pièce d'or<br />";
+$Inn_2 = "Accepter";
+$Inn_3 = "Vous avez récupéré toutes vos forces<br />";
+$Inn_4 = "Retourner en ville";
+$Inn_5 = "Vous n'avez pas assez d'argent";
+$Inn_6 = "Vous n'êtes dans aucune ville";
+$Inn_7 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF INVENTORY
+$Inventory_0 = "Voici toutes les armures<br />";
+$Inventory_1 = "Image";
+$Inventory_2 = "Niveau requis";
+$Inventory_3 = "Nom";
+$Inventory_4 = "Description";
+$Inventory_5 = "Effet";
+$Inventory_6 = "Prix (PO)";
+$Inventory_7 = "Action";
+$Inventory_8 = "HP<br />";
+$Inventory_9 = "MP<br />";
+$Inventory_10 = "Force<br />";
+$Inventory_11 = "Magie<br />";
+$Inventory_12 = "Agilité<br />";
+$Inventory_13 = "Défense<br />";
+$Inventory_14 = "Acheter";
+$Inventory_15 = "Il n'y a actuellement aucune Armure en vente, revenez plus tard<br />";
+$Inventory_16 = "Voici toutes les bottes en ventes<br />";
+$Inventory_17 = "Il n'y a actuellement aucune bottes en vente, revenez plus tard<br />";
+$Inventory_18 = "Voici tous les gants en ventes<br />";
+$Inventory_19 = "Il n'y a actuellement aucun gants en vente, revenez plus tard<br />";
+$Inventory_20 = "Voici tous les casques en ventes<br />";
+$Inventory_21 = "Il n'y a actuellement aucun casque en vente, revenez plus tard<br />";
+$Inventory_22 = "Vous avez acheté";
+$Inventory_23 = "Retourner en ville";
+$Inventory_24 = "Vous n'avez pas assez d'argent";
+$Inventory_25 = "Vous n'êtes dans aucune ville";
+$Inventory_26 = "Vous devez être connecté pour accèder à cette page";
 ?>

@@ -56,4 +56,33 @@ $Inn_4 = "Retourner en ville";
 $Inn_5 = "Vous n'avez pas assez d'argent";
 $Inn_6 = "Vous n'êtes dans aucune ville";
 $Inn_7 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF INVENTORY
+$Inventory_0 = "Voici toutes les armures<br />";
+$Inventory_1 = "Image";
+$Inventory_2 = "Niveau requis";
+$Inventory_3 = "Nom";
+$Inventory_4 = "Description";
+$Inventory_5 = "Effet";
+$Inventory_6 = "Prix (PO)";
+$Inventory_7 = "Action";
+$Inventory_8 = "HP<br />";
+$Inventory_9 = "MP<br />";
+$Inventory_10 = "Force<br />";
+$Inventory_11 = "Magie<br />";
+$Inventory_12 = "Agilité<br />";
+$Inventory_13 = "Défense<br />";
+$Inventory_14 = "Acheter";
+$Inventory_15 = "Il n'y a actuellement aucune Armure en vente, revenez plus tard<br />";
+$Inventory_16 = "Voici toutes les bottes en ventes<br />";
+$Inventory_17 = "Il n'y a actuellement aucune bottes en vente, revenez plus tard<br />";
+$Inventory_18 = "Voici tous les gants en ventes<br />";
+$Inventory_19 = "Il n'y a actuellement aucun gants en vente, revenez plus tard<br />";
+$Inventory_20 = "Voici tous les casques en ventes<br />";
+$Inventory_21 = "Il n'y a actuellement aucun casque en vente, revenez plus tard<br />";
+$Inventory_22 = "Vous avez acheté";
+$Inventory_23 = "Retourner en ville";
+$Inventory_24 = "Vous n'avez pas assez d'argent";
+$Inventory_25 = "Vous n'êtes dans aucune ville";
+$Inventory_26 = "Vous devez être connecté pour accèder à cette page";
 ?>
