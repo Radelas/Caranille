@@ -10,6 +10,7 @@ $Battle_6 = "Magies";
 $Battle_7 = "Invocation";
 $Battle_8 = "Objets";
 $Battle_9 = "Fuir";
+<<<<<<< HEAD
 $Battle_10 = "Vous avez infligé une attaque de  :";
 $Battle_11 = "Vous avez subit une attaque de :";
 $Battle_12 = "Continuer";
@@ -30,6 +31,8 @@ $Inn_4 = "Retourner en ville";
 $Inn_5 = "Vous n'avez pas assez d'argent";
 $Inn_6 = "Vous n'êtes dans aucune ville";
 $Inn_7 = "Vous devez être connecté pour accèder à cette zone";
+=======
+>>>>>>> origin/master
 
 //TRADUCTION OF INSTALL
 $Install_0 = "Caranille - Installation du MMORPG";
@@ -76,6 +79,22 @@ $Install_40 = "Recommencer";
 $Install_41 = "ATTENTION: Vous n'avez pas rempli tous les champs correctement";
 $Install_42 = "Recommencer";
 
+<<<<<<< HEAD
+=======
+//TRADUCTION OF MAIN
+$Main_0 = "News publiée le ";
+
+//TRADUCTION OF INN
+$Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
+$Inn_1 = "Pièce d'or<br />";
+$Inn_2 = "Accepter";
+$Inn_3 = "Vous avez récupéré toutes vos forces<br />";
+$Inn_4 = "Retourner en ville";
+$Inn_5 = "Vous n'avez pas assez d'argent";
+$Inn_6 = "Vous n'êtes dans aucune ville";
+$Inn_7 = "Vous devez être connecté pour accèder à cette zone";
+
+>>>>>>> origin/master
 //TRADUCTION OF INVENTORY
 $Inventory_0 = "Voici toutes les armures<br />";
 $Inventory_1 = "Image";
@@ -104,8 +123,11 @@ $Inventory_23 = "Retourner en ville";
 $Inventory_24 = "Vous n'avez pas assez d'argent";
 $Inventory_25 = "Vous n'êtes dans aucune ville";
 $Inventory_26 = "Vous devez être connecté pour accèder à cette page";
+<<<<<<< HEAD
 
 
 //TRADUCTION OF MAIN
 $Main_0 = "News publiée le ";
+=======
+>>>>>>> origin/master
 ?>
