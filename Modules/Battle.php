@@ -161,14 +161,14 @@
 						$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) - htmlspecialchars(addslashes($Magic_MP_Cost));
 						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Magic_Choice a infligé $Player_Total_Magic_Damage HP de dégat au " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). "<br /><br />";
-						echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+						echo "$Battle_17 $Player_Total_Magic_Damage<br /><br />";
+						echo "$Battle_11 $Total_Damage_Monster HP<br /><br />";
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
 						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
 						
 						echo '<form method="POST" action="Battle.php">';
-						echo '<input type="submit" name="Continue" value="continuer">';
+						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 						echo '</form>';
 						
 					}
@@ -240,7 +240,7 @@
 					if ($Quantity_Invocations >=1)
 					{
 						echo '<form method="POST" action="Battle.php">';
-						echo 'Quelle chimère souhaitez-vous invoquer ?<br /><br />';
+						echo "$Battle_19<br /><br />";
 						echo '<select name="Invocation" id="Invocation">';
 
 						while ($Invocations_List = $List_Query_Invocations->fetch())
@@ -249,20 +249,20 @@
 							echo "<option value=\"$Invocation\">$Invocation</option>";
 						}
 						echo '</select>';
-						echo '<br /><br />Combien de MP souhaitez-vous utiliser pour l\'invoquer ?<br /><br />';
+						echo "<br /><br />$Battle_20<br /><br />";
 						echo '<input type="text" name="MP_Choice"><br /><br />';
-						echo '<input type="submit" name="End_Invocations" value="invoquer">';
+						echo "<input type=\"submit\" name=\"End_Invocations\" value=\"$Battle_21\">";
 						echo '</form>';
 						
 					}
 					else
 					{
-						echo 'Vous n\'avez aucune chimère à invoquer';
+						echo "$Battle_22";
 					}
 					$List_Query_Invocations->closeCursor();
 					
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Cancel" value="Annuler"><br />';
+					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
 					echo '</form>';
 			}
 			if (isset($_POST['End_Invocations']))
@@ -303,14 +303,14 @@
 					$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) - htmlspecialchars(addslashes($MP_Choice));
 					$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 					echo "<img src=\"$Monster_Image\"><br />";
-					echo "$Invocation_Choice a infligé $Invocation_Total_Damage HP de dégat au " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). "<br /><br />";
-					echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+					echo "$Battle_23 $Invocation_Total_Damage HP<br /><br />";
+					echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
 
 					$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
 					$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
 
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Continue" value="continuer">';
+					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 					echo '</form>';
 					
 				}
@@ -318,7 +318,7 @@
 				{
 					echo 'Vous n\'avez pas assez de MP';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="continuer_combat" value="continuer">';
+					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 					echo '</form>';
 				}
 			}
@@ -335,9 +335,9 @@
 					{
 						
 						echo '<form method="POST" action="Battle.php">';
-						echo 'Quel objet souhaitez-vous utiliser ?<br /><br />';
+						echo "$Battle_24<br /><br />";
 						echo '<select name="objet" id="objet">';
-						echo '<optgroup label="Soin de HP">';
+						echo "<optgroup label=\"$Battle_25\">";
 						
 				
 						$HP_Item_List = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
@@ -359,7 +359,7 @@
 						$Items_Quantity_Query->closeCursor();
 						
 						echo '</optgroup>';
-						echo '<optgroup label="Soin de MP">';
+						echo "<optgroup label=\"$Battle_26\">";
 						
 						$MP_Item_List_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
 						WHERE Inventory_Item_ID = Item_ID
@@ -386,7 +386,7 @@
 						if ($HP_Item >= 1 || $MP_Item >= 1 || $HP_Item >= 1 || $MP_Item >= 1)
 						{
 							echo "<br /><br /><input type=\"hidden\" name=\"Item_Quantity\" value=\"$Item_Quantity\">"; 
-							echo '<br /><br /><input type="submit" name="objets_fin_combat" value="Utiliser">';
+							echo "<br /><br /><input type=\"submit\" name=\"objets_fin_combat\" value=\"$Battle_27\">";
 							echo '</form>';
 						}
 						else
@@ -396,11 +396,11 @@
 					}
 					else
 					{
-						echo 'Vous n\'avez aucun objet à utiliser';
+						echo "$Battle_28";
 					}
 					
 					echo '<form method="POST" action="Battle.php">';
-					echo '<br /><br /><input type="submit" name="Cancel" value="Annuler"><br />';
+					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
 					echo '</form>';
 			}
 			if (isset($_POST['End_Items']))
@@ -467,8 +467,8 @@
 						$_SESSION['HP'] = htmlspecialchars(addslashes($_SESSION['HP'])) - htmlspecialchars(addslashes($Total_Damage_Monster));
 						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Item_Name vous a soigné de $Item_Effect <br /><br />";
-						echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+						echo "$Battle_29 $Item_Effect <br /><br />";
+						echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP WHERE Account_ID= :ID");
 						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'ID'=> $ID));
@@ -487,7 +487,7 @@
 							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
 						}
 						echo '<form method="POST" action="Battle.php">';
-						echo '<input type="submit" name="Continue" value="continuer">';
+						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 						echo '</form>';								
 					}
 					if ($Item_Type == "Soin des MP")
@@ -523,8 +523,8 @@
 						$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'] - $Total_Damage_Monster));
 						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Item_Name vous a soigné de $Item_Effect <br /><br />";
-						echo "Le " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " vous a infligé $Total_Damage_Monster HP de dégat<br /><br />";
+						echo "$Battle_29 $Item_Effect <br /><br />";
+						echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
 						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
@@ -550,9 +550,9 @@
 			//Si l'utilisateur à choisit la fuite
 			if (isset($_POST['Escape']))
 			{
-				echo 'Vous avez fuit le combat<br />';
+				echo "$Battle_30<br />";
 				echo '<form method="POST" action="Main.php">';
-				echo '<input type="submit" name="End_Battle" value="continuer">';
+				echo "<input type=\"submit\" name=\"End_Battle\" value=\"$Battle_12\">";
 				echo '</form>';
 			}
 			//Si l'utilisateur continue le combat on vérifie si il y a un gagnant ou un perdant
@@ -772,7 +772,7 @@
 					}
 					
 					
-					echo '<input type="submit" name="End_Battle" value="continuer">';
+					echo "<input type=\"submit\" name=\"End_Battle\" value=\"$Battle_12\">";
 					echo '</form>';
 					
 				}
@@ -806,7 +806,7 @@
 					}
 					
 					echo '<br /><br /><form method="POST" action="Main.php">';
-					echo '<input type="submit" name="End" value="Continuer">';
+					echo "<input type=\"submit\" name=\"End\" value=\"$Battle_12\">";
 					echo '</form>';
 				}
 			}
