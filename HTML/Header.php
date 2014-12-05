@@ -3,6 +3,7 @@ session_start();
 $Config = '../Config.php';
 if (file_exists($Config)) 
 {
+	require_once("../Language/Words.php");
 	require_once("../Config.php");
 	require_once("../Refresh.php");
 }

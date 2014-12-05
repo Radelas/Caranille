@@ -14,23 +14,23 @@
 				{
 					$Monster_Image = $_SESSION['Monster_Image'];
 					echo "<img src=\"$Monster_Image\"><br />";
-					echo "Combat de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " Contre " .htmlspecialchars(addslashes($_SESSION['Pseudo'])). "<br /><br />";
-					echo "HP de " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " " .htmlspecialchars(addslashes($_SESSION['Monster_HP'])). " HP<br />";
-					echo "Vos HP: " .htmlspecialchars(addslashes($_SESSION['HP'])). " HP<br /><br />";
+					echo "$Battle_0 " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " $Battle_1 " .htmlspecialchars(addslashes($_SESSION['Pseudo'])). "<br /><br />";
+					echo "$Battle_2 " .htmlspecialchars(addslashes($_SESSION['Monster_Name'])). " " .htmlspecialchars(addslashes($_SESSION['Monster_HP'])). " HP<br />";
+					echo "$Battle_3 " .htmlspecialchars(addslashes($_SESSION['HP'])). " $Battle_4<br /><br />";
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Attack" value="Attaquer"><br />';
+					echo "<input type=\"submit\" name=\"Attack\" value=\"$Battle_5\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Magics" value="Magies"><br />';
+					echo "<input type=\"submit\" name=\"Magics\" value=\"$Battle_6\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Invocations" value="Invocation"><br />';
+					echo "<input type=\"submit\" name=\"Invocations\" value=\"$Battle_7\"><br />";
+					echo '</form>';
+					echo '<form method="POST" action=\"Battle.php\">';
+					echo "<input type=\"submit\" name=\"Items\" value=\"$Battle_8\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Items" value="Objets"><br />';
-					echo '</form>';
-					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="Escape" value="fuir"><br />';
+					echo "<input type=\"submit\" name=\"Escape\" value=\"$Battle_9\"><br />";
 					echo '</form>';
 				}
 			}
