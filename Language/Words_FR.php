@@ -17,9 +17,20 @@ $Battle_13 = "Quelle magie souhaitez-vous utiliser ?";
 $Battle_14 = "Description:";
 $Battle_15 = "Lancer le sort";
 $Battle_16 = "Annuler";
-$Battle_17 = "Votre magie vous a soigné de :";
+$Battle_17 = "Votre attaque magique à infligé :";
 $Battle_18 = "Vous n'avez pas assez de MP";
-
+$Battle_19 = "Quelle chimère souhaitez-vous invoquer ?";
+$Battle_20 = "Combien de MP souhaitez-vous utiliser pour l'invoquer ?";
+$Battle_21 = "Invoquer";
+$Battle_22 = "Vous n\'avez aucune chimère à invoquer";
+$Battle_23 = "Votre chimère à infligé :";
+$Battle_24 = "Quel objet souhaitez-vous utiliser ?";
+$Battle_25 = "Soin de HP";
+$Battle_26 = "Soin de MP";
+$Battle_27 = "Utiliser";
+$Battle_28 = "Vous n'avez aucun objet à utiliser";
+$Battle_29 = "Votre objet vous à soigné de";
+$Battle_30 = "Vous avez fuit le combat";
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
