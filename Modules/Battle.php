@@ -563,12 +563,12 @@
 				{	
 					$Gold_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Golds']));
 					$_SESSION['Battle'] = 0;
-					echo "Vous avez remporté le combat !!!<br /><br />";
-					echo "Pièces d'or (PO) + $Gold_Gained <br /><br />";
+					echo "$Battle_31<br /><br />";
+					echo "$Battle_32 $Gold_Gained <br /><br />";
 					$Experience_Gained = htmlspecialchars(addslashes($_SESSION['Monster_Experience']));
 					$Experience_Bonus = $_SESSION['Sagesse_Bonus'] * $Experience_Gained /100;
 					$Experience_Total = $Experience_Gained + round($Experience_Bonus);
-					echo "Experience (XP) + $Experience_Total <br />";
+					echo "$Battle_33 $Experience_Total <br />";
 					if ($_SESSION['Monster_Item_One'] >= 1)
 					{
 						$Monster_Item_One_Rate = mt_rand(0, 100);
@@ -752,7 +752,7 @@
 					if ($_SESSION['Chapter_Battle'] == 1)
 					{	
 						echo '<form method="POST" action="Main.php">';
-						echo "Votre niveau dans l'histoire augmente de 1 point<br />";								
+						echo "$Battle_34<br />";								
 						echo $_SESSION['Chapter_Ending'];
 						$_SESSION['Chapter'] = htmlspecialchars(addslashes($_SESSION['Chapter'])) + 1;
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained, Account_Chapter= Account_Chapter + 1 WHERE Account_ID= :ID");
@@ -770,7 +770,6 @@
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained, Account_Mission = Account_Mission + 1 WHERE Account_ID= :ID");
 						$Update_Account->execute(array('Experience_Total'=> $Experience_Total, 'Gold_Gained'=> $Gold_Gained, 'ID'=> $ID));
 					}
-					
 					
 					echo "<input type=\"submit\" name=\"End_Battle\" value=\"$Battle_12\">";
 					echo '</form>';
@@ -790,7 +789,7 @@
 					}
 					if ($_SESSION['Dungeon_Battle'] == 1)
 					{
-						echo 'Vous êtes morts...<br />Vous avez été emmené d\'urgence à l\'auberge et les soins vous ont été facturé ' .htmlspecialchars(addslashes($_SESSION['Town_Price_INN'])). ' Pièce d\'or<br />';
+						echo "$Battle_35" .htmlspecialchars(addslashes($_SESSION['Town_Price_INN'])). "$Battle_36";
 						$Current_Money = htmlspecialchars(addslashes($_SESSION['Gold'])) - htmlspecialchars(addslashes($_SESSION['Town_Price_INN']));
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :HP_Total, Account_Golds= :Current_Money WHERE Account_ID= :ID");
@@ -815,7 +814,7 @@
 	//Si il n'existe pas de données dans la session pseudo, demander de se connecter
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette page';
+		echo "$Battle_37";
 	}
 	require_once("../HTML/Footer.php");
 ?>

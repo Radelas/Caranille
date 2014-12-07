@@ -31,6 +31,13 @@ $Battle_27 = "Utiliser";
 $Battle_28 = "Vous n'avez aucun objet à utiliser";
 $Battle_29 = "Votre objet vous à soigné de";
 $Battle_30 = "Vous avez fuit le combat";
+$Battle_31 = "Vous avez remporté le combat !!!";
+$Battle_32 = "Pièces d'or gagnée :";
+$Battle_33 = "Experience gagnée :";
+$Battle_34 = "Votre niveau dans l'histoire augmente de 1 point";
+$Battle_35 = "Vous êtes morts...<br />Vous avez été soigné pour :";
+$Battle_36 = "Pièce d'or";
+$Battle_37 = "Vous devez être connecté pour accèder à cette page";
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";

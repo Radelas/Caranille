@@ -8,7 +8,7 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo "echo $Inventory_0";
+				echo "$Inventory_0";
 				echo '<p><table>';
 		
 					echo '<tr>';
@@ -194,7 +194,7 @@
 					echo "$Inventory_17";
 				}
 			
-				echo "Inventory_18";
+				echo "$Inventory_18";
 				echo '<p><table>';
 		
 					echo '<tr>';

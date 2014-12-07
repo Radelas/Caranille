@@ -31,6 +31,45 @@ $Battle_27 = "Utiliser";
 $Battle_28 = "Vous n'avez aucun objet à utiliser";
 $Battle_29 = "Votre objet vous à soigné de";
 $Battle_30 = "Vous avez fuit le combat";
+$Battle_31 = "Vous avez remporté le combat !!!";
+$Battle_32 = "Pièces d'or gagnée :";
+$Battle_33 = "Experience gagnée :";
+$Battle_34 = "Votre niveau dans l'histoire augmente de 1 point";
+$Battle_35 = "Vous êtes morts...<br />Vous avez été soigné pour :";
+$Battle_36 = "Pièce d'or";
+$Battle_37 = "Vous devez être connecté pour accèder à cette page";
+
+//TRADUCTION OF CHARACTERE
+$Character_0 = "Bienvenue sur la page de votre personnage";
+$Character_1 = "Cette page présente votre personnage avec ses caractéristiques et sont équipement";
+$Character_2 = "Pseudo";
+$Character_3 = "Adresse e-mail";
+$Character_4 = "Niveau";
+$Character_5 = "Force";
+$Character_6 = "Magie";
+$Character_7 = "Agilité";
+$Character_8 = "Défense";
+$Character_9 = "HP";
+$Character_10 = "MP";
+$Character_11 = "Arme";
+$Character_12 = "Bottes";
+$Character_13 = "Casque";
+$Character_14 = "Gants";
+$Character_15 = "Protection";
+$Character_16 = "Pièces d'or (PO)";
+$Character_17 = "Experience (XP)";
+$Character_18 = "Prochain niveau";
+$Character_19 = "Chapitre";
+$Character_20 = "Nombre de mission réussie";
+$Character_21 = "Access";
+$Character_22 = "Changer mon mot de passe";
+$Character_23 = "Pour changer votre mot de passe veuillez compléter le formulaire ci-dessous";
+$Character_24 = "Nouveau mot de passe:";
+$Character_25 = "Confirmation du mot de passe";
+$Character_26 = "Terminer";
+$Character_27 = "Votre mot de passe à bien été modifié";
+$Character_28 = "Retour";
+$Character_29 = "Les deux mots de passe ne sont pas identiques";
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
