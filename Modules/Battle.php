@@ -543,7 +543,7 @@
 							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
 						}
 						echo '<form method="POST" action="Battle.php">';
-						echo '<input type="submit" name="Continue" value="continuer">';
+						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 						echo '</form>';
 					}
 			}
@@ -581,7 +581,7 @@
 							while ($Item_Name = $Item_One->fetch())
 							{
 								$Item_Name_One = stripslashes($Item_Name['Item_Name']);
-								echo "Vous avez gagné l'objet suivant: $Item_Name_One<br />";
+								echo "$Battle_34 $Item_Name_One<br />";
 
 								$One_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
 								WHERE Inventory_Item_ID= ?
@@ -617,7 +617,7 @@
 							while ($Item_Name = $Item_Two->fetch())
 							{
 								$Item_Name_Two = stripslashes($Item_Name['Item_Name']);
-								echo "Vous avez gagné l'objet suivant: $Item_Name_Two<br />";
+								echo "$Battle_34 $Item_Name_Two<br />";
 
 								$Two_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
 								WHERE Inventory_Item_ID= ?
@@ -653,7 +653,7 @@
 							while ($Item_Name = $Item_Three->fetch())
 							{
 								$Item_Name_Three = stripslashes($Item_Name['Item_Name']);
-								echo "Vous avez gagné l'objet suivant: $Item_Name_Three<br />";
+								echo "$Battle_34 $Item_Name_Three<br />";
 
 								$Three_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
 								WHERE Inventory_Item_ID= ?
@@ -689,7 +689,7 @@
 							while ($Item_Name = $Item_Four->fetch())
 							{
 								$Item_Name_Four = stripslashes($Item_Name['Item_Name']);
-								echo "Vous avez gagné l'objet suivant: $Item_Name_Four<br />";
+								echo "$Battle_34 $Item_Name_Four<br />";
 
 								$Four_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
 								WHERE Inventory_Item_ID= ?
@@ -725,7 +725,7 @@
 							while ($Item_Name = $Item_Five->fetch())
 							{
 								$Item_Name_Five = stripslashes($Item_Name['Item_Name']);
-								echo "Vous avez gagné l'objet suivant: $Item_Name_Five<br />";
+								echo "$Battle_34 $Item_Name_Five<br />";
 
 								$Five_Item_Verification = $bdd->prepare("SELECT * FROM Caranille_Inventory
 								WHERE Inventory_Item_ID= ?
@@ -752,7 +752,7 @@
 					if ($_SESSION['Chapter_Battle'] == 1)
 					{	
 						echo '<form method="POST" action="Main.php">';
-						echo "$Battle_34<br />";								
+						echo "$Battle_35<br />";								
 						echo $_SESSION['Chapter_Ending'];
 						$_SESSION['Chapter'] = htmlspecialchars(addslashes($_SESSION['Chapter'])) + 1;
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Experience= Account_Experience + :Experience_Total, Account_Golds= Account_Golds + :Gold_Gained, Account_Chapter= Account_Chapter + 1 WHERE Account_ID= :ID");
@@ -789,7 +789,7 @@
 					}
 					if ($_SESSION['Dungeon_Battle'] == 1)
 					{
-						echo "$Battle_35" .htmlspecialchars(addslashes($_SESSION['Town_Price_INN'])). "$Battle_36";
+						echo "$Battle_36" .htmlspecialchars(addslashes($_SESSION['Town_Price_INN'])). "$Battle_37";
 						$Current_Money = htmlspecialchars(addslashes($_SESSION['Gold'])) - htmlspecialchars(addslashes($_SESSION['Town_Price_INN']));
 
 						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :HP_Total, Account_Golds= :Current_Money WHERE Account_ID= :ID");
@@ -814,7 +814,7 @@
 	//Si il n'existe pas de données dans la session pseudo, demander de se connecter
 	else
 	{
-		echo "$Battle_37";
+		echo "$Battle_38";
 	}
 	require_once("../HTML/Footer.php");
 ?>

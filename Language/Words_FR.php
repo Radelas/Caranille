@@ -34,10 +34,11 @@ $Battle_30 = "Vous avez fuit le combat";
 $Battle_31 = "Vous avez remporté le combat !!!";
 $Battle_32 = "Pièces d'or gagnée :";
 $Battle_33 = "Experience gagnée :";
-$Battle_34 = "Votre niveau dans l'histoire augmente de 1 point";
-$Battle_35 = "Vous êtes morts...<br />Vous avez été soigné pour :";
-$Battle_36 = "Pièce d'or";
-$Battle_37 = "Vous devez être connecté pour accèder à cette page";
+$Battle_34 = "Vous avez gagné l'objet suivant:";
+$Battle_35 = "Votre niveau dans l'histoire augmente de 1 point";
+$Battle_36 = "Vous êtes morts...<br />Vous avez été soigné pour :";
+$Battle_37 = "Pièce d'or";
+$Battle_38 = "Vous devez être connecté pour accèder à cette page";
 
 //TRADUCTION OF CHARACTERE
 $Character_0 = "Bienvenue sur la page de votre personnage";
