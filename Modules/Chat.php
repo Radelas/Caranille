@@ -10,15 +10,14 @@
 			$Send_Message = $bdd->prepare("INSERT INTO Caranille_Chat VALUES('', :ID, :Message)");
 			$Send_Message->execute(array('ID' => $ID, 'Message' => $Message));
 		}
-		echo 'Bienvenue dans le chat publique<p>';
-		echo 'Le chat va vous permettre de discuter en temps réel avec les autres joueurs<br >et ainsi peut être trouver votre futur compagnon d\'arme<br />';
+		echo "$Chat_0";
 		echo '<table>';
 			echo '<tr>';
 				echo '<td>';
-					echo 'Pseudo';
+					echo "$Chat_1";
 				echo '</td>';
 				echo '<td>';
-					echo 'Message';
+					echo "$Chat_2";
 				echo '</td>';
 		
 			if ($_SESSION['Access'] == "Admin")
@@ -66,12 +65,12 @@
 		echo '</table><br />';
 		echo '<form method="POST" action="Chat.php">';
 		echo '<input type="text" name="Message"><br />';
-		echo '<input type="submit" name="Send" value="Envoyer">';
-		echo '<input type="submit" name="Refresh" value="Actualiser">';
+		echo "<input type=\"submit\" name=\"Send\" value=\"$Chat_3\">";
+		echo "<input type=\"submit\" name=\"Refresh\" value=\"$Chat_4\">";
 	
 		if ($_SESSION['Access'] == "Admin")
 		{
-			echo '<br /><input type="submit" name="Clear" value="Vider le chat">';
+			echo "<br /><input type=\"submit\" name=\"Clear\" value=\"$Chat_5\">";
 		}
 		echo '</form>';
 		
@@ -82,7 +81,7 @@
 				$ID_Message = htmlspecialchars(addslashes($_POST['ID_message']));
 				$Delete_Message = $bdd->prepare("DELETE FROM Caranille_Chat WHERE Chat_Message_ID=:ID_Message");
 				$Delete_Message->execute(array('ID_Message' => $ID_Message));
-				echo 'Le message a bien été supprimé';
+				echo "$Chat_6";
 			}
 		}
 		if (isset($_POST['Clear']))
@@ -90,13 +89,13 @@
 			if ($_SESSION['Access'] == "Admin")
 			{
 				$bdd->exec("DELETE FROM Caranille_Chat");
-				echo 'Tous les messages ont bien été supprimé';
+				echo "$Chat_7";
 			}
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette page';
+		echo "$Chat_8";
 	}
 	require_once("../HTML/Footer.php");
 ?>

@@ -71,6 +71,17 @@ $Character_27 = "Votre mot de passe à bien été modifié";
 $Character_28 = "Retour";
 $Character_29 = "Les deux mots de passe ne sont pas identiques";
 
+//TRADUCTION OF CHAT
+$Chat_0 = "Bienvenue dans le chat publique<p>Le chat va vous permettre de discuter en temps réel avec les autres joueurs<br >et ainsi peut être trouver votre futur compagnon d'arme";
+$Chat_1 = "Pseudo";
+$Chat_2 = "Message";
+$Chat_3 = "Envoyer";
+$Chat_4 = "Actualiser";
+$Chat_5 = "Vider le chat";
+$Chat_6 = "Le message a bien été supprimé";
+$Chat_7 = "Tous les messages ont bien été supprimé";
+$Chat_8 = "Vous devez être connecté pour accèder à cette page";
+
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
 $Inn_1 = "Pièce d'or<br />";
