@@ -104,7 +104,7 @@
 					
 					echo '</select><br /><br />';
 					echo "<input type=\"hidden\" name=\"Magic_MP_Cost\" value=\"$Magic_MP_Cost\">";
-					echo "<input type=\"submit\" name=\"End_Magics\" value=\"$Battle_15">\">";
+					echo "<input type=\"submit\" name=\"End_Magics\" value=\"$Battle_15\">";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
 					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
