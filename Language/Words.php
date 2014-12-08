@@ -98,7 +98,7 @@ $Dungeon_4 = "Vous n'êtes dans aucune villes";
 $Dungeon_5 = "Vous devez être connecté pour accèder à cette zone";
 
 //TRADUCTION OF INVENTORY
-$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />":
+$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />";
 $Inventory_1 = "Mes armes";
 $Inventory_2 = "Mes armures";
 $Inventory_3 = "Mes bottes";
@@ -141,7 +141,6 @@ $Inventory_39 = "Vous ne pouvez pas vendre cet objet car il est actuellement éq
 $Inventory_40 = "Vente effectuée, vous avez gagné";
 $Inventory_41 = "Le parchemin à bien été utilisé";
 $Inventory_42 = "Vous devez être connecté pour accèder à cette zone";
-
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
