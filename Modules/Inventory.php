@@ -5,70 +5,67 @@
 	{
 		if (empty($_POST['Armor']) && empty($_POST['Boots']) && empty($_POST['Gloves']) && empty($_POST['Helmet']) && empty($_POST['Weapon']) && empty($_POST['Invocation']) && empty($_POST['Magic']) && empty($_POST['Item']) && empty($_POST['Parchment']) && empty($_POST['Item_Equip']) && empty($_POST['Sale']))
 		{
-			echo 'Bienvenue dans votre inventaire<br /><br />';
-			echo 'Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l\'équiper sur votre personnage.<br /><br />';
-			echo 'Veuillez choisi une catégorie<br /><br />';
+			echo "$Inventory_0";
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Weapon" value="Mes armes">';
+			echo "<input type=\"submit\" name=\"Weapon\" value=\"$Inventory_1\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Armor" value="Mes armures">';
+			echo "<input type=\"submit\" name=\"Armor\" value=\"$Inventory_2\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Boots" value="Mes bottes">';
+			echo "<input type=\"submit\" name=\"Boots\" value=\"$Inventory_3\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Helmet" value="Mes casque">';
+			echo "<input type=\"submit\" name=\"Helmet\" value=\"$Inventory_4\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Invocation" value="Mes chimères">';
+			echo "<input type=\"submit\" name=\"Invocation\" value=\"$Inventory_5\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Gloves" value="Mes gants">';
+			echo "<input type=\"submit\" name=\"Gloves\" value=\"$Inventory_6\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Magic" value="Mes magies">';
+			echo "<input type=\"submit\" name=\"Magic\" value=\"$Inventory_7\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Item" value="Mes objets">';
+			echo "<input type=\"submit\" name=\"Item\" value=\"$Inventory_8\">";
 			echo '</form>';
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Parchment" value="Mes Parchemins">';
+			echo "<input type=\"submit\" name=\"Parchment\" value=\"$Inventory_9\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Weapon']))
 		{
-			echo 'Voici vos armes<br /><br />';
-			echo '<table>';
+			echo "$Inventory_10";
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Niveau requis';
+					echo "$Inventory_13";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -100,12 +97,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -123,12 +120,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Item_Equip" value="S\'équiper">';
+						echo "<input type=\"submit\" name=\"Item_Equip\" value=\"$Inventory_25\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -138,42 +135,42 @@
 	
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Armor']))
 		{
-			echo 'Voici vos armures<br /><br />';
+			echo "Inventory_27<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Niveau requis';
+					echo "$Inventory_13";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -205,12 +202,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -228,12 +225,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Item_Equip" value="S\'équiper">';
+						echo "<input type=\"submit\" name=\"Item_Equip\" value=\"$Inventory_25\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -243,42 +240,42 @@
 	
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Boots']))
 		{
-			echo 'Voici vos bottes<br /><br />';
+			echo "$Inventory_28<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Niveau requis';
+					echo "$Inventory_13";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -310,12 +307,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -333,12 +330,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Item_Equip" value="S\'équiper">';
+						echo "<input type=\"submit\" name=\"Item_Equip\" value=\"$Inventory_25\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -348,42 +345,42 @@
 	
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Helmet']))
 		{
-			echo 'Voici vos casque<br /><br />';
+			echo "$Inventory_29<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Niveau requis';
+					echo "$Inventory_13";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -415,12 +412,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -438,12 +435,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Item_Equip" value="S\'équiper">';
+						echo "<input type=\"submit\" name=\"Item_Equip\" value=\"$Inventory_25\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -458,37 +455,37 @@
 		}
 		if (isset($_POST['Gloves']))
 		{
-			echo 'Voici vos gants<br /><br />';
+			echo "$Inventory_30<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Niveau requis';
+					echo "$Inventory_13";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -520,12 +517,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -543,12 +540,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Item_Equip" value="S\'équiper">';
+						echo "<input type=\"submit\" name=\"Item_Equip\" value=\"$Inventory_25\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -558,30 +555,30 @@
 	
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Magic']))
 		{
-			echo 'Voici vos magies<br /><br />';
+			echo "$Inventory_31<br /><br />";
 			echo '<table>';
-		
-				echo '<tr>';
+			
+			echo '<tr>';
 
 					echo '<td>';
-						echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-						echo 'Description';
-					echo '</td>';
-
-					echo '<td>';
-						echo 'Type';
+					echo "$Inventory_12";
 					echo '</td>';
 				
 					echo '<td>';
-						echo 'Effet';
+					echo "$Inventory_18";
+					echo '</td>';
+
+					echo '<td>';
+					echo "$Inventory_15";
 					echo '</td>';
 
 				echo '</tr>';
@@ -619,26 +616,26 @@
 
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Invocation']))
 		{
-			echo 'Voici vos chimères<br /><br />';
+			echo "$Inventory_32<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-						echo 'Nom';
+						echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-						echo 'Description';
+						echo "$Inventory_12";
 					echo '</td>';
 
 					echo '<td>';
-						echo 'Effet';
+						echo "$Inventory_15";
 					echo '</td>';
 
 				echo '</tr>';
@@ -670,39 +667,39 @@
 
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 
 		}
 		if (isset($_POST['Item']))
 		{
-			echo 'Voici vos objets<br /><br />';
+			echo "$Inventory_33<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-						echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-						echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 
 					echo '<td>';
-						echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-						echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-						echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-						echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -731,12 +728,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -757,7 +754,7 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				
@@ -789,12 +786,12 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -815,7 +812,7 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				
@@ -826,39 +823,39 @@
 
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 
 		}
 		if (isset($_POST['Parchment']))
 		{
-			echo 'Voici vos parchemins<br /><br />';
+			echo "$Inventory_34<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
 
 					echo '<td>';
-					echo 'Nom';
+					echo "$Inventory_11";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Description';
+					echo "$Inventory_12";
 					echo '</td>';
 
 					echo '<td>';
-					echo 'Quantité';
+					echo "$Inventory_14";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Effet';
+					echo "$Inventory_15";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'Prix de vente';
+					echo "$Inventory_16";
 					echo '</td>';
 				
 					echo '<td>';
-					echo 'action';
+					echo "$Inventory_17";
 					echo '</td>';
 
 				echo '</tr>';
@@ -886,13 +883,13 @@
 					echo '</td>';
 				
 					echo '<td>';
-						echo '+' .stripslashes($Item['Item_HP_Effect']). ' HP<br />';
-						echo '+' .stripslashes($Item['Item_MP_Effect']). ' MP<br />';
-						echo '+' .stripslashes($Item['Item_Strength_Effect']). ' Force<br />';
-						echo '+' .stripslashes($Item['Item_Magic_Effect']). ' Magie<br />';
-						echo '+' .stripslashes($Item['Item_Agility_Effect']). ' Agilité<br />';
-						echo '+' .stripslashes($Item['Item_Defense_Effect']). ' Defense<br />';
-						echo '+' .stripslashes($Item['Item_Sagesse_Effect']). ' Sagesse';
+						echo '+' .stripslashes($Item['Item_HP_Effect']). " HP<br />";
+						echo '+' .stripslashes($Item['Item_MP_Effect']). " MP<br />";
+						echo '+' .stripslashes($Item['Item_Strength_Effect']). " $Inventory_19<br />";
+						echo '+' .stripslashes($Item['Item_Magic_Effect']). " $Inventory_20<br />";
+						echo '+' .stripslashes($Item['Item_Agility_Effect']). " $Inventory_21<br />";
+						echo '+' .stripslashes($Item['Item_Defense_Effect']). " $Inventory_22";
+						echo '+' .stripslashes($Item['Item_Sagesse_Effect']). " $Inventory_22";
 					echo '</td>';
 				
 					echo '<td>';
@@ -909,12 +906,12 @@
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Use" value="Utiliser">';
+						echo "<input type=\"submit\" name=\"Use\" value=\"$Inventory_35\">";
 						echo '</form>';
 						echo '<form method="POST" action="Inventory.php">';
 						echo "<input type=\"hidden\" name=\"Inventory_ID\" value=\"$Inventory_ID\">";
 						echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-						echo '<input type="submit" name="Sale" value="Vendre"><br /><br />';
+						echo "<input type=\"submit\" name=\"Sale\" value=\"$Inventory_26\"><br /><br />";
 						echo '</form>';
 					echo '</td>';
 				echo '</tr>';
@@ -923,7 +920,7 @@
 	
 			echo '</table>';
 			echo '<form method="POST" action="Inventory.php"><br />';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		if (isset($_POST['Item_Equip']))
@@ -969,11 +966,11 @@
 					AND Inventory_Item_ID= :Item_ID");
 					$Update_Account->execute(array('Inventory_ID'=> $Inventory_ID, 'Item_ID'=> $Item_ID));
 				}
-				echo "Equipement effectué";
+				echo "$Inventory_36";
 			}
 			else
 			{
-				echo 'Vous ne possedez pas le niveau requis pour équiper cet objet';
+				echo "$Inventory_37";
 			}
 		}
 		if (isset($_POST['Sale']))
@@ -1008,13 +1005,13 @@
 				WHERE Inventory_ID = :Inventory_ID");
 
 				$Update_Account->execute(array('Inventory_ID'=> $Inventory_ID));
-				echo "Vente effectuée";
+				echo "$Inventory_38";
 			}
 			else
 			{
 				if ($Inventory_ID == $_SESSION['Armor_Inventory_ID'] || $Inventory_ID == $_SESSION['Boots_Inventory_ID'] ||$Inventory_ID == $_SESSION['Gloves_Inventory_ID'] || $Inventory_ID == $_SESSION['Helmet_Inventory_ID'] || $Inventory_ID == $_SESSION['Weapon_Inventory_ID'])
 				{
-					echo 'Vous ne pouvez pas vendre cet objet car il est actuellement équipé<br />';
+					echo "$Inventory_39<br />";
 				}
 				else
 				{
@@ -1025,11 +1022,11 @@
 					$Update_Account = $bdd->prepare("DELETE FROM Caranille_Inventory
 					WHERE Inventory_ID = :Inventory_ID");
 					$Update_Account->execute(array('Inventory_ID'=> $Inventory_ID));
-					echo "Vente effectuée, vous avez gagné $Item_Sale_Price PO";
+					echo "$Inventory_40 $Item_Sale_Price PO";
 				}
 			}
 			echo '<form method="POST" action="Inventory.php">';
-			echo '<input type="submit" name="Cancel" value="retour">';
+			echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_24\">";
 			echo '</form>';
 		}
 		/*
@@ -1097,7 +1094,7 @@
 				'Item_Defense_Effect' => $Item_Defense_Effect, 
 				'Item_Sagesse_Effect' => $Item_Sagesse_Effect, 
 				'ID' => $ID));
-				echo "Le parchemin à bien été utilisé";
+				echo "$Inventory_41";
 			
 			}
 			else
@@ -1125,13 +1122,13 @@
 				'Item_Defense_Effect' => $Item_Defense_Effect, 
 				'Item_Sagesse_Effect' => $Item_Sagesse_Effect, 
 				'ID' => $ID));
-				echo "Le parchemin à bien été utilisé";
+				echo "$Inventory_41";
 			}
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Inventory_42";
 	}	
 	require_once("../HTML/Footer.php");
 ?>

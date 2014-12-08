@@ -3,10 +3,11 @@
 	require_once("../Global.php");
 	if (empty($_POST['Delete']))
 	{
+		echo "$Delete_Account_0";
 		echo '<form method="POST" action="Delete_Account.php"><br />';
 		echo 'Pseudo<br /> <input type="text" name="Pseudo"><br /><br />';
 		echo 'Mot de passe<br /> <input type="password" name="Password"><br /><br />';
-		echo '<input type="submit" name="Delete" value="Suppression">';
+		echo "<input type=\"submit\" name=\"Delete\" value=\"$Delete_Account_1\">";
 		echo '</form>';
 	}
 	if (isset($_POST['Delete']))
@@ -23,11 +24,11 @@
 			$Delete_Account = $bdd->prepare("Message_List_Query FROM Caranille_Accounts WHERE Account_Pseudo= :Pseudo AND Account_Password= :Password");
 			$Delete_Account->execute(array('Pseudo'=> $Pseudo, 'Password'=> $Password));
 
-			echo 'Votre compte ainsi que toute vos données personnelles ont été définitivement supprimée';
+			echo "$Delete_Account_2";
 		}
 		else
 		{
-			echo 'Mauvaise combinaison Pseudo/Mot de Passe';
+			echo "$Delete_Account_3";
 		}
 	}
 	require_once("../HTML/Footer.php");

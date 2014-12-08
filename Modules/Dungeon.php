@@ -7,8 +7,7 @@
 		{
 			if (empty($_POST['Battle']))
 			{	
-				echo '<p>Bienvenue dans le donjon</p><p>Dans ce lieu vous allez pouvoir combattre des monstres pour vous entrainer</p>';
-				echo '<p>Voici la liste des monstres:</p>';
+				echo "$Dungeon_0";
 				$ville_actuel = htmlspecialchars(addslashes($_SESSION['Town_ID']));
 
 				$recherche_monstre = $bdd->prepare("SELECT * FROM Caranille_Monsters
@@ -27,7 +26,7 @@
 					echo "MP: " .stripslashes($monstre['Monster_MP']). "<br />";
 					echo '<form method="POST" action="Dungeon.php">';
 					echo "<input type=\"hidden\" name=\"Monster_ID\" value=\"$Monster_ID\">";
-					echo '<input type="submit" name="Battle" value="combattre">';
+					echo "<input type=\"submit\" name=\"Battle\" value=\"$Dungeon_1\">";
 					echo '</form><br />';
 				}
 
@@ -35,9 +34,8 @@
 
 				if (empty($Monster_ID))
 				{
-					echo 'Aucun monstre ne rode dans les parages, revenez plus tard';
+					echo "$Dungeon_2";
 				}
-		
 			}
 			if (isset($_POST['Battle']))
 			{
@@ -84,7 +82,7 @@
 					$_SESSION['Mission_Battle'] = 0;
 				
 					echo '<form method="POST" action="Battle.php">';
-					echo '<input type="submit" name="lancer_donjon" value="Lancer le combat">';
+					echo "<input type=\"submit\" name=\"lancer_donjon\" value=\"$Dungeon_3\">";
 					echo '</form>';
 				}
 
@@ -94,12 +92,12 @@
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune villes';
+			echo "$Dungeon_4";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Dungeon_5";
 	}	
 	require_once("../HTML/Footer.php");
 ?>

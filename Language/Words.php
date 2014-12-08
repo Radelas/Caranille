@@ -83,6 +83,66 @@ $Chat_6 = "Le message a bien été supprimé";
 $Chat_7 = "Tous les messages ont bien été supprimé";
 $Chat_8 = "Vous devez être connecté pour accèder à cette page";
 
+//TRADUCTION OF DELETE_ACCOUNT
+$Delete_Account_0 = "Pour supprimer votre compte veuillez remplir le formulaire suivant :";
+$Delete_Account_1 = "Supprimer";
+$Delete_Account_2 = "Votre compte ainsi que toute vos données personnelles ont été définitivement supprimée";
+$Delete_Account_3 = "Mauvaise combinaison Pseudo/Mot de Passe";
+
+//TRADUCTION OF DUNGEON
+$Dungeon_0 = "Bienvenue dans le donjon</p><p>Dans ce lieu vous allez pouvoir combattre des monstres pour vous entrainer</p><p>Voici la liste des monstres:</p>";
+$Dungeon_1 = "combattre";
+$Dungeon_2 = "Aucun monstre ne rode dans les parages, revenez plus tard";
+$Dungeon_3 = "Lancer le combat";
+$Dungeon_4 = "Vous n'êtes dans aucune villes";
+$Dungeon_5 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF INVENTORY
+$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />":
+$Inventory_1 = "Mes armes";
+$Inventory_2 = "Mes armures";
+$Inventory_3 = "Mes bottes";
+$Inventory_4 = "Mes casque";
+$Inventory_5 = "Mes chimères";
+$Inventory_6 = "Mes gants";
+$Inventory_7 = "Mes magies";
+$Inventory_8 = "Mes objets";
+$Inventory_9 = "Mes Parchemins";
+$Inventory_10 = "Voici vos armes";
+$Inventory_11 = "Nom";
+$Inventory_12 = "Description";
+$Inventory_13 = "Niveau requis";
+$Inventory_14 = "Quantité";
+$Inventory_15 = "Effet";
+$Inventory_16 = "Prix de vente";
+$Inventory_17 = "action";
+$Inventory_18 = "Type";
+$Inventory_19 = "Force";
+$Inventory_20 = "Magie";
+$Inventory_21 = "Agilité";
+$Inventory_22 = "Défense";
+$Inventory_23 = "Sagesse";
+$Inventory_24 = "Retour";
+$Inventory_25 = "S'équiper";
+$Inventory_26 = "Vendre";
+$Inventory_27 = "Voici vos armures";
+$Inventory_28 = "Voici vos bottes";
+$Inventory_29 = "Voici vos casque";
+$Inventory_30 = "Voici vos gants";
+$Inventory_31 = "Voici vos magies";
+$Inventory_32 = "Voici vos chimères";
+$Inventory_33 = "Voici vos objets";
+$Inventory_34 = "Voici vos parchemins";
+$Inventory_35 = "Utiliser";
+$Inventory_36 = "Equipement effectué";
+$Inventory_37 = "Vous ne possedez pas le niveau requis pour équiper cet objet";
+$Inventory_38 = "Vente effectuée";
+$Inventory_39 = "Vous ne pouvez pas vendre cet objet car il est actuellement équipé";
+$Inventory_40 = "Vente effectuée, vous avez gagné";
+$Inventory_41 = "Le parchemin à bien été utilisé";
+$Inventory_42 = "Vous devez être connecté pour accèder à cette zone";
+
+
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
 $Inn_1 = "Pièce d'or<br />";
@@ -151,34 +211,34 @@ $Inn_5 = "Vous n'avez pas assez d'argent";
 $Inn_6 = "Vous n'êtes dans aucune ville";
 $Inn_7 = "Vous devez être connecté pour accèder à cette zone";
 
-//TRADUCTION OF INVENTORY
-$Inventory_0 = "Voici toutes les armures<br />";
-$Inventory_1 = "Image";
-$Inventory_2 = "Niveau requis";
-$Inventory_3 = "Nom";
-$Inventory_4 = "Description";
-$Inventory_5 = "Effet";
-$Inventory_6 = "Prix (PO)";
-$Inventory_7 = "Action";
-$Inventory_8 = "HP<br />";
-$Inventory_9 = "MP<br />";
-$Inventory_10 = "Force<br />";
-$Inventory_11 = "Magie<br />";
-$Inventory_12 = "Agilité<br />";
-$Inventory_13 = "Défense<br />";
-$Inventory_14 = "Acheter";
-$Inventory_15 = "Il n'y a actuellement aucune Armure en vente, revenez plus tard<br />";
-$Inventory_16 = "Voici toutes les bottes en ventes<br />";
-$Inventory_17 = "Il n'y a actuellement aucune bottes en vente, revenez plus tard<br />";
-$Inventory_18 = "Voici tous les gants en ventes<br />";
-$Inventory_19 = "Il n'y a actuellement aucun gants en vente, revenez plus tard<br />";
-$Inventory_20 = "Voici tous les casques en ventes<br />";
-$Inventory_21 = "Il n'y a actuellement aucun casque en vente, revenez plus tard<br />";
-$Inventory_22 = "Vous avez acheté";
-$Inventory_23 = "Retourner en ville";
-$Inventory_24 = "Vous n'avez pas assez d'argent";
-$Inventory_25 = "Vous n'êtes dans aucune ville";
-$Inventory_26 = "Vous devez être connecté pour accèder à cette page";
+//TRADUCTION OF WEAPON_SHOP
+$Weapon_Shop_0 = "Voici toutes les armures<br />";
+$Weapon_Shop_1 = "Image";
+$Weapon_Shop_2 = "Niveau requis";
+$Weapon_Shop_3 = "Nom";
+$Weapon_Shop_4 = "Description";
+$Weapon_Shop_5 = "Effet";
+$Weapon_Shop_6 = "Prix (PO)";
+$Weapon_Shop_7 = "Action";
+$Weapon_Shop_8 = "HP<br />";
+$Weapon_Shop_9 = "MP<br />";
+$Weapon_Shop_10 = "Force<br />";
+$Weapon_Shop_11 = "Magie<br />";
+$Weapon_Shop_12 = "Agilité<br />";
+$Weapon_Shop_13 = "Défense<br />";
+$Weapon_Shop_14 = "Acheter";
+$Weapon_Shop_15 = "Il n'y a actuellement aucune Armure en vente, revenez plus tard<br />";
+$Weapon_Shop_16 = "Voici toutes les bottes en ventes<br />";
+$Weapon_Shop_17 = "Il n'y a actuellement aucune bottes en vente, revenez plus tard<br />";
+$Weapon_Shop_18 = "Voici tous les gants en ventes<br />";
+$Weapon_Shop_19 = "Il n'y a actuellement aucun gants en vente, revenez plus tard<br />";
+$Weapon_Shop_20 = "Voici tous les casques en ventes<br />";
+$Weapon_Shop_21 = "Il n'y a actuellement aucun casque en vente, revenez plus tard<br />";
+$Weapon_Shop_22 = "Vous avez acheté";
+$Weapon_Shop_23 = "Retourner en ville";
+$Weapon_Shop_24 = "Vous n'avez pas assez d'argent";
+$Weapon_Shop_25 = "Vous n'êtes dans aucune ville";
+$Weapon_Shop_26 = "Vous devez être connecté pour accèder à cette page";
 
 
 //TRADUCTION OF MAIN

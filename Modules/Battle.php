@@ -26,7 +26,7 @@
 					echo '<form method="POST" action="Battle.php">';
 					echo "<input type=\"submit\" name=\"Invocations\" value=\"$Battle_7\"><br />";
 					echo '</form>';
-					echo '<form method="POST" action=\"Battle.php\">';
+					echo '<form method="POST" action="Battle.php">';
 					echo "<input type=\"submit\" name=\"Items\" value=\"$Battle_8\"><br />";
 					echo '</form>';
 					echo '<form method="POST" action="Battle.php">';
