@@ -22,7 +22,7 @@ $Battle_18 = "Vous n'avez pas assez de MP";
 $Battle_19 = "Quelle chimère souhaitez-vous invoquer ?";
 $Battle_20 = "Combien de MP souhaitez-vous utiliser pour l'invoquer ?";
 $Battle_21 = "Invoquer";
-$Battle_22 = "Vous n\'avez aucune chimère à invoquer";
+$Battle_22 = "Vous n'avez aucune chimère à invoquer";
 $Battle_23 = "Votre chimère à infligé :";
 $Battle_24 = "Quel objet souhaitez-vous utiliser ?";
 $Battle_25 = "Soin de HP";
@@ -98,7 +98,7 @@ $Dungeon_4 = "Vous n'êtes dans aucune villes";
 $Dungeon_5 = "Vous devez être connecté pour accèder à cette zone";
 
 //TRADUCTION OF INVENTORY
-$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />";
+$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />":
 $Inventory_1 = "Mes armes";
 $Inventory_2 = "Mes armures";
 $Inventory_3 = "Mes bottes";
@@ -141,6 +141,7 @@ $Inventory_39 = "Vous ne pouvez pas vendre cet objet car il est actuellement éq
 $Inventory_40 = "Vente effectuée, vous avez gagné";
 $Inventory_41 = "Le parchemin à bien été utilisé";
 $Inventory_42 = "Vous devez être connecté pour accèder à cette zone";
+
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
@@ -197,8 +198,84 @@ $Install_40 = "Recommencer";
 $Install_41 = "ATTENTION: Vous n'avez pas rempli tous les champs correctement";
 $Install_42 = "Recommencer";
 
+//TRADUCTION OF ITEM_SHOP
+$Item_Shop_0 = "Voici tous les objets en ventes";
+$Item_Shop_1 = "Image";
+$Item_Shop_2 = "Nom";
+$Item_Shop_3 = "Description";
+$Item_Shop_4 = "Effet";
+$Item_Shop_5 = "Prix (PO)";
+$Item_Shop_6 = "Action";
+$Item_Shop_7 = "acheter";
+$Item_Shop_8 = "Il n'y a actuellement aucun objet de soin des HP";
+$Item_Shop_9 = "Il n'y a actuellement aucun objet de soin des MP";
+$Item_Shop_10 = "Voici tous les parchemins en ventes";
+$Item_Shop_11 = "Il n'y a actuellement aucun parchemin";
+$Item_Shop_12 = "Vous avez acheté l'objet";
+$Item_Shop_13 = "Annuler";
+$Item_Shop_14 = "Vous n'avez pas assez d'argent";
+$Item_Shop_15 = "Vous n'êtes dans aucune villes";
+$Item_Shop_16 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF LOGIN
+$Login_0 = "Pour continuer votre partie veuillez vous identifier";
+$Login_1 = "Pseudo";
+$Login_2 = "Mot de passe";
+$Login_3 = "Se connecter";
+$Login_4 = "ATTENTION\\n\Votre dernière connexion ne provient pas de la même adresse IP.\\nCela peut signifier qu'une autre personne se soit connectée avec votre compte\\nSi par contre vous vous êtes connecté depuis un autre poste veuillez ignorer ce message\\n\\nPour information voici un détail de votre dernière connexion:\\n-Date de connexion:";
+$Login_5 = "Connection Réussi";
+$Login_6 = "Commencer à jouer";
+$Login_7 = "Le jeu est actuellement fermé, merci de revenir plus tard";
+$Login_8 = "IMPOSSIBLE DE SE CONNECTER\\nVotre compte est banni pour la raison suivante :\\n :";
+$Login_9 = "Mauvaise combinaison Pseudo/Mot de passe";
+
+//TRADUCTION OF LOGOUT
+$Logout_0 = "Déconnection effectuée";
+$Logout_1 = "Retour à l'accueil";
+
 //TRADUCTION OF MAIN
 $Main_0 = "News publiée le ";
+$Main_1 = "Par";
+
+//TRADUCTION OF MAGIC_SHOP
+$Magic_Shop_0 = "Voici toutes les magies en ventes";
+$Magic_Shop_1 = "Image";
+$Magic_Shop_2 = "Nom";
+$Magic_Shop_3 = "Description";
+$Magic_Shop_4 = "Prix (PO)";
+$Magic_Shop_5 = "Action";
+$Magic_Shop_6 = "acheter";
+$Magic_Shop_7 = "Il n'y a actuellement aucune magie en vente, revenez plus tard";
+$Magic_Shop_8 = "Vous possédez déjà cette magie";
+$Magic_Shop_9 = "Retourner en ville";
+$Magic_Shop_10 = "Vous avez acheté la magie";
+$Magic_Shop_11 = "Vous n'êtes dans aucune villes";
+$Magic_Shop_12 = "Vous devez être connecté pour accèder à cette zone";
+
+
+//TRADUCTION OF MAP
+$Map_0 = "Bienvenue dans la carte du monde<br /><br />La carte du monde vous montrera tous les lieux où vous pouvez aller que çe soit pour vous balader ou pour une mission<br /><br />";
+$Map_1 = "entrer";
+$Map_2 = "Bienvenue à";
+$Map_3 = "S'entrainer";
+$Map_4 = "Les missions";
+$Map_5 = "Boutique d'armes";
+$Map_6 = "Boutique d'accessoire";
+$Map_7 = "Boutique de magie";
+$Map_8 = "Boutique d'objets";
+$Map_9 = "Le temple";
+$Map_10 = "L'auberge";
+$Map_11 = "Quitter la ville";
+$Map_12 = "Vous venez de quitter la ville";
+$Map_13 = "Retourner à la carte du monde";
+$Map_14 = "vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF MISSION
+$Mission_0 = "accepter";
+$Mission_1 = "Il n'y a aucune mission disponible dans cette ville, profitez-en pour vous entrainer";
+$Mission_2 = "Lancer le combat";
+$Mission_3 = "Vous n'êtes dans aucune ville";
+$Mission_4 = "Vous devez être connecté pour accèder à cette zone";
 
 //TRADUCTION OF INN
 $Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
@@ -238,8 +315,4 @@ $Weapon_Shop_23 = "Retourner en ville";
 $Weapon_Shop_24 = "Vous n'avez pas assez d'argent";
 $Weapon_Shop_25 = "Vous n'êtes dans aucune ville";
 $Weapon_Shop_26 = "Vous devez être connecté pour accèder à cette page";
-
-
-//TRADUCTION OF MAIN
-$Main_0 = "News publiée le ";
 ?>

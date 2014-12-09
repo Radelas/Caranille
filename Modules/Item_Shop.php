@@ -8,33 +8,33 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo 'Voici tous les objets en ventes<br />';
+				echo "$Item_Shop_0<br />";
 				echo '<table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo 'Image';
+							echo "$Item_Shop_1";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Nom';
+							echo "$Item_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Description';
+							echo "$Item_Shop_3";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Effet';
+							echo "$Item_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Prix (PO)';
+							echo "$Item_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Action';
+							echo "$Item_Shop_6";
 						echo '</td>';
 
 					echo '</tr>';
@@ -73,7 +73,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Item_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Item_Shop_7\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -84,7 +84,7 @@
 
 				if (empty($Item_ID))
 				{
-					echo 'Il n\'y a actuellement aucun objet de soin des HP<br /><br />';
+					echo "$Item_Shop_8<br /><br />";
 				}
 				$Item_Query = $bdd->prepare("SELECT * FROM Caranille_Items
 				WHERE Item_Type = 'Magic'
@@ -120,7 +120,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Item_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Item_Shop_7\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -130,35 +130,35 @@
 				echo '</table><br /><br />';
 				if (empty($Item_ID))
 				{
-					echo 'Il n\'y a actuellement aucun objet de soin des MP<br /><br />';
+					echo "$Item_Shop_9<br /><br />";
 				}
-				echo 'Voici tous les parchemins en ventes<br />';
+				echo "$Item_Shop_10<br />";
 				echo '<table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo 'Image';
+							echo "$Item_Shop_1";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Nom';
+							echo "$Item_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Description';
+							echo "$Item_Shop_3";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Effet';
+							echo "$Item_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Prix (PO)';
+							echo "$Item_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Action';
+							echo "$Item_Shop_6";
 						echo '</td>';
 
 					echo '</tr>';
@@ -202,7 +202,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Item_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Item_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Item_Shop_7\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -212,7 +212,7 @@
 		    echo '</table>';
 				if (empty($Item_ID))
 				{
-					echo 'Il n\'y a actuellement aucun parchemin<br /><br />';
+					echo "$Item_Shop_11<br /><br />";
 				}
 			}
 			if (isset($_POST['Buy']))
@@ -263,16 +263,16 @@
 							$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Golds= :Gold WHERE Account_ID= :ID");
 							$Update_Account->execute(array('Gold'=> $Gold, 'ID'=> $ID));
 						}
-						echo "Vous avez acheté l'objet $Item<br /><br />";
+						echo "$Item_Shop_12 $Item<br /><br />";
 						echo '<form method="POST" action="Item_Shop.php">';
-						echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+						echo "<input type=\"submit\" name=\"Cancel\" value=\"$Item_Shop_13\">";
 						echo '</form>';
 					}
 					else
 					{
-						echo 'Vous n\'avez pas assez d\'argent';
+						echo "$Item_Shop_14";
 						echo '<form method="POST" action="Item_Shop.php">';
-						echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+						echo "<input type=\"submit\" name=\"Cancel\" value=\"$Item_Shop_13\">";
 						echo '</form>';
 					}
 				}
@@ -281,12 +281,12 @@
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune villes';
+			echo "$Item_Shop_15";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Item_Shop_16";
 	}
 	require_once("../HTML/Footer.php");
 ?>

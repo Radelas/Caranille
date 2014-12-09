@@ -7,9 +7,7 @@
 		{
 			if (empty($_POST['entrer_Town']))
 			{	
-				echo 'Bienvenue dans la carte du monde<br /><br />';
-				echo 'La carte du monde vous montrera tous les lieux où vous pouvez aller que çe soit pour vous balader ou pour une mission<br /><br />';
-			
+				echo "$Map_0";			
 				$recherche_Towns = $bdd->prepare("SELECT * FROM Caranille_Towns 
 				WHERE Town_Chapter <= ?");
 				$recherche_Towns->execute(array($_SESSION['Chapter']));
@@ -22,7 +20,7 @@
 
 					echo '<form method="POST" action="Map.php">';
 					echo "<input type=\"hidden\" name=\"Town_ID\" value=\"$Town_ID\">";
-					echo '<input type="submit" name="entrer_Town" value="entrer">';
+					echo "<input type=\"submit\" name=\"entrer_Town\" value=\"$Map_1\">";
 					echo '</form><br />';
 				}
 			}
@@ -49,20 +47,20 @@
 			{
 				$Town_Image = htmlspecialchars(addslashes($_SESSION['Town_Image']));
 				echo "<img src=\"$Town_Image\"><br />";
-				echo "Bienvenue à " .htmlspecialchars(addslashes($_SESSION['Town_Name'])). "<br /><br />";
+				echo "$Map_2 " .htmlspecialchars(addslashes($_SESSION['Town_Name'])). "<br /><br />";
 				echo "" .htmlspecialchars(addslashes($_SESSION['Town_Description'])). "<br /><br />";
 
 			
-				echo '<a href="Dungeon.php">S\'entrainer</a><br />';
-				echo '<a href="Mission.php">Les missions</a><br />';
-				echo '<a href="Weapon_Shop.php">Boutique d\'armes</a><br />';
-				echo '<a href="Accessory_Shop.php">Boutique d\'accessoire</a><br />';
-				echo '<a href="Magic_Shop.php">Boutique de magie</a><br />';
-				echo '<a href="Item_Shop.php">Boutique d\'objets</a><br />';
-				echo '<a href="Temple.php">Le temple</a><br />';
-				echo '<a href="Inn.php">L\'auberge</a><br /><br />';
+				echo "<a href=\"Dungeon.php\">$Map_3</a><br />";
+				echo "<a href=\"Mission.php\">$Map_4</a><br />";
+				echo "<a href=\"Weapon_Shop.php\">$Map_5</a><br />";
+				echo "<a href=\"Accessory_Shop.php\">$Map_6</a><br />";
+				echo "<a href=\"Magic_Shop.php\">$Map_7</a><br />";
+				echo "<a href=\"Item_Shop.php\">$Map_8</a><br />";
+				echo "<a href=\"Temple.php\">$Map_9</a><br />";
+				echo "<a href=\"Inn.php\">$Map_10</a><br /><br />";
 				echo '<form method="POST" action="Map.php">';
-				echo '<input type="submit" name="Exit_Town" value="Quitter la Town">';
+				echo "<input type=\"submit\" name=\"Exit_Town\" value=\"$Map_11\">";
 				echo '</form>';
 			
 			}
@@ -70,16 +68,16 @@
 			if (isset($_POST['Exit_Town']))
 			{
 				$_SESSION['Town'] = 0;
-				echo '<p>Vous venez de quitter la Town';
+				echo "$Map_12";
 				echo '<form method="POST" action="Map.php">';
-				echo '<input type="submit" name="carte" value="Retourner à la carte du monde">';
+				echo "<input type=\"submit\" name=\"carte\" value=\"$Map_13\">";
 				echo '</form></p>';
 			}
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Map_14";
 	}
 	require_once("../HTML/Footer.php");
 ?>

@@ -3,11 +3,11 @@
 	require_once("../Global.php");
 	if (empty($_POST['Login']))
 	{
-		echo 'Pour continuer votre partie veuillez vous identifier<br /><br />';
+		echo "$Login_0<br /><br />";
 		echo '<form method="POST" action="Login.php"><br />';
-		echo 'Pseudo<br /> <input type="text" name="Pseudo"><br /><br />';
-		echo 'Mot de passe<br /> <input type="password" name="Password"><br /><br />';
-		echo '<input type="submit" name="Login" value="Se connecter">';
+		echo "$Login_1<br /> <input type=\"text\" name=\"Pseudo\"><br /><br />";
+		echo "$Login_2<br /> <input type=\"password\" name=\"Password\"><br /><br />";
+		echo "<input type=\"submit\" name=\"Login\" value=\"$Login_3\">";
 		echo '</form>';
 	}
 	if (isset($_POST['Login']))
@@ -212,12 +212,12 @@
     				$Last_IP = $_SESSION['Last_IP'];
     				if ($Last_IP != $_SERVER["REMOTE_ADDR"])
     				{
-    					echo "<script type=\"text/javascript\"> alert(\"ATTENTION\\n\Votre dernière connexion ne provient pas de la même adresse IP.\\nCela peut signifier qu'une autre personne se soit connectée avec votre compte\\nSi par contre vous vous êtes connecté depuis un autre poste veuillez ignorer ce message\\n\\nPour information voici un détail de votre dernière connexion:\\n-Date de connexion: $Last_Connection\\n- Adresse IP: $Last_IP\"); </script>";
+    					echo "<script type=\"text/javascript\"> alert(\"$Login_4 $Last_Connection\\n- Adresse IP: $Last_IP\"); </script>";
     				}
     				$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Last_Connection = :Date, Account_Last_IP = :IP WHERE Account_ID = :ID");
     				$Update_Account->execute(array('Date' => $Date, 'IP' => $IP, 'ID' => $ID));
-    				echo 'Connection Réussi<br /><br />';
-    				echo '<a href="Main.php">Commencer à jouer</a>';
+    				echo "$Login_5<br /><br />";
+    				echo "<a href=\"Main.php\">$Login_6</a>";
     			}
     			else
     			{
@@ -230,16 +230,16 @@
     					$Last_IP = $_SESSION['Last_IP'];
     					if ($Last_IP != $_SERVER["REMOTE_ADDR"])
     					{
-    						echo "<script type=\"text/javascript\"> alert(\"ATTENTION\\n\Votre dernière connexion ne provient pas de la même adresse IP.\\nCela peut signifier qu'une autre personne se soit connectée avec votre compte\\nSi par contre vous vous êtes connecté depuis un autre poste veuillez ignorer ce message\\n\\nPour information voici un détail de votre dernière connexion:\\n-Date de connexion: $Last_Connection\\n- Adresse IP: $Last_IP\"); </script>";
+    						echo "<script type=\"text/javascript\"> alert(\"$Login_4 $Last_Connection\\n- Adresse IP: $Last_IP\"); </script>";
     					}
     					$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Last_Connection = :Date, Account_Last_IP = :IP WHERE Account_ID = :ID");
     					$Update_Account->execute(array('Date' => $Date, 'IP' => $IP, 'ID' => $ID));
-    					echo 'Connection Réussi<br /><br />';
-    					echo '<a href="Main.php">Commencer à jouer</a>';
+    					echo "$Login_5<br /><br />";
+    					echo "<a href=\"Main.php\">$Login_6</a>";
     				}
     				else
     				{	
-    					echo 'Le jeu est actuellement fermé, merci de revenir plus tard';
+    					echo "$Login_7";
     					$ID = $_SESSION['ID'];
     					$Date = date('Y-m-d H:i:s');
     					$IP = $_SERVER["REMOTE_ADDR"];
@@ -252,12 +252,12 @@
 	        else
 	        {
 	            $Reason = $_SESSION['Reason'];
-	            echo "<script type=\"text/javascript\"> alert(\"IMPOSSIBLE DE SE CONNECTER\\nVotre compte est banni pour la raison suivante :\\n : $Reason\"); </script>";
+	            echo "<script type=\"text/javascript\"> alert(\"$Login_8 $Reason\"); </script>";
 	        }
 		}
 		else
 		{
-			echo 'Mauvaise combinaison Pseudo/Mot de passe';
+			echo "$Login_9";
 		}
 	}
 	require_once("../HTML/Footer.php");

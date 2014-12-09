@@ -40,8 +40,8 @@
 							$_SESSION['Mission_Defeate'] = stripslashes(nl2br($Mission['Mission_Defeate']));
 							$_SESSION['Mission_Victory'] = stripslashes(nl2br($Mission['Mission_Victory']));
 							echo '<form method="POST" action="Mission.php">';
-							echo '<input type="hidden" name="Mission_ID" value="$Mission_ID">';
-							echo '<input type=\"submit" name="Accept" value="accepter">';
+							echo "<input type=\"hidden\" name=\"Mission_ID\" value=\"$Mission_ID\">";
+							echo "<input type=\"submit\" name=\"Accept\" value=\"$Mission_0\">";
 							echo '</form><br /><br />';
 						}
 			
@@ -49,7 +49,7 @@
 
 						if (empty($Mission_ID))
 						{
-							echo 'Il n\'y a aucune mission disponible dans cette ville, profitez-en pour vous entrainer';
+							echo "$Mission_1";
 						}
 					}
 				}
@@ -74,14 +74,14 @@
 						$_SESSION['Mission_Victory'] = stripslashes(nl2br($Mission['Mission_Victory']));
 						echo '<form method="POST" action="Mission.php">';
 						echo "<input type=\"hidden\" name=\"Mission_ID\" value=\"$Mission_ID\">";
-						echo '<input type="submit" name="Accept" value="accepter">';
+						echo "<input type=\"submit\" name=\"Accept\" value=\"$Mission_0\">";
 						echo '</form><br /><br />';
 					}
 					$Mission_Query->closeCursor();
 
 					if (empty($Mission_ID))
 					{
-						echo 'Il n\'y a aucune mission disponible dans cette ville, profitez-en pour vous entrainer';
+						echo "$Mission_1"
 					}
 				}
 			}
@@ -101,8 +101,6 @@
 					echo "<img src=\"$Monster_Image\"><br />";
 					echo '' .stripslashes($Mission_Monster['Monster_Name']). '<br />';
 					echo '' .stripslashes(nl2br($Mission_Monster['Monster_Description'])). '<br />';
-					echo 'HP: ???<br />';
-					echo 'MP: ???<br />';
 					$_SESSION['Monster_ID'] = stripslashes($Mission_Monster['Monster_ID']);
 					$_SESSION['Monster_Image'] = stripslashes($Mission_Monster['Monster_Image']);	
 					$_SESSION['Monster_Name'] = stripslashes($Mission_Monster['Monster_Name']);
@@ -131,18 +129,18 @@
 					$_SESSION['Mission_Battle'] = 1;
 				}
 				echo '<form method="POST" action="Battle.php">';
-				echo '<input type="submit" name="lancer_mission" value="Lancer le combat">';
+				echo "<input type=\"submit\" name=\"lancer_mission\" value=\"$Mission_2\">";
 				echo '</form>';
 			}
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune ville';
+			echo "$Mission_3";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Mission_4";
 	}	
 	require_once("../HTML/Footer.php");
 ?>

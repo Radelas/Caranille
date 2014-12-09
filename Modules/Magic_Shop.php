@@ -8,29 +8,29 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo 'Voici toutes les magies en ventes<br />';
+				echo "$Magic_Shop_0<br />";
 				echo '<table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo 'Image';
+							echo "$Item_Shop_1";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Nom';
+							echo "$Item_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Description';
-						echo '</td>';
-
-						echo '<td>';
-							echo 'Prix (PO)';
+							echo "$Item_Shop_3";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Action';
+							echo "$Item_Shop_4";
+						echo '</td>';
+					
+						echo '<td>';
+							echo "$Item_Shop_5";
 						echo '</td>';
 
 					echo '</tr>';
@@ -65,7 +65,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Magic_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Magic_ID\" value=\"$Magic_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Magic_Shop_6\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -77,7 +77,7 @@
 				echo '</table>';
 				if (empty($Magic_ID))
 				{
-					echo 'Il n\'y a actuellement aucune magie en vente, revenez plus tard';
+					echo "$Magic_Shop_7";
 				}
 			}
 			if (isset($_POST['Buy']))
@@ -109,9 +109,9 @@
 						$Magic_Quantity = $verification_Magic_Quantitys->rowCount();
 						if ($Magic_Quantity>=1)
 						{
-							echo 'Vous possédez déjà cette magie';
+							echo "$Magic_Shop_8";
 							echo "<form method=\"POST\" action=\"Magic_Shop.php\">";
-							echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Magic_Shop_9\">";
 							echo '</form>';
 						}
 						else
@@ -126,9 +126,9 @@
 							$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Golds= :Gold WHERE Account_ID= :ID");
 							$Update_Account->execute(array('Gold'=> $Gold, 'ID'=> $ID));
 						
-							echo "Vous avez acheté la magie $Magic<br /><br />";
+							echo "$Magic_Shop_10 $Magic<br /><br />";
 							echo '<form method="POST" action="Magic_Shop.php">';
-							echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Magic_Shop_9\">";
 							echo '</form>';
 						}
 					}
@@ -136,7 +136,7 @@
 					{
 						echo 'Vous n\'avez pas assez d\'argent';
 						echo '<form method="POST" action="Magic_Shop.php">';
-						echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Magic_Shop_9\">";
 						echo '</form>';
 					}
 				}
@@ -145,12 +145,12 @@
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune villes';
+			echo "$Magic_Shop_11";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Magic_Shop_12";
 	}
 	require_once("../HTML/Footer.php");
 ?>
