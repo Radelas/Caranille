@@ -8,7 +8,6 @@ if (isset($_SESSION['ID']))
 	$Date = date('Y-m-d H:i:s');
 	$IP = $_SERVER["REMOTE_ADDR"];
 	$Pseudo = $_SESSION['Pseudo'];
-	$Order_ID = $_SESSION['Order_ID'];
 
 	$_SESSION['HP_Total'] = $_SESSION['HP_MAX'] + $_SESSION['HP_Bonus'] + $_SESSION['Armor_HP_Effect'] + $_SESSION['Boots_HP_Effect'] + $_SESSION['Gloves_HP_Effect'] + $_SESSION['Helmet_HP_Effect'] + $_SESSION['Weapon_HP_Effect'];
 	$_SESSION['MP_Total'] = $_SESSION['MP_MAX'] + $_SESSION['MP_Bonus'] + $_SESSION['Armor_MP_Effect'] + $_SESSION['Boots_MP_Effect'] + $_SESSION['Gloves_MP_Effect'] + $_SESSION['Helmet_MP_Effect'] + $_SESSION['Weapon_MP_Effect'];;
