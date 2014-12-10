@@ -81,7 +81,7 @@
 
 					if (empty($Mission_ID))
 					{
-						echo "$Mission_1"
+						echo "$Mission_1";
 					}
 				}
 			}
@@ -117,10 +117,10 @@
 					$_SESSION['Monster_Item_Two_Rate'] = stripslashes($Mission_Monster['Monster_Item_Three_Rate']);
 					$_SESSION['Monster_Item_Three'] = stripslashes($Mission_Monster['Monster_Item_Three']);
 					$_SESSION['Monster_Item_Three_Rate'] = stripslashes($Mission_Monster['Monster_Item_Three_Rate']);
-					$_SESSION['Monster_Item_Four'] = stripslashes($monstre['Monster_Item_Four']);
-					$_SESSION['Monster_Item_Four_Rate'] = stripslashes($monstre['Monster_Item_Four_Rate']);
-					$_SESSION['Monster_Item_Five'] = stripslashes($monstre['Monster_Item_Five']);
-					$_SESSION['Monster_Item_Five_Rate'] = stripslashes($monstre['Monster_Item_Five_Rate']);
+					$_SESSION['Monster_Item_Four'] = stripslashes($Mission_Monster['Monster_Item_Four']);
+					$_SESSION['Monster_Item_Four_Rate'] = stripslashes($Mission_Monster['Monster_Item_Four_Rate']);
+					$_SESSION['Monster_Item_Five'] = stripslashes($Mission_Monster['Monster_Item_Five']);
+					$_SESSION['Monster_Item_Five_Rate'] = stripslashes($Mission_Monster['Monster_Item_Five_Rate']);
 					$_SESSION['Battle'] = 1;
 
 					$_SESSION['Arena_Battle'] = 0;
