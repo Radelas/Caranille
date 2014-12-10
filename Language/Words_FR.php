@@ -98,7 +98,7 @@ $Dungeon_4 = "Vous n'êtes dans aucune villes";
 $Dungeon_5 = "Vous devez être connecté pour accèder à cette zone";
 
 //TRADUCTION OF INVENTORY
-$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />":
+$Inventory_0 = "Bienvenue dans votre inventaire<br /><br />Votre inventaire est le lieu où vous pouvez voir tous ce que vous possèdez et choisir de le vendre ou de l'équiper sur votre personnage.<br /><br />Veuillez choisi une catégorie<br /><br />";
 $Inventory_1 = "Mes armes";
 $Inventory_2 = "Mes armures";
 $Inventory_3 = "Mes bottes";
@@ -315,8 +315,4 @@ $Weapon_Shop_23 = "Retourner en ville";
 $Weapon_Shop_24 = "Vous n'avez pas assez d'argent";
 $Weapon_Shop_25 = "Vous n'êtes dans aucune ville";
 $Weapon_Shop_26 = "Vous devez être connecté pour accèder à cette page";
-
-
-//TRADUCTION OF MAIN
-$Main_0 = "News publiée le ";
 ?>
