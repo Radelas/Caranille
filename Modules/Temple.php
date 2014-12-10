@@ -8,7 +8,7 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo "$Temple_0 <br />"
+				echo "$Temple_0 <br />";
 				echo '<table>';
 		
 					echo '<tr>';
@@ -104,9 +104,9 @@
 						$Item_Quantity = $Item_Quantity_Query->rowCount();
 						if ($Item_Quantity>=1)
 						{
-							echo "$Town_8";
+							echo "$Temple_8";
 							echo '<form method="POST" action="Temple.php">';
-							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Town_9\">";
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Temple_9\">";
 							echo '</form>';
 						}
 						else
@@ -123,20 +123,20 @@
 						
 							echo "$Temple_10 $Invocation<br /><br />";
 							echo '<form method="POST" action="Temple.php">';
-							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Town_9\">";
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Temple_9\">";
 							echo '</form>';
 						}
 					}
 					else
 					{
-						echo "$Town_11";
+						echo "$Temple_11";
 					}
 				}
 			}
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo "$Town_12";
+			echo "$Temple_12";
 		}
 	}
 	else

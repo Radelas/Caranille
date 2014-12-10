@@ -8,37 +8,37 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo 'Voici toutes les armes en ventes<br />';
+				echo "$Weapon_Shop_0<br />";
 				echo '<table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo 'Image';
+							echo "$Weapon_Shop_1";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Niveau requis';
+							echo "$Weapon_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Nom';
+							echo "$Weapon_Shop_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Description';
+							echo "$Weapon_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Effet';
+							echo "$Weapon_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Prix (PO)';
+							echo "$Weapon_Shop_6";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Action';
+							echo "$Weapon_Shop_7";
 						echo '</td>';
 
 					echo '</tr>';
@@ -71,12 +71,12 @@
 						echo '</td>';
 					
 						echo '<td>';
-							echo '+' .stripslashes($Weapon['Item_HP_Effect']). ' HP<br />';
-							echo '+' .stripslashes($Weapon['Item_MP_Effect']). ' MP<br />';
-							echo '+' .stripslashes($Weapon['Item_Strength_Effect']). ' Force<br />';
-							echo '+' .stripslashes($Weapon['Item_Magic_Effect']). ' Magie<br />';
-							echo '+' .stripslashes($Weapon['Item_Agility_Effect']). ' Agilité<br />';
-							echo '+' .stripslashes($Weapon['Item_Defense_Effect']). ' Defense';
+							echo '+' .stripslashes($Weapon['Item_HP_Effect']). " $Weapon_Shop_8<br />";
+							echo '+' .stripslashes($Weapon['Item_MP_Effect']). " $Weapon_Shop_9<br />";
+							echo '+' .stripslashes($Weapon['Item_Strength_Effect']). " $Weapon_Shop_10<br />";
+							echo '+' .stripslashes($Weapon['Item_Magic_Effect']). " $Weapon_Shop_11<br />";
+							echo '+' .stripslashes($Weapon['Item_Agility_Effect']). " $Weapon_Shop_12<br />";
+							echo '+' .stripslashes($Weapon['Item_Defense_Effect']). " $Weapon_Shop_13";
 						echo '</td>';
 					
 						echo '<td>';
@@ -86,7 +86,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Weapon_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Weapon_ID\" value=\"$Weapon_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Weapon_Shop_14\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -98,7 +98,7 @@
 				echo '</table>';
 				if (empty($Weapon_ID))
 				{
-					echo 'Il n\'y a actuellement aucune Weapon en vente, revenez plus tard';
+					echo "$Weapon_Shop_15";
 				}
 			}
 			if (isset($_POST['Buy']))
@@ -151,14 +151,14 @@
 							$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Golds= :Gold WHERE Account_ID= :ID");
 							$Update_Account->execute(array('Gold'=> $Gold, 'ID'=> $ID));
 						}
-						echo "Vous avez acheté l'arme $Weapon<br /><br />";
+						echo "$Weapon_Shop_16 $Weapon<br /><br />";
 						echo '<form method="POST" action="Weapon_Shop.php">';
-						echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+						echo "<input type=\"submit\" name=\"Cancel\" value=\"$Weapon_Shop_17\">";
 						echo '</form>';
 					}
 					else
 					{
-						echo 'Vous n\'avez pas assez d\'argent';
+						echo "$Weapon_Shop_18";
 					}
 				}
 				$Weapon_Query->closeCursor();
@@ -166,12 +166,12 @@
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune villes';
+			echo "$Weapon_Shop_19";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Weapon_Shop_20";
 	}
 	require_once("../HTML/Footer.php");
 ?>

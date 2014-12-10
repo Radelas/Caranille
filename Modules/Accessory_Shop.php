@@ -8,37 +8,37 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo "$Inventory_0";
+				echo "$Accessory_Shop_0";
 				echo '<p><table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo "$Inventory_1";
+							echo "$Accessory_Shop_1";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_2";
+							echo "$Accessory_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_3";
+							echo "$Accessory_Shop_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_4";
+							echo "$Accessory_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_5";
+							echo "$Accessory_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_6";
+							echo "$Accessory_Shop_6";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_7";
+							echo "$Accessory_Shop_7";
 						echo '</td>';
 
 					echo '</tr>';
@@ -71,12 +71,12 @@
 						echo '</td>';
 					
 						echo '<td>';
-							echo "+" .stripslashes($Armor['Item_HP_Effect']). " $Inventory_8";
-							echo "+" .stripslashes($Armor['Item_MP_Effect']). " $Inventory_9";
-							echo "+" .stripslashes($Armor['Item_Strength_Effect']). " $Inventory_10";
-							echo "+" .stripslashes($Armor['Item_Magic_Effect']). " $Inventory_11";
-							echo "+" .stripslashes($Armor['Item_Agility_Effect']). " $Inventory_12";
-							echo "+" .stripslashes($Armor['Item_Defense_Effect']). " $Inventory_13";
+							echo "+" .stripslashes($Armor['Item_HP_Effect']). " $Accessory_Shop_8";
+							echo "+" .stripslashes($Armor['Item_MP_Effect']). " $Accessory_Shop_9";
+							echo "+" .stripslashes($Armor['Item_Strength_Effect']). " $Accessory_Shop_10";
+							echo "+" .stripslashes($Armor['Item_Magic_Effect']). " $Accessory_Shop_11";
+							echo "+" .stripslashes($Armor['Item_Agility_Effect']). " $Accessory_Shop_12";
+							echo "+" .stripslashes($Armor['Item_Defense_Effect']). " $Accessory_Shop_13";
 						echo '</td>';
 					
 						echo '<td>';
@@ -86,7 +86,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Accessory_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Armor_ID\">";
-							echo "<input type=\"submit\" name=\"Buy\" value=\"$Inventory_14\">";
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Accessory_Shop_14\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -98,40 +98,40 @@
 				echo '</table></p>';
 				if (empty($Armor_ID))
 				{
-					echo "$Inventory_15";
+					echo "$Accessory_Shop_15";
 				}
 			
-				echo "$Inventory_16";
+				echo "$Accessory_Shop_16";
 				echo '<p><table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo "$Inventory_1";
+							echo "$Accessory_Shop_1";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_2";
+							echo "$Accessory_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_3";
+							echo "$Accessory_Shop_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_4";
+							echo "$Accessory_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_5";
+							echo "$Accessory_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_6";
+							echo "$Accessory_Shop_6";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_7";
+							echo "$Accessory_Shop_7";
 						echo '</td>';
 
 					echo '</tr>';
@@ -164,12 +164,12 @@
 						echo '</td>';
 					
 						echo '<td>';
-							echo "+" .stripslashes($Boots['Item_HP_Effect']). " $Inventory_8";
-							echo "+" .stripslashes($Boots['Item_MP_Effect']). " $Inventory_9";
-							echo "+" .stripslashes($Boots['Item_Strength_Effect']). " $Inventory_10";
-							echo "+" .stripslashes($Boots['Item_Magic_Effect']). " $Inventory_11";
-							echo "+" .stripslashes($Boots['Item_Agility_Effect']). " $Inventory_12";
-							echo "+" .stripslashes($Boots['Item_Defense_Effect']). " $Inventory_13";
+							echo "+" .stripslashes($Boots['Item_HP_Effect']). " $Accessory_Shop_8";
+							echo "+" .stripslashes($Boots['Item_MP_Effect']). " $Accessory_Shop_9";
+							echo "+" .stripslashes($Boots['Item_Strength_Effect']). " $Accessory_Shop_10";
+							echo "+" .stripslashes($Boots['Item_Magic_Effect']). " $Accessory_Shop_11";
+							echo "+" .stripslashes($Boots['Item_Agility_Effect']). " $Accessory_Shop_12";
+							echo "+" .stripslashes($Boots['Item_Defense_Effect']). " $Accessory_Shop_13";
 						echo '</td>';
 					
 						echo '<td>';
@@ -179,7 +179,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Accessory_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Boots_ID\">";
-							echo "<input type=\"submit\" name=\"Buy\" value=\"$Inventory_14\">";
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Accessory_Shop_14\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -191,40 +191,40 @@
 				echo '</table></p>';
 				if (empty($Boots_ID))
 				{
-					echo "$Inventory_17";
+					echo "$Accessory_Shop_17";
 				}
 			
-				echo "$Inventory_18";
+				echo "$Accessory_Shop_18";
 				echo '<p><table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo "$Inventory_1";
+							echo "$Accessory_Shop_1";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_2";
+							echo "$Accessory_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_3";
+							echo "$Accessory_Shop_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_4";
+							echo "$Accessory_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_5";
+							echo "$Accessory_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_6";
+							echo "$Accessory_Shop_6";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_7";
+							echo "$Accessory_Shop_7";
 						echo '</td>';
 
 					echo '</tr>';
@@ -257,12 +257,12 @@
 						echo '</td>';
 					
 						echo '<td>';
-							echo "+" .stripslashes($Gloves['Item_HP_Effect']). " $Inventory_8";
-							echo "+" .stripslashes($Gloves['Item_MP_Effect']). " $Inventory_9";
-							echo "+" .stripslashes($Gloves['Item_Strength_Effect']). " $Inventory_10";
-							echo "+" .stripslashes($Gloves['Item_Magic_Effect']). " $Inventory_11";
-							echo "+" .stripslashes($Gloves['Item_Agility_Effect']). " $Inventory_12";
-							echo "+" .stripslashes($Gloves['Item_Defense_Effect']). " $Inventory_13";
+							echo "+" .stripslashes($Gloves['Item_HP_Effect']). " $Accessory_Shop_8";
+							echo "+" .stripslashes($Gloves['Item_MP_Effect']). " $Accessory_Shop_9";
+							echo "+" .stripslashes($Gloves['Item_Strength_Effect']). " $Accessory_Shop_10";
+							echo "+" .stripslashes($Gloves['Item_Magic_Effect']). " $Accessory_Shop_11";
+							echo "+" .stripslashes($Gloves['Item_Agility_Effect']). " $Accessory_Shop_12";
+							echo "+" .stripslashes($Gloves['Item_Defense_Effect']). " $Accessory_Shop_13";
 						echo '</td>';
 					
 						echo '<td>';
@@ -272,7 +272,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Accessory_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Gloves_ID\">";
-							echo "<input type=\"submit\" name=\"Buy\" value=\"$Inventory_14\">";
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Accessory_Shop_14\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -284,40 +284,40 @@
 				echo '</table></p>';
 				if (empty($Gloves_ID))
 				{
-					echo "$Inventory_19";
+					echo "$Accessory_Shop_19";
 				}
 
-				echo "$Inventory_20";
+				echo "$Accessory_Shop_20";
 				echo '<p><table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo "$Inventory_1";
+							echo "$Accessory_Shop_1";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_2";
+							echo "$Accessory_Shop_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_3";
+							echo "$Accessory_Shop_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo "$Inventory_4";
+							echo "$Accessory_Shop_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_5";
+							echo "$Accessory_Shop_5";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_6";
+							echo "$Accessory_Shop_6";
 						echo '</td>';
 					
 						echo '<td>';
-							echo "$Inventory_7";
+							echo "$Accessory_Shop_7";
 						echo '</td>';
 
 					echo '</tr>';
@@ -350,12 +350,12 @@
 						echo '</td>';
 					
 						echo '<td>';
-							echo "+" .stripslashes($Helmet['Item_HP_Effect']). " $Inventory_8";
-							echo "+" .stripslashes($Helmet['Item_MP_Effect']). " $Inventory_9";
-							echo "+" .stripslashes($Helmet['Item_Strength_Effect']). " $Inventory_10";
-							echo "+" .stripslashes($Helmet['Item_Magic_Effect']). " $Inventory_11";
-							echo "+" .stripslashes($Helmet['Item_Agility_Effect']). " $Inventory_12";
-							echo "+" .stripslashes($Helmet['Item_Defense_Effect']). " $Inventory_13";
+							echo "+" .stripslashes($Helmet['Item_HP_Effect']). " $Accessory_Shop_8";
+							echo "+" .stripslashes($Helmet['Item_MP_Effect']). " $Accessory_Shop_9";
+							echo "+" .stripslashes($Helmet['Item_Strength_Effect']). " $Accessory_Shop_10";
+							echo "+" .stripslashes($Helmet['Item_Magic_Effect']). " $Accessory_Shop_11";
+							echo "+" .stripslashes($Helmet['Item_Agility_Effect']). " $Accessory_Shop_12";
+							echo "+" .stripslashes($Helmet['Item_Defense_Effect']). " $Accessory_Shop_13";
 						echo '</td>';
 					
 						echo '<td>';
@@ -365,7 +365,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Accessory_Shop.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Helmet_ID\">";
-							echo "<input type=\"submit\" name=\"Buy\" value=\"$Inventory_14\">";
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Accessory_Shop_14\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -376,7 +376,7 @@
 				echo '</table></p>';
 				if (empty($Helmet_ID))
 				{
-					echo "$Inventory_21";
+					echo "$Accessory_Shop_21";
 				}
 			}
 			if (isset($_POST['Buy']))
@@ -421,14 +421,14 @@
 							$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Golds= :Gold WHERE Account_ID= :ID");
 							$Update_Account->execute(array('Gold'=> $Gold, 'ID'=> $ID));
 						}
-						echo "$Inventory_22 $Item_Name<br /><br />";
+						echo "$Accessory_Shop_22 $Item_Name<br /><br />";
 						echo '<form method="POST" action="Accessory_Shop.php">';
-						echo "<input type=\"submit\" name=\"Cancel\" value=\"$Inventory_23\">";
+						echo "<input type=\"submit\" name=\"Cancel\" value=\"$Accessory_Shop_23\">";
 						echo '</form>';
 					}
 					else
 					{
-						echo "$Inventory_24";
+						echo "$Accessory_Shop_24";
 					}
 				}
 
@@ -437,12 +437,12 @@
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo "$Inventory_25";
+			echo "$Accessory_Shop_25";
 		}
 	}
 	else
 	{
-		echo "$Inventory_26";
+		echo "$Accessory_Shop_26";
 	}
 	require_once("../HTML/Footer.php");
 ?>
