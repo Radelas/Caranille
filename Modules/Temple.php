@@ -8,29 +8,29 @@
 			if (empty($_POST['Buy']))
 			{	
 				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
-				echo 'Bienvenue dans le temps, ici vous allez pouvoir acheter de puissante invocation pour vous aider au combats<br />';
+				echo "$Temple_0 <br />"
 				echo '<table>';
 		
 					echo '<tr>';
 
 						echo '<td>';
-							echo 'Image';
+							echo "$Temple_1";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Nom';
+							echo "$Temple_2";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Description';
+							echo "$Temple_3";
 						echo '</td>';
 
 						echo '<td>';
-							echo 'Prix (PO)';
+							echo "$Temple_4";
 						echo '</td>';
 					
 						echo '<td>';
-							echo 'Action';
+							echo "$Temple_5";
 						echo '</td>';
 
 					echo '</tr>';
@@ -64,7 +64,7 @@
 						echo '<td>';
 							echo '<form method="POST" action="Temple.php">';
 							echo "<input type=\"hidden\" name=\"Item_ID\" value=\"$Invocation_ID\">";
-							echo '<input type="submit" name="Buy" value="acheter">';
+							echo "<input type=\"submit\" name=\"Buy\" value=\"$Temple_6\">";
 							echo '</form><br />';
 						echo '</td>';
 					
@@ -75,7 +75,7 @@
 				echo '</table>';
 				if (empty($Invocation_ID))
 				{
-					echo 'Il n\'y a actuellement aucune chimère dans le temple, revenez plus tard';
+					echo "$Temple_7";
 				}
 			}
 			if (isset($_POST['Buy']))
@@ -104,9 +104,9 @@
 						$Item_Quantity = $Item_Quantity_Query->rowCount();
 						if ($Item_Quantity>=1)
 						{
-							echo 'Vous possédez déjà cet objet';
+							echo "$Town_8";
 							echo '<form method="POST" action="Temple.php">';
-							echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Town_9\">";
 							echo '</form>';
 						}
 						else
@@ -121,27 +121,27 @@
 							$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_Gold = :Gold WHERE Account_ID = :ID)");
 							$Update_Account->execute(array('Gold'=> $Gold, 'ID'=> $ID));
 						
-							echo "Vous avez obtenu $Invocation<br /><br />";
+							echo "$Temple_10 $Invocation<br /><br />";
 							echo '<form method="POST" action="Temple.php">';
-							echo '<input type="submit" name="Cancel" value="Retourner en ville">';
+							echo "<input type=\"submit\" name=\"Cancel\" value=\"$Town_9\">";
 							echo '</form>';
 						}
 					}
 					else
 					{
-						echo 'Vous n\'avez pas assez d\'argent';
+						echo "$Town_11";
 					}
 				}
 			}
 		}
 		if ($_SESSION['Town'] == 0)
 		{
-			echo 'Vous n\'êtes dans aucune villes';
+			echo "$Town_12";
 		}
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Temple_13";
 	}	
 	require_once("../HTML/Footer.php");
 ?>

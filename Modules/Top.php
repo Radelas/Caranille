@@ -3,16 +3,15 @@
 	require_once("../Global.php");
 	if (isset($_SESSION['ID']))
 	{
-		echo '<p>Voici le top 100 des meilleurs joueurs classé par niveau</p>';
-		echo '<p>Les statistiques ne tienne pas compte de l\'équipement ni des bonus</p>';
+		echo "$Top_0";
 		echo '<table>';
 
 				echo '<td>';
-				echo 'Niveau';
+				echo "$Top_1";
 				echo '</td>';
 
 				echo '<td>';
-				echo 'Pseudo';
+				echo "$Top_2";
 				echo '</td>';
 			
 			echo '</tr>';
@@ -44,7 +43,7 @@
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Top_3";
 	}	
 	require_once("../HTML/Footer.php");
 ?>

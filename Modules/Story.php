@@ -19,13 +19,13 @@
 				$_SESSION['Chapter_Defeate'] = stripslashes(nl2br($Chapter_Level['Chapter_Defeate']));
 				echo '<form method="POST" action="Story.php">';
 				echo "<input type=\"hidden\" name=\"Chapter_Number\" value=\"$Chapter_Number\">";
-				echo '<input type="submit" name="Launch" value="continuer">';
+				echo "<input type=\"submit\" name=\"Launch\" value=\"$Story_0\">";
 				echo '</form><br /><br />';
 			}
 			$Chapter_Level_Query->closeCursor();
 			if (empty($Chapter_Number))
 			{
-				echo 'Pour le moment il n\'y a aucune histoire, profitez-en pour vous entrainer';
+				echo "$Story_1";
 			}
 		}
 		if (isset($_POST['Launch']))
@@ -70,7 +70,7 @@
 				$_SESSION['Dungeon_Battle'] = 0;
 				$_SESSION['Mission_Battle'] = 0;
 				echo '<form method="POST" action="Battle.php">';
-				echo '<input type="submit" name="Continue" value="Lancer le combat">';
+				echo "<input type=\"submit\" name=\"Continue\" value=\"$Story_1\">";
 				echo '</form>';
 			}
 			$Chapter_Monster_Query->closeCursor();
@@ -78,7 +78,7 @@
 	}
 	else
 	{
-		echo 'Vous devez être connecté pour accèder à cette zone';
+		echo "$Story_2";
 	}
 	require_once("../HTML/Footer.php");
 ?>

@@ -287,6 +287,67 @@ $Inn_5 = "Vous n'avez pas assez d'argent";
 $Inn_6 = "Vous n'êtes dans aucune ville";
 $Inn_7 = "Vous devez être connecté pour accèder à cette zone";
 
+//TRADUCTION OF PRIVATE_MESSAGE
+$Private_Message_0 = "Bienvenue dans votre messagerie privé<br /><br />Grâce à votre messagerie vous allez pouvoir communiquer avec d\'autres membres<br />Et ainsi garder contact avec vos amis...";
+$Private_Message_1 = "Ecrire un message";
+$Private_Message_2 = "Lire mes messages";
+$Private_Message_3 = "Pour écrire un message, veuillez complèter le formulaire suivant, puis cliquez sur envoyer";
+$Private_Message_4 = "Choix du joueur";
+$Private_Message_5 = "Objet:";
+$Private_Message_6 = "Message";
+$Private_Message_7 = "Envoyer le message";
+$Private_Message_8 = "Votre message a bien été envoyé";
+$Private_Message_9 = "Répondre";
+$Private_Message_10 = "Supprimer";
+$Private_Message_11 = "Vous n'avez aucun nouveau message";
+$Private_Message_12 = "Pour répondre au message, veuillez complèter le formulaire suivant, puis cliquez sur envoyer";
+$Private_Message_13 = "Répondre à:";
+$Private_Message_14 = "Votre message a bien été supprimé";
+$Private_Message_15 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF REGISTER
+$Register_0 = "Pour commencer une partie veuillez vous inscrire<br /><br />";
+$Register_1 = "Inscription";
+$Register_2 = "Pseudo";
+$Register_3 = "Mot de passe";
+$Register_4 = "Confirmer le mot de passe";
+$Register_5 = "Adresse e-mail";
+$Register_6 = "J'accepte le règlement";
+$Register_7 = "S'inscrire";
+$Register_8 = "Inscription effectuée, vous pouvez vous connecter";
+$Register_9 = "Ce Pseudo est déjà utilisé";
+$Register_10 = "Vous devez accepter le règlement pour vous inscrire";
+$Register_11 = "Les deux mots de passes entrée ne sont pas identiques";
+$Register_12 = "vous n'avez pas rempli tous les champs correctement";
+
+//TRADUCTION OF STORY
+$Story_0 = "continuer";
+$Story_1 = "Pour le moment il n'y a aucune histoire, profitez-en pour vous entrainer";
+$Story_2 = "Lancer le combat";
+$Story_3 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF TEMPLE
+$Temple_0 = "Bienvenue dans le temps, ici vous allez pouvoir acheter de puissante invocation pour vous aider au combats";
+$Temple_1 = "Image";
+$Temple_2 = "Nom";
+$Temple_3 = "Description";
+$Temple_4 = "Prix (PO)";
+$Temple_5 = "Action";
+$Temple_6 = "Acheter";
+$Temple_7 = "Il n'y a actuellement aucune chimère dans le temple, revenez plus tard";
+$Temple_8 = "Vous possédez déjà cet objet";
+$Temple_9 = "Retourner en ville";
+$Temple_10 = "Vous avez obtenu";
+$Temple_11 = "Vous n'avez pas assez d'argent";
+$Temple_12 = "Vous n'êtes dans aucune villes";
+$Temple_13 = "Vous devez être connecté pour accèder à cette zone";
+
+//TRADUCTION OF TOP
+$Top_0 = "<p>Voici le top 100 des meilleurs joueurs classé par niveau</p>";
+$Top_1 = "Niveau";
+$Top_2 = "Pseudo";
+$Top_3 = "Vous devez être connecté pour accèder à cette zonz";
+
 //TRADUCTION OF WEAPON_SHOP
 $Weapon_Shop_0 = "Voici toutes les armures<br />";
 $Weapon_Shop_1 = "Image";

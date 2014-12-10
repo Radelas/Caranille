@@ -3,16 +3,16 @@
 	require_once("../Global.php");
 	if (empty($_POST['Register']))
 	{	
-		echo 'Pour commencer une partie veuillez vous inscrire<br /><br />';
-		echo '<div class="important">Inscription</div><br /><br />';
+		echo "$Register_0<br /><br />";
+		echo "<div class=\"important\">$Register_1</div><br /><br />";
 		echo '<form method="POST" action="Register.php">';
-		echo 'Pseudo<br /> <input type="text" name="Pseudo"><br /><br />';
-		echo 'Mot de passe<br /> <input type="password" name="Password"><br /><br />';
-		echo 'Confirmer le mot de passe<br /> <input type="password" name="Password_Confirm"><br /><br />';
-		echo 'Adresse e-mail<br /> <input type="text" name="Email"><br /><br />';
+		echo "$Register_2<br /> <input type=\"text\" name=\"Pseudo\"><br /><br />";
+		echo "$Register_3<br /> <input type=\"password\" name=\"Password\"><br /><br />";
+		echo "$Register_4<br /> <input type=\"password\" name=\"Password_Confirm\"><br /><br />";
+		echo "$Register_5<br /> <input type=\"text\" name=\"Email\"><br /><br />";
 		echo '<iframe src="../LICENCE.txt"></iframe><br /><br />';
-		echo '<input type="checkbox" name="Licence">J\'accepte le règlement<br /><br />';
-		echo '<input type="submit" name="Register" value="S\'inscrire">';
+		echo "<input type=\"checkbox\" name=\Licence\">$Register_6<br /><br />";
+		echo "<input type=\"submit\" name=\"Register\" value=\"$Register_7\">";
 		echo '</form>';
 	}	
 	if (isset($_POST['Register']))
@@ -57,26 +57,26 @@
 						}
 						$Account_Data_Query->closeCursor();
 
-						echo 'Inscription effectuée, vous pouvez vous connecter';
+						echo "$Register_8";
 					}
 					else
 					{
-						echo 'Ce Pseudo est déjà utilisé';
+						echo "$Register_9";
 					}
 				}
 				else
 				{
-					echo 'Vous devez accepter le règlement pour vous inscrire';
+					echo "$Register_10";
 				}
 			}
 			else
 			{
-				echo 'Les deux mots de passes entrée ne sont pas identiques';
+				echo "$Register_11";
 			}
 		}
 		else
 		{
-			echo 'vous n\'avez pas rempli tous les champs correctement';
+			echo "$Register_12";
 		}
 	}
 	require_once("../HTML/Footer.php");
