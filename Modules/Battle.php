@@ -67,8 +67,8 @@
 				$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) - htmlspecialchars(addslashes($Total_Damage_Monster));
 				$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
 				echo "<img src=\"$Monster_Image\"><br />";
-				echo "$Battle_10 $Total_Damage_Player HP <br /><br />";
-				echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
+				echo "$Battle_10 $Total_Damage_Player<br /><br />";
+				echo "$Battle_11 $Total_Damage_Monster<br /><br />";
 
 				$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP WHERE Account_ID= :ID");
 				$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'ID'=> $ID));

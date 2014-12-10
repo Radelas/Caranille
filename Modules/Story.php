@@ -41,8 +41,6 @@
 				echo "<img src=\"$Monster_Image\"><br />";
 				echo '' .$Chapter_Monster['Monster_Name']. '<br />';
 				echo '' .stripslashes(nl2br($Chapter_Monster['Monster_Description'])). '<br />';
-				echo 'HP: ???<br />';
-				echo 'MP: ???<br />';
 				$_SESSION['Monster_ID'] = stripslashes($Chapter_Monster['Monster_ID']);
 				$_SESSION['Monster_Image'] = stripslashes($Chapter_Monster['Monster_Image']);	
 				$_SESSION['Monster_Name'] = stripslashes($Chapter_Monster['Monster_Name']);
@@ -70,7 +68,7 @@
 				$_SESSION['Dungeon_Battle'] = 0;
 				$_SESSION['Mission_Battle'] = 0;
 				echo '<form method="POST" action="Battle.php">';
-				echo "<input type=\"submit\" name=\"Continue\" value=\"$Story_1\">";
+				echo "<input type=\"submit\" name=\"Continue\" value=\"$Story_2\">";
 				echo '</form>';
 			}
 			$Chapter_Monster_Query->closeCursor();
@@ -78,7 +76,7 @@
 	}
 	else
 	{
-		echo "$Story_2";
+		echo "$Story_3";
 	}
 	require_once("../HTML/Footer.php");
 ?>
