@@ -1,4 +1,44 @@
 <?php
+//TRADUCTION OF /TEMPLATES/ DIRECTORY
+
+	//TRADUCTION OF LEFT
+	$Left_0 = "L'actualitée";
+	$Left_1 = "L'histoire";
+	$Left_2 = "La carte";
+	$Left_3 = "Mon Compte";
+	$Left_4 = "Mon personnage";
+	$Left_5 = "Mon inventaire";
+	$Left_6 = "La Communauté";
+	$Left_7 = "Top 100";
+	$Left_8 = "Message privé";
+	$Left_9 = "Le chat";
+	$Left_10 = "Déconnexion";
+	$Left_11 = "Modération";
+	$Left_12 = "Administration";
+	$Left_13 = "Accueil";
+	$Left_14 = "Présentation";
+	$Left_15 = "Espace Joueurs";
+	$Left_16 = "Inscription";
+	$Left_17 = "Connexion";
+	$Left_18 = "Informations";
+	$Left_19 = "Supprimer mon compte";
+	
+	//TRADUCTION OF RIGHT
+	$Right_0 = "Pseudo";
+	$Right_1 = "Niveau";
+	$Right_2 = "Force";
+	$Right_3 = "Magie";
+	$Right_4 = "Agilité";
+	$Right_5 = "Défense";
+	$Right_6 = "Sagesse";
+	$Right_7 = "HP";
+	$Right_8 = "MP";
+	$Right_9 = "Pièces d'or (PO)";
+	$Right_10 = "Experience (XP)";
+	$Right_11 = "Prochain niveau";
+	
+//END OF THE /TEMPLATES/ TRADUCTION
+
 //TRADUCTION OF THE /MODULES/ DIRECTORY
 
 	//TRADUCTION OF ACESSORY_SHOP
@@ -173,7 +213,6 @@
 	$Inventory_41 = "Le parchemin à bien été utilisé";
 	$Inventory_42 = "Vous devez être connecté pour accèder à cette zone";
 
-
 	//TRADUCTION OF INN
 	$Inn_0 = "Bienvenue à l'auberge<br /><br >Ici vous pouvez vous reposer et ainsi récuperer tous vos HP et MP pour être prêt à recombattre<br /><br />Pour vous soigner, cela vous coutera";
 	$Inn_1 = "Pièce d'or<br />";
@@ -282,7 +321,6 @@
 	$Magic_Shop_10 = "Vous avez acheté la magie";
 	$Magic_Shop_11 = "Vous n'êtes dans aucune villes";
 	$Magic_Shop_12 = "Vous devez être connecté pour accèder à cette zone";
-
 
 	//TRADUCTION OF MAP
 	$Map_0 = "Bienvenue dans la carte du monde<br /><br />La carte du monde vous montrera tous les lieux où vous pouvez aller que çe soit pour vous balader ou pour une mission<br /><br />";
