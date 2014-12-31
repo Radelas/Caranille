@@ -333,7 +333,7 @@
 				$Items_Quantity_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
 				WHERE Inventory_Item_ID = Item_ID
 				AND Inventory_Account_ID = ?
-				AND Item_Type = 'Health' OR 'MP'
+				AND Item_Type = 'Health' OR 'Magic'
 				ORDER BY Item_Name ASC");
 				$Items_Quantity_Query->execute(array($ID));
 
