@@ -333,6 +333,7 @@
 				$Items_Quantity_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
 				WHERE Inventory_Item_ID = Item_ID
 				AND Inventory_Account_ID = ?
+				AND Item_Type = 'Health' OR 'MP'
 				ORDER BY Item_Name ASC");
 				$Items_Quantity_Query->execute(array($ID));
 
@@ -344,7 +345,6 @@
 					echo '<select name="Item" id="Item">';
 					echo "<optgroup label=\"$Battle_25\">";
 					
-			
 					$HP_Item_List = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
 					WHERE Inventory_Item_ID = Item_ID
 					AND Item_Type = 'Health'
@@ -415,10 +415,9 @@
 					$Item_Type = stripslashes($Item_List['Item_Type']);
 					$Item_HP_Effect = stripslashes($Item_List['Item_HP_Effect']);
 					$Item_MP_Effect = stripslashes($Item_List['Item_MP_Effect']);
-					$Inventory_ID = stripslashes($Item_Quantity['Inventory_ID']);
-					$Item_Quantity = stripslashes($Item_Quantity['Item_Quantity']);
+					$Inventory_ID = stripslashes($Item_List['Inventory_ID']);
+					$Item_Quantity = stripslashes($Item_List['Inventory_Item_Quantity']);
 				}
-				echo $Item_Type;
 				if ($Item_Type == "Health")
 				{
 					$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
@@ -461,7 +460,7 @@
 					if ($Item_Quantity >=2)
 					{
 						$Add_Item = $bdd->prepare("UPDATE Caranille_Inventory
-						SET Item_Quantity = Item_Quantity -1
+						SET Inventory_Item_Quantity = Inventory_Item_Quantity -1
 						WHERE Inventory_ID = '$Inventory_ID'");
 						$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
 					}
