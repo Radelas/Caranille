@@ -80,44 +80,48 @@
 			}
 			if (isset($_POST['Magics']))
 			{
-					echo '<form method="POST" action="Battle.php">';
-					echo "$Battle_13<br /><br />";
-					echo '<select name="Magic" ID="Magic">';
-		
-					$List_Query_Magics = $bdd->prepare("SELECT * FROM Caranille_Inventory_Magics, Caranille_Magics 
-					WHERE Inventory_Magic_Magic_ID = Magic_ID
-					AND Inventory_Magic_Account_ID = ?
-					ORDER BY Magic_Name ASC");
-					$List_Query_Magics->execute(array($ID));
+				echo '<form method="POST" action="Battle.php">';
+				echo "$Battle_13<br /><br />";
+				echo '<select name="Magic" ID="Magic">';
+	
+				$List_Query_Magics = $bdd->prepare("SELECT * FROM Caranille_Inventory_Magics, Caranille_Magics 
+				WHERE Inventory_Magic_Magic_ID = Magic_ID
+				AND Inventory_Magic_Account_ID = ?
+				ORDER BY Magic_Name ASC");
+				$List_Query_Magics->execute(array($ID));
 
-					while ($List_Magics = $List_Query_Magics->fetch())
-					{
-						$Magic_MP_Cost = stripslashes($List_Magics['Magic_MP_Cost']);
-						$Magic_Description = stripslashes($List_Magics['Magic_Description']);
-						$Magic = stripslashes($List_Magics['Magic_Name']);
-						echo "<option value=\"$Magic\">$Magic ($Magic_Description, $Magic_MP_Cost MP)</option>";
-						echo "<br />$Battle_14: $Magic_Description<br /><br />";
-					}
+				while ($List_Magics = $List_Query_Magics->fetch())
+				{
+					$Magic_MP_Cost = stripslashes($List_Magics['Magic_MP_Cost']);
+					$Magic_Description = stripslashes($List_Magics['Magic_Description']);
+					$Magic = stripslashes($List_Magics['Magic_Name']);
+					echo "<option value=\"$Magic\">$Magic ($Magic_Description, $Magic_MP_Cost MP)</option>";
+					echo "<br />$Battle_14: $Magic_Description<br /><br />";
+				}
+				$List_Query_Magics->closeCursor();
 
-					$List_Query_Magics->closeCursor();
-
-					
-					echo '</select><br /><br />';
-					echo "<input type=\"hidden\" name=\"Magic_MP_Cost\" value=\"$Magic_MP_Cost\">";
-					echo "<input type=\"submit\" name=\"End_Magics\" value=\"$Battle_15\">";
-					echo '</form>';
-					echo '<form method="POST" action="Battle.php">';
-					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
-					echo '</form>';
+				
+				echo '</select><br /><br />';
+				echo "<input type=\"hidden\" name=\"Magic_MP_Cost\" value=\"$Magic_MP_Cost\">";
+				echo "<input type=\"submit\" name=\"End_Magics\" value=\"$Battle_15\">";
+				echo '</form>';
+				echo '<form method="POST" action="Battle.php">';
+				echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
+				echo '</form>';
 			}
 			if (isset($_POST['End_Magics']))
 			{
 				$Magic_Choice = htmlspecialchars(addslashes($_POST['Magic']));
 				$Magic_MP_Cost = htmlspecialchars(addslashes($_POST['Magic_MP_Cost']));
+				
 				if ($_SESSION['MP'] >= $Magic_MP_Cost)
 				{
-					$Magics_List_Query = $bdd->query("SELECT * FROM Caranille_Magics 
-					WHERE Magic_Name = '$Magic_Choice'");
+					$Magics_List_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory_Magics, Caranille_Magics 
+					WHERE Inventory_Magic_Magic_ID = Magic_ID
+					AND Inventory_Magic_Account_ID = ?
+					AND Magic_Name = ?");
+					$Magics_List_Query->execute(array($ID, $Magic_Choice));
+					
 					while ($Magic_List = $Magics_List_Query->fetch())
 					{
 						$Magic_MP_Cost = stripslashes($Magic_List['Magic_MP_Cost']);
@@ -271,9 +275,11 @@
 				$MP_Choice = htmlspecialchars(addslashes($_POST['MP_Choice']));
 				if ($_SESSION['MP'] >= $MP_Choice)
 				{
-					$Invocations_List_Query = $bdd->prepare("SELECT * FROM Caranille_Invocations 
-					WHERE Invocation_Name = ?");
-					$Invocations_List_Query->execute(array($Invocation_Choice));
+					$Invocations_List_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory_Invocations, Caranille_Invocations 
+					WHERE Inventory_Invocation_Invocation_ID = Invocation_ID
+					AND Inventory_Invocation_Account_ID = ?
+					AND Invocation_Name = ?");
+					$Invocations_List_Query->execute(array($ID, $Invocation_Choice));
 
 					while ($Invocations_List = $Invocations_List_Query->fetch())
 					{
@@ -324,228 +330,206 @@
 			}
 			if (isset($_POST['Items']))
 			{
-					$Items_Quantity_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
-					WHERE Inventory_Item_ID = Items_ID
+				$Items_Quantity_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
+				WHERE Inventory_Item_ID = Item_ID
+				AND Inventory_Account_ID = ?
+				ORDER BY Item_Name ASC");
+				$Items_Quantity_Query->execute(array($ID));
+
+				$Item_Quantity = $Items_Quantity_Query->rowCount();
+				if ($Item_Quantity >=1)
+				{
+					echo '<form method="POST" action="Battle.php">';
+					echo "$Battle_24<br /><br />";
+					echo '<select name="Item" id="Item">';
+					echo "<optgroup label=\"$Battle_25\">";
+					
+			
+					$HP_Item_List = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
+					WHERE Inventory_Item_ID = Item_ID
+					AND Item_Type = 'Health'
 					AND Inventory_Account_ID = ?
 					ORDER BY Item_Name ASC");
-					$Items_Quantity_Query->execute(array($ID));
+					$HP_Item_List->execute(array($ID));
 
-					$Item_Quantity = $Items_Quantity_Query->rowCount();
-					if ($Item_Quantity >=1)
+					while ($Item_List = $HP_Item_List->fetch())
 					{
-						
-						echo '<form method="POST" action="Battle.php">';
-						echo "$Battle_24<br /><br />";
-						echo '<select name="objet" id="objet">';
-						echo "<optgroup label=\"$Battle_25\">";
-						
-				
-						$HP_Item_List = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
-						WHERE Inventory_Item_ID = Item_ID
-						AND Item_Type = 'Health'
-						AND Inventory_Account_ID = ?
-						ORDER BY Item_Name ASC");
-						$HP_Item_List->execute(array($ID));
-
-						while ($Item_List = $HP_Item_List->fetch())
-						{
-							$Inventory_ID = stripslashes($Item_List['Inventory_ID']);
-							$Item = stripslashes($Item_List['Item_Name']);
-							$Item_Quantity = stripslashes($Item_List['Item_Quantity']);
-							$Item_HP_Effect = stripslashes($Item_List['Item_HP_Effect']);
-							echo "<option value=\"$Item\">$Item (+$Item_HP_Effect HP)</option>";
-						}
-
-						$Items_Quantity_Query->closeCursor();
-						
-						echo '</optgroup>';
-						echo "<optgroup label=\"$Battle_26\">";
-						
-						$MP_Item_List_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
-						WHERE Inventory_Item_ID = Item_ID
-						AND Item_Type = 'Magic'
-						AND Inventory_Account_ID = ?
-						ORDER BY Item_Name ASC");
-						$MP_Item_List_Query->execute(array($ID));
-
-						while ($Item_List = $MP_Item_List_Query->fetch())
-						{
-							$Inventory_ID = stripslashes($Item_List['Inventory_ID']);
-							$Item = stripslashes($Item_List['Item_Name']);
-							$Item_MP_Effect = stripslashes($Item_List['Item_MP_Effect']);
-							echo "<option value=\"$Item\">$Item (+$Item_MP_Effect MP)</option>";
-						}
-
-						$MP_Item_List_Query->closeCursor();
-
-						echo '</optgroup>';
-						echo '</select>';
-									
-						$HP_Item = $HP_Item_List_Query->rowCount();
-						$MP_Item = $MP_Item_List_Query->rowCount();
-						if ($HP_Item >= 1 || $MP_Item >= 1 || $HP_Item >= 1 || $MP_Item >= 1)
-						{
-							echo "<br /><br /><input type=\"hidden\" name=\"Item_Quantity\" value=\"$Item_Quantity\">"; 
-							echo "<br /><br /><input type=\"submit\" name=\"objets_fin_combat\" value=\"$Battle_27\">";
-							echo '</form>';
-						}
-						else
-						{	
-							echo '</form>';
-						}
+						$Inventory_ID = stripslashes($Item_List['Inventory_ID']);
+						$Item = stripslashes($Item_List['Item_Name']);
+						$Item_Quantity = stripslashes($Item_List['Item_Quantity']);
+						$Item_HP_Effect = stripslashes($Item_List['Item_HP_Effect']);
+						echo "<option value=\"$Item\">$Item (+$Item_HP_Effect HP)</option>";
 					}
-					else
-					{
-						echo "$Battle_28";
-					}
+
+					$Items_Quantity_Query->closeCursor();
 					
-					echo '<form method="POST" action="Battle.php">';
-					echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
+					echo '</optgroup>';
+					echo "<optgroup label=\"$Battle_26\">";
+					
+					$MP_Item_List_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
+					WHERE Inventory_Item_ID = Item_ID
+					AND Item_Type = 'Magic'
+					AND Inventory_Account_ID = ?
+					ORDER BY Item_Name ASC");
+					$MP_Item_List_Query->execute(array($ID));
+
+					while ($Item_List = $MP_Item_List_Query->fetch())
+					{
+						$Inventory_ID = stripslashes($Item_List['Inventory_ID']);
+						$Item = stripslashes($Item_List['Item_Name']);
+						$Item_MP_Effect = stripslashes($Item_List['Item_MP_Effect']);
+						echo "<option value=\"$Item\">$Item (+$Item_MP_Effect MP)</option>";
+					}
+
+					$MP_Item_List_Query->closeCursor();
+
+					echo '</optgroup>';
+					echo '</select>';
+					
+					echo "<br /><br /><input type=\"hidden\" name=\"Item_Quantity\" value=\"$Item_Quantity\">"; 
+					echo "<br /><br /><input type=\"submit\" name=\"End_Items\" value=\"$Battle_27\">";
 					echo '</form>';
+				}
+				else
+				{
+					echo "$Battle_28";
+				}
+				
+				echo '<form method="POST" action="Battle.php">';
+				echo "<input type=\"submit\" name=\"Cancel\" value=\"$Battle_16\"><br />";
+				echo '</form>';
 			}
 			if (isset($_POST['End_Items']))
 			{
-					$Item_Choice = htmlspecialchars(addslashes($_POST['Item']));
-					$Item_List_Query = $bdd->prepare("SELECT * FROM Caranille_Items 
-					WHERE Item_Name = ?");
-					$Item_List_Query->execute(array($Item_Choice));
+				$Item_Choice = htmlspecialchars(addslashes($_POST['Item']));
+				$Item_List_Query = $bdd->prepare("SELECT *  FROM Caranille_Inventory, Caranille_Items
+				WHERE Inventory_Item_ID = Item_ID
+				AND Inventory_Account_ID = ?
+				AND Item_Name = ?");
+				$Item_List_Query->execute(array($ID, $Item_Choice));
 
-					while ($Item_List = $Item_List_Query->fetch())
+				while ($Item_List = $Item_List_Query->fetch())
+				{
+					$Item_ID = stripslashes($Item_List['Item_ID']);
+					$Item_Name = stripslashes($Item_List['Item_Name']);
+					$Item_Type = stripslashes($Item_List['Item_Type']);
+					$Item_HP_Effect = stripslashes($Item_List['Item_HP_Effect']);
+					$Item_MP_Effect = stripslashes($Item_List['Item_MP_Effect']);
+					$Inventory_ID = stripslashes($Item_Quantity['Inventory_ID']);
+					$Item_Quantity = stripslashes($Item_Quantity['Item_Quantity']);
+				}
+				echo $Item_Type;
+				if ($Item_Type == "Health")
+				{
+					$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
+					$MAX_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) * 1.1;
+					$MIN_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) / 1.1;
+					$MAX_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) * 1.1;
+
+					$Monster_MIN_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) / 1.1;
+					$Monster_MAX_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) * 1.1;
+					$Monster_MIN_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) / 1.1;
+					$Monster_MAX_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) * 1.1;
+					
+					$Monster_Positive_Damage = mt_rand($Monster_MIN_Strength, $Monster_MAX_Strength);
+					$Monster_Negative_Damage = mt_rand($MIN_Defense, $MAX_Defense);
+					$Total_Damage_Monster = htmlspecialchars(addslashes($Monster_Positive_Damage)) - htmlspecialchars(addslashes($Monster_Negative_Damage));
+					//Si les dégats du monstre sont en dessous de 0, on applique 0 de dégat pour éviter de soigner le personnage
+					if ($Total_Damage_Monster <=0)
 					{
-						$Item_ID = stripslashes($Item_List['Item_ID']);
-						$Item_Name = stripslashes($Item_List['Item_Name']);
-						$Item_Type = stripslashes($Item_List['Item_Type']);
-						$Item_MP_Effect = stripslashes($Item_List['Item_MP_Effect']);
+						$Total_Damage_Monster = 0;
 					}
-
-					$Item_List_Query->closeCursor();
-
-					$recuperation_Item_Quantitys = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
-					WHERE Inventory_Item_ID = Item_ID
-					AND Inventory_Account_ID = ?
-					ORDER BY Item_Name ASC");
-					$recuperation_Item_Quantitys->execute(array($ID));
-
-					while ($Item_Quantity = $recuperation_Item_Quantitys->fetch())
+					$Life_Difference = htmlspecialchars(addslashes($_SESSION['HP_Total'])) - htmlspecialchars(addslashes($_SESSION['HP']));
+					if ($Item_HP_Effect >= $Life_Difference)
 					{
-						$Inventory_ID = stripslashes($Item_Quantity['Inventory_ID']);
-						$Item_Quantity = stripslashes($Item_Quantity['Item_Quantity']);
+						$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) + htmlspecialchars(addslashes($Life_Difference));
+						$Item_HP_Effect = htmlspecialchars(addslashes($Life_Difference));
 					}
-					$recuperation_Item_Quantitys->closeCursor();
-
-					if ($Item_Type == "Soin des HP")
+					else
 					{
-						$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
-						$MAX_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) * 1.1;
-						$MIN_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) / 1.1;
-						$MAX_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) * 1.1;
-
-						$Monster_MIN_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) / 1.1;
-						$Monster_MAX_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) * 1.1;
-						$Monster_MIN_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) / 1.1;
-						$Monster_MAX_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) * 1.1;
-						
-						$Monster_Positive_Damage = mt_rand($Monster_MIN_Strength, $Monster_MAX_Strength);
-						$Monster_Negative_Damage = mt_rand($MIN_Defense, $MAX_Defense);
-						$Total_Damage_Monster = htmlspecialchars(addslashes($Monster_Positive_Damage)) - htmlspecialchars(addslashes($Monster_Negative_Damage));
-						//Si les dégats du monstre sont en dessous de 0, on applique 0 de dégat pour éviter de soigner le personnage
-						if ($Total_Damage_Monster <=0)
-						{
-							$Total_Damage_Monster = 0;
-						}
-						$Life_Difference = htmlspecialchars(addslashes($_SESSION['HP_Total'])) - htmlspecialchars(addslashes($_SESSION['HP']));
-						if ($Item_Effect >= $Life_Difference)
-						{
-							$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) + htmlspecialchars(addslashes($Life_Difference));
-							$Item_Effect = htmlspecialchars(addslashes($Life_Difference));
-						}
-						else
-						{
-							$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) + htmlspecialchars(addslashes($Item_HP_Effect));
-						}
-						$Item_Quantity = htmlspecialchars(addslashes($_POST['Item_Quantity']));
-						$_SESSION['HP'] = htmlspecialchars(addslashes($_SESSION['HP'])) - htmlspecialchars(addslashes($Total_Damage_Monster));
-						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
-						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Battle_29 $Item_Effect <br /><br />";
-						echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
-
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP WHERE Account_ID= :ID");
-						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'ID'=> $ID));
-
-						if ($Item_Quantity >=2)
-						{
-							$Add_Item = $bdd->prepare("UPDATE Caranille_Inventory
-							SET Item_Quantity = Item_Quantity -1
-							WHERE Inventory_ID = '$Inventory_ID'");
-							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
-						}
-						else
-						{
-							$Add_Item = $bdd->prepare("DELETE FROM Caranille_Inventory
-							WHERE Inventory_ID = :Inventory_ID");
-							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
-						}
-						echo '<form method="POST" action="Battle.php">';
-						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
-						echo '</form>';								
+						$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'])) + htmlspecialchars(addslashes($Item_HP_Effect));
 					}
-					if ($Item_Type == "Soin des MP")
+					$_SESSION['HP'] = htmlspecialchars(addslashes($_SESSION['HP'])) - htmlspecialchars(addslashes($Total_Damage_Monster));
+					$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
+					echo "<img src=\"$Monster_Image\"><br />";
+					echo "$Battle_29 $Item_HP_Effect <br /><br />";
+					echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
+
+					$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP WHERE Account_ID= :ID");
+					$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'ID'=> $ID));
+
+					if ($Item_Quantity >=2)
 					{
-						$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
-						$MAX_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) * 1.1;
-						$MIN_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) / 1.1;
-						$MAX_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) * 1.1;
-
-						$Monster_MIN_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) / 1.1;
-						$Monster_MAX_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) * 1.1;
-						$Monster_MIN_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) / 1.1;
-						$Monster_MAX_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) * 1.1;
-						
-						$Monster_Positive_Damage = mt_rand($Monster_MIN_Strength, $Monster_MAX_Strength);
-						$Monster_Negative_Damage = mt_rand($MIN_Defense, $MAX_Defense);
-						$Total_Damage_Monster = htmlspecialchars(addslashes($Monster_Positive_Damage)) - htmlspecialchars(addslashes($Monster_Negative_Damage));
-						//Si les dégats du monstre sont en dessous de 0, on applique 0 de dégat pour éviter de soigner le personnage
-						if ($Total_Damage_Monster <=0)
-						{
-							$Total_Damage_Monster = 0;
-						}
-						$Magic_Difference = htmlspecialchars(addslashes($_SESSION['MP_Total'])) - htmlspecialchars(addslashes($_SESSION['MP']));
-						if ($Item_Effect >= $Magic_Difference)
-						{
-							$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) + htmlspecialchars(addslashes($Magic_Difference));
-							$Item_Effect = htmlspecialchars(addslashes($Magic_Difference));
-						}
-						else
-						{
-							$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) + htmlspecialchars(addslashes($Item_MP_Effect));
-						}
-						$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'] - $Total_Damage_Monster));
-						$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
-						echo "<img src=\"$Monster_Image\"><br />";
-						echo "$Battle_29 $Item_Effect <br /><br />";
-						echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
-
-						$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
-						$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
-
-						if ($Item_Quantity >=2)
-						{
-							$Add_Item = $bdd->prepare("UPDATE Caranille_Inventory
-							SET Item_Quantity = Item_Quantity -1
-							WHERE Inventory_ID = '$Inventory_ID'");
-							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
-						}
-						else
-						{
-							$Add_Item = $bdd->prepare("DELETE FROM Caranille_Inventory
-							WHERE Inventory_ID = :Inventory_ID");
-							$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
-						}
-						echo '<form method="POST" action="Battle.php">';
-						echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
-						echo '</form>';
+						$Add_Item = $bdd->prepare("UPDATE Caranille_Inventory
+						SET Item_Quantity = Item_Quantity -1
+						WHERE Inventory_ID = '$Inventory_ID'");
+						$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
 					}
+					else
+					{
+						$Add_Item = $bdd->prepare("DELETE FROM Caranille_Inventory
+						WHERE Inventory_ID = :Inventory_ID");
+						$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
+					}
+					echo '<form method="POST" action="Battle.php">';
+					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
+					echo '</form>';								
+				}
+				if ($Item_Type == "Soin des MP")
+				{
+					$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
+					$MAX_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) * 1.1;
+					$MIN_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) / 1.1;
+					$MAX_Defense = htmlspecialchars(addslashes($_SESSION['Defense_Total'])) * 1.1;
+
+					$Monster_MIN_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) / 1.1;
+					$Monster_MAX_Strength = htmlspecialchars(addslashes($_SESSION['Monster_Strength'])) * 1.1;
+					$Monster_MIN_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) / 1.1;
+					$Monster_MAX_Defense = htmlspecialchars(addslashes($_SESSION['Monster_Defense'])) * 1.1;
+					
+					$Monster_Positive_Damage = mt_rand($Monster_MIN_Strength, $Monster_MAX_Strength);
+					$Monster_Negative_Damage = mt_rand($MIN_Defense, $MAX_Defense);
+					$Total_Damage_Monster = htmlspecialchars(addslashes($Monster_Positive_Damage)) - htmlspecialchars(addslashes($Monster_Negative_Damage));
+					if ($Total_Damage_Monster <=0)
+					{
+						$Total_Damage_Monster = 0;
+					}
+					$Magic_Difference = htmlspecialchars(addslashes($_SESSION['MP_Total'])) - htmlspecialchars(addslashes($_SESSION['MP']));
+					if ($Item_MP_Effect >= $Magic_Difference)
+					{
+						$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) + htmlspecialchars(addslashes($Magic_Difference));
+						$Item_MP_Effect = htmlspecialchars(addslashes($Magic_Difference));
+					}
+					else
+					{
+						$Remaining_MP = htmlspecialchars(addslashes($_SESSION['MP'])) + htmlspecialchars(addslashes($Item_MP_Effect));
+					}
+					$Remaining_HP = htmlspecialchars(addslashes($_SESSION['HP'] - $Total_Damage_Monster));
+					$Monster_Image = htmlspecialchars(addslashes($_SESSION['Monster_Image']));
+					echo "<img src=\"$Monster_Image\"><br />";
+					echo "$Battle_29 $Item_MP_Effect <br /><br />";
+					echo "$Battle_11 $Total_Damage_Monster HP <br /><br />";
+
+					$Update_Account = $bdd->prepare("UPDATE Caranille_Accounts SET Account_HP_Remaining= :Remaining_HP , Account_MP_Remaining= :Remaining_MP WHERE Account_ID= :ID");
+					$Update_Account->execute(array('Remaining_HP'=> $Remaining_HP, 'Remaining_MP'=> $Remaining_MP, 'ID'=> $ID));
+
+					if ($Item_Quantity >=2)
+					{
+						$Add_Item = $bdd->prepare("UPDATE Caranille_Inventory
+						SET Item_Quantity = Item_Quantity -1
+						WHERE Inventory_ID = '$Inventory_ID'");
+						$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
+					}
+					else
+					{
+						$Add_Item = $bdd->prepare("DELETE FROM Caranille_Inventory
+						WHERE Inventory_ID = :Inventory_ID");
+						$Add_Item->execute(array('Inventory_ID'=> $Inventory_ID));
+					}
+					echo '<form method="POST" action="Battle.php">';
+					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
+					echo '</form>';
+				}
 			}
 			//Si l'utilisateur à choisit la fuite
 			if (isset($_POST['Escape']))
