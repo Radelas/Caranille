@@ -474,7 +474,7 @@
 					echo "<input type=\"submit\" name=\"Continue\" value=\"$Battle_12\">";
 					echo '</form>';								
 				}
-				if ($Item_Type == "Soin des MP")
+				if ($Item_Type == "Magic")
 				{
 					$MIN_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) / 1.1;
 					$MAX_Magic = htmlspecialchars(addslashes($_SESSION['Magic_Total'])) * 1.1;
