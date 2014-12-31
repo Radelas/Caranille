@@ -18,7 +18,6 @@
 				$_SESSION['Chapter_Ending'] = stripslashes(nl2br($Chapter_Level['Chapter_Ending']));
 				$_SESSION['Chapter_Defeate'] = stripslashes(nl2br($Chapter_Level['Chapter_Defeate']));
 				echo '<form method="POST" action="Story.php">';
-				echo "<input type=\"hidden\" name=\"Chapter_Number\" value=\"$Chapter_Number\">";
 				echo "<input type=\"submit\" name=\"Launch\" value=\"$Story_0\">";
 				echo '</form><br /><br />';
 			}
@@ -30,7 +29,7 @@
 		}
 		if (isset($_POST['Launch']))
 		{
-			$Chapter_Number = $_POST['Chapter_Number'];
+			$Chapter_Number = htmlspecialchars(addslashes($_SESSION['Chapter']));
 			$Chapter_Monster_Query = $bdd->prepare("SELECT * FROM Caranille_Chapters, Caranille_Monsters
 			WHERE Chapter_Number = ?
 			AND Chapter_Monster = Monster_ID");
