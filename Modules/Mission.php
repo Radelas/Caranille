@@ -53,7 +53,7 @@
 						}
 					}
 				}
-				//Si Mission_ID est vIDe c'est que le joueur n'a remporté aucune mission dans cette ville
+				
 				if ($Mission_Number == 0)
 				{
 					$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
@@ -88,12 +88,13 @@
 			if (isset($_POST['Accept']))
 			{
 				$Mission_ID = htmlspecialchars(addslashes($_POST['Mission_ID']));
+				$Town = htmlspecialchars(addslashes($_SESSION['Town_ID']));
 				$_SESSION['$Mission_ID'] = htmlspecialchars(addslashes($_POST['Mission_ID']));
-
 				$Mission_Monster_Query = $bdd->prepare("SELECT * FROM Caranille_Missions, Caranille_Monsters
 				WHERE Mission_ID = ?
+				AND Mission_Town = ?
 				AND Mission_Monster = Monster_ID");
-				$Mission_Monster_Query->execute(array($Mission_ID));
+				$Mission_Monster_Query->execute(array($Mission_ID, $Town));
 
 				while ($Mission_Monster = $Mission_Monster_Query->fetch())
 				{
