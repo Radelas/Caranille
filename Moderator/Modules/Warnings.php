@@ -1,6 +1,11 @@
 <?php
-	require_once("../HTML/Header.php");
-	require_once("../../Global.php");
+	error_reporting(E_ALL); 
+	$timestart = microtime(true);
+	session_start();
+
+	require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+	require_once $_SESSION['File_Root']. '/HTML/Header.php';
+
 	//Si le Access est Modo ou Admin
 	if ($_SESSION['Access'] == "Modo" || $_SESSION['Access'] == "Admin")
 	{
@@ -68,5 +73,5 @@
 		echo "Vous ne possèdez pas le Access nécessaire pour accèder à cette partie du site";
 		echo "</center>";
 	}
-	require_once("../HTML/Footer.php");
+	require_once $_SESSION['File_Root'] .'/HTML/Footer.php';
 ?>

@@ -1,6 +1,10 @@
 <?php
-	require_once("../HTML/Header.php");
-	require_once("../../Global.php");
+	error_reporting(E_ALL); 
+	$timestart = microtime(true);
+	session_start();
+
+	require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+	require_once $_SESSION['File_Root']. '/HTML/Header.php';
 	if ($_SESSION['Access'] == "Admin")
 	{
 		if (empty($_POST['End_Edit']))
@@ -57,5 +61,5 @@
 		echo 'Vous ne possèdez pas les droits nécessaire pour accèder à cette partie du site';
 		echo '</center>';
 	}
-	require_once('../HTML/Footer.php');
+	require_once $_SESSION['File_Root'] .'/HTML/Footer.php';
 ?>
