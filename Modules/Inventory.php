@@ -1,6 +1,10 @@
 ﻿<?php
-	require_once("../HTML/Header.php");
-	require_once("../Global.php");
+	error_reporting(E_ALL); 
+	$timestart = microtime(true);
+	session_start();
+
+	require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+	require_once $_SESSION['File_Root']. '/HTML/Header.php';
 	if (isset($_SESSION['ID']))
 	{
 		if (empty($_POST['Armor']) && empty($_POST['Boots']) && empty($_POST['Gloves']) && empty($_POST['Helmet']) && empty($_POST['Weapon']) && empty($_POST['Invocation']) && empty($_POST['Magic']) && empty($_POST['Item']) && empty($_POST['Parchment']) && empty($_POST['Item_Equip']) && empty($_POST['Sale']))
@@ -1130,5 +1134,5 @@
 	{
 		echo "$Inventory_42";
 	}	
-	require_once("../HTML/Footer.php");
+	require_once $_SESSION['File_Root'] .'/HTML/Footer.php';
 ?>

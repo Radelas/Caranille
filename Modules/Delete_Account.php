@@ -1,6 +1,10 @@
 <?php
-	require_once("../HTML/Header.php");
-	require_once("../Global.php");
+	error_reporting(E_ALL); 
+	$timestart = microtime(true);
+	session_start();
+
+	require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+	require_once $_SESSION['File_Root']. '/HTML/Header.php';
 	if (empty($_POST['Delete']))
 	{
 		echo "$Delete_Account_0";
@@ -31,5 +35,5 @@
 			echo "$Delete_Account_3";
 		}
 	}
-	require_once("../HTML/Footer.php");
+	require_once $_SESSION['File_Root'] .'/HTML/Footer.php';
 ?>

@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION['Account']))
+if (isset($_SESSION['ID']))
 {	
 	?>
 	<div class="important">MMORPG</div><br />
