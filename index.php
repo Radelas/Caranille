@@ -1,6 +1,6 @@
 <?php
 session_start();
-$Config = 'Kernel/Config.php';
+$Config = 'Kernel/Config/Config.php';
 $Size = filesize($Config); 
 if ($Size == 0) 
 {

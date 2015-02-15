@@ -63,7 +63,7 @@ require_once("../Config.php");
 					
 					$File = dirname(__FILE__); 
 					$Link = 'http://' .$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); 
-					$Open_Server = fopen("../Kernel/Server.php", "w");
+					$Open_Server = fopen("../Kernel/Config/Server.php", "w");
 					fwrite($Open_Config, "
 					<?php
 					\$File_Root = '$File'; 
@@ -71,7 +71,7 @@ require_once("../Config.php");
 					?>");
 					fclose($Open_Server);
 
-					$Open_SQL = fopen("../Kernel/SQL.php", "w");
+					$Open_SQL = fopen("../Kernel/Config/SQL.php", "w");
 					fwrite($Open_Config, "
 					<?php
 					//Version of Caranille RPG

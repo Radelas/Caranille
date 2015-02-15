@@ -237,7 +237,6 @@ function SQL_News_List()
     global $Main_0;
     global $Main_1;
         
-
 	$Resultat = $bdd->query("SELECT * FROM Caranille_News ORDER BY News_ID desc");
 	while ($News = $Resultat->fetch())
 	{
