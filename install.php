@@ -2,25 +2,40 @@
 session_start();
 require_once("Kernel/Config/Server.php");
 require_once("Kernel/Config/SQL.php");
+require_once("Kernel/Functions/SQL.php");
+require_once("Kernel/Locales/En/Words.php");
 ?>
 <!DOCTYPE html>
 <html>
 		<head>
 			<title><?php echo $Install_0; ?></title>
 			<meta charset="utf-8" />
-			<link rel="stylesheet" media="screen" type="text/css" title="design" href="../Design/Design.css" />
+			<link rel="stylesheet" media="screen" type="text/css" title="design" href="Design/Design.css" />
 		</head>
 
 		<body>
 
 			<p>
-			<img src="../Design/Images/logo.png">
+			<img src="Design/Images/logo.png">
 			</p>
 			
 			<section>
 				<?php
-				if (empty($_POST['Accept']) && empty($_POST['Create_Configuration']) && empty($_POST['Choose_Curve']) && empty($_POST['Start_Installation']) && empty($_POST['Configure']) && empty($_POST['Finish']))
+				if (empty($_POST['Intall'] && empty($_POST['Accept']) && empty($_POST['Create_Configuration']) && empty($_POST['Choose_Curve']) && empty($_POST['Start_Installation']) && empty($_POST['Configure']) && empty($_POST['Finish']))
 				{
+					?>
+					<form method="POST" action="install.php">
+					<label for="Language">Choose your language<br /></label><br />
+					<select name="Language" id="Language">
+					<option value="En">Anglais</option>
+					<option value="Fr">Français</option>
+					</select><br /><br />
+					<input type="submit" name="Install" value="Install">
+					</form>
+					<?php
+				if (isset($_POST['Install']))
+				{
+					$_SESSION['Language'] = htmlspecialchars(addslashes($_POST['Language']));
 					?>
 					<div class="important"><?php echo $Install_1; ?></div><p>
 					<?php echo $Install_2; ?>
@@ -39,32 +54,33 @@ require_once("Kernel/Config/SQL.php");
 					<div class="important"><?php echo $Install_5; ?></div>
 					<?php echo $Install_6; ?>
 					<form method="POST" action="index.php">
-					<?php echo $Install_7; ?><br /><input type="text" name="Server"><br /><br />
-					<?php echo $Install_8; ?><br /> <input type="text" name="User"><br /><br />
-					<?php echo $Install_9; ?><br /> <input type="password" name="Password"><br /><br />
-					<?php echo $Install_10; ?><br /> <input type="text" name="Database"><br /><br />
+					<?php echo $Install_7; ?><br /><input type="text" name="Database_Name"><br /><br />
+					<?php echo $Install_8; ?><br /><input type="text" name="Database_Host"><br /><br />
+					<?php echo $Install_9; ?><br /><input type="text" name="Database_User"><br /><br />
+					<?php echo $Install_10; ?><br /><input type="password" name="Database_Password"><br /><br />
 					<input type="submit" name="Create_Configuration" value="<?php echo $Install_11; ?>">
 					</form>
 					<?php
 				}
 				if (isset($_POST['Create_Configuration']))
 				{
-					$Server = htmlspecialchars(addslashes($_POST['Server']));
-					$User = htmlspecialchars(addslashes($_POST['User']));
-					$Password = htmlspecialchars(addslashes($_POST['Password']));
-					$Database = htmlspecialchars(addslashes($_POST['Database']));
+					$Language = $_SESSION['Language'];
+					$Database_Name = htmlspecialchars(addslashes($_POST['Database_Name']));
+					$Database_Host = htmlspecialchars(addslashes($_POST['Database_Host']));
+					$Database_User = htmlspecialchars(addslashes($_POST['Database_User']));
+					$Database_Password = htmlspecialchars(addslashes($_POST['Database_Password']));
 					
 					$Open_Locales = fopen("Kernel/Config/Locales.php", "w");
 					fwrite($Open_Locales, "
 					<?php
-					\$Language = 'Fr';
+					\$Language = '$Language';
 					?>");
 					fclose($Open_Locales);
 					
 					$File = dirname(__FILE__); 
 					$Link = 'http://' .$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); 
 					$Open_Server = fopen("Kernel/Config/Server.php", "w");
-					fwrite($Open_Config, "
+					fwrite($Open_Server, "
 					<?php
 					\$File_Root = '$File'; 
 					\$Link_Root = '$Link'; 					
@@ -72,11 +88,13 @@ require_once("Kernel/Config/SQL.php");
 					fclose($Open_Server);
 
 					$Open_SQL = fopen("Kernel/Config/SQL.php", "w");
-					fwrite($Open_Config, "
+					fwrite($Open_SQL, "
 					<?php
 					//Version of Caranille RPG
 					\$version = \"6.0.0\";
-					\$bdd = new PDO('mysql:host=$Server;dbname=$Database', '$User', '$Password');
+					\$Dsn = 'mysql:dbname=$Database_Name;host=$Database_Host';
+					\$User = '$Database_User';
+					\$Password = '$Database_Password';
 					?>");
 					fclose($Open_SQL);
 					
