@@ -1,7 +1,7 @@
 <?php
 session_start();
 require_once("Kernel/Config/Server.php");
-require_once("../Config.php");
+require_once("Kernel/Config/SQL.php");
 ?>
 <!DOCTYPE html>
 <html>
@@ -54,7 +54,7 @@ require_once("../Config.php");
 					$Password = htmlspecialchars(addslashes($_POST['Password']));
 					$Database = htmlspecialchars(addslashes($_POST['Database']));
 					
-					$Open_Locales = fopen("../Kernel/Config/Locales.php", "w");
+					$Open_Locales = fopen("Kernel/Config/Locales.php", "w");
 					fwrite($Open_Locales, "
 					<?php
 					\$Language = 'Fr';
@@ -63,7 +63,7 @@ require_once("../Config.php");
 					
 					$File = dirname(__FILE__); 
 					$Link = 'http://' .$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); 
-					$Open_Server = fopen("../Kernel/Config/Server.php", "w");
+					$Open_Server = fopen("Kernel/Config/Server.php", "w");
 					fwrite($Open_Config, "
 					<?php
 					\$File_Root = '$File'; 
@@ -71,7 +71,7 @@ require_once("../Config.php");
 					?>");
 					fclose($Open_Server);
 
-					$Open_SQL = fopen("../Kernel/Config/SQL.php", "w");
+					$Open_SQL = fopen("Kernel/Config/SQL.php", "w");
 					fwrite($Open_Config, "
 					<?php
 					//Version of Caranille RPG
@@ -80,7 +80,7 @@ require_once("../Config.php");
 					?>");
 					fclose($Open_SQL);
 					
-					if (file_exists("../Config.php"))
+					if (file_exists("Kernel/Config/SQL.php"))
 					{
 						?>
 						<form method="POST" action="index.php">
