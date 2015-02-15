@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once("Kernel/Config/Locales.php");
 require_once("Kernel/Config/Server.php");
 require_once("Kernel/Config/SQL.php");
 require_once("Kernel/Functions/SQL.php");
