@@ -21,7 +21,7 @@ require_once("Kernel/Locales/En/Words.php");
 			
 			<section>
 				<?php
-				if (empty($_POST['Intall'] && empty($_POST['Accept']) && empty($_POST['Create_Configuration']) && empty($_POST['Choose_Curve']) && empty($_POST['Start_Installation']) && empty($_POST['Configure']) && empty($_POST['Finish']))
+				if (empty($_POST['Intall']) && empty($_POST['Accept']) && empty($_POST['Create_Configuration']) && empty($_POST['Choose_Curve']) && empty($_POST['Start_Installation']) && empty($_POST['Configure']) && empty($_POST['Finish']))
 				{
 					?>
 					<form method="POST" action="install.php">
@@ -33,6 +33,7 @@ require_once("Kernel/Locales/En/Words.php");
 					<input type="submit" name="Install" value="Install">
 					</form>
 					<?php
+				}
 				if (isset($_POST['Install']))
 				{
 					$_SESSION['Language'] = htmlspecialchars(addslashes($_POST['Language']));
@@ -40,9 +41,9 @@ require_once("Kernel/Locales/En/Words.php");
 					<div class="important"><?php echo $Install_1; ?></div><p>
 					<?php echo $Install_2; ?>
 					<a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr"><img alt="Licence Creative Commons" style="border-width:0" src="http://i.creativecommons.org/l/by/4.0/88x31.png" /></a><br />Ce(tte) œuvre est mise à disposition selon les termes de la <a rel="license" href="http://creativecommons.org/licenses/by/4.0/deed.fr">Licence Creative Commons Attribution 4.0 International</a>.
-					<br /><br /><iframe src="../LICENCE.txt">
+					<br /><br /><iframe src="LICENCE.txt">
 					</iframe><br /><br />
-					<form method="POST" action="index.php">
+					<form method="POST" action="install.php">
 					<input type="submit" name="Accept" value="<?php echo $Install_3; ?>"><br /><br />
 					<div class="important"><?php echo $Install_4; ?></div>
 					</form>
@@ -53,7 +54,7 @@ require_once("Kernel/Locales/En/Words.php");
 					?>
 					<div class="important"><?php echo $Install_5; ?></div>
 					<?php echo $Install_6; ?>
-					<form method="POST" action="index.php">
+					<form method="POST" action="install.php">
 					<?php echo $Install_7; ?><br /><input type="text" name="Database_Name"><br /><br />
 					<?php echo $Install_8; ?><br /><input type="text" name="Database_Host"><br /><br />
 					<?php echo $Install_9; ?><br /><input type="text" name="Database_User"><br /><br />
@@ -101,7 +102,7 @@ require_once("Kernel/Locales/En/Words.php");
 					if (file_exists("Kernel/Config/SQL.php"))
 					{
 						?>
-						<form method="POST" action="index.php">
+						<form method="POST" action="install.php">
 						<?php echo $Install_12; ?>
 						<br /><br />
 						<input type="submit" name="Choose_Curve" value="<?php echo $Install_13; ?>">
@@ -117,7 +118,7 @@ require_once("Kernel/Locales/En/Words.php");
 				{
 					?>
 					<?php echo $Install_15; ?>
-					<form method="POST" action="index.php">
+					<form method="POST" action="install.php">
 					<?php echo $Install_16; ?> <br /> <input type="text" name="HP_Level"><br /><br />
 					<?php echo $Install_17; ?> <br /> <input type="text" name="MP_Level"><br /><br />
 					<?php echo $Install_18; ?> <br /> <input type="text" name="Strength_Level"><br /><br />
@@ -131,7 +132,6 @@ require_once("Kernel/Locales/En/Words.php");
 				}
 				if (isset($_POST['Start_Installation']))
 				{
-					require("../Config.php");
 					?>
 					<div class="important"><?php echo $Install_24; ?></div><br /><br />
 					<?php
@@ -384,7 +384,7 @@ require_once("Kernel/Locales/En/Words.php");
 						
 					?>
 					<?php echo $Install_25; ?>
-					<form method="POST" action="index.php">
+					<form method="POST" action="install.php">
 					<input type="submit" name="Configure" value="<?php echo $Install_26; ?>">
 					</form>
 					<?php
@@ -395,7 +395,7 @@ require_once("Kernel/Locales/En/Words.php");
 					?>
 					<div class="important"><?php echo $Install_27; ?></div><br /><br />
 					<?php echo $Install_28; ?>
-					<form method="POST" action="index.php">
+					<form method="POST" action="install.php">
 					<?php echo $Install_29; ?><br /> <input type="text" name="RPG_Name"><br /><br />
 					<?php echo $Install_30; ?><br /><textarea name="Presentation" ID="Presentation" rows="10" cols="50"></textarea><br /><br />
 					<?php echo $Install_31; ?><br /> <input type="text" name="Pseudo"><br /><br />
@@ -408,7 +408,6 @@ require_once("Kernel/Locales/En/Words.php");
 				}
 				if (isset($_POST['Finish']))
 				{
-					require("../Config.php");
 					echo "<div class=\"important\"><?php echo $Install_36; ?></div><br /><br />";
 					$RPG_Name = htmlspecialchars(addslashes($_POST['RPG_Name']));
 					$Presentation = htmlspecialchars(addslashes($_POST['Presentation']));
@@ -805,7 +804,7 @@ require_once("Kernel/Locales/En/Words.php");
 						
 							?>
 							<?php echo $Install_37; ?>
-							<form method="POST" action="../index.php">
+							<form method="POST" action="index.php">
 							<input type="submit" name="accueil" value="<?php echo $Install_38; ?>">
 							</form>
 							<?php
