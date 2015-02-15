@@ -1,20 +1,26 @@
 <?php
-$Config = 'Config.php';
+session_start();
+$Config = 'Kernel/Config.php';
 $Size = filesize($Config); 
 if ($Size == 0) 
 {
-	?>
-	<script language="Javascript">
-	document.location.replace("Install/index.php")
-	</script>
-	<?php
+	header('Location: Install/index.php');
 }
 else
 {
-	?>
-	<script language="Javascript">
-	document.location.replace("Modules/Main.php")
-	</script>
-	<?php
+	//IF THE $_SESSION['File_Root'] AS EMPTY WE CREATE THE SESSION WITH THE ABSOLUT PATH
+	if (empty($_SESSION['File_Root']) && empty($_SESSION['Link_Root']))
+	{
+		require_once("Kernel/Config/Server.php");
+		$_SESSION['File_Root'] = $File_Root;
+		$_SESSION['Link_Root'] = $Link_Root;
+		require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+		header('Location: Modules/index.php');
+	}
+	else
+	{
+		require_once $_SESSION['File_Root']. '/Kernel/Include.php';
+		header('Location: Modules/index.php');
+	}
 }
 ?>

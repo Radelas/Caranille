@@ -53,17 +53,33 @@ require_once("../Config.php");
 					$User = htmlspecialchars(addslashes($_POST['User']));
 					$Password = htmlspecialchars(addslashes($_POST['Password']));
 					$Database = htmlspecialchars(addslashes($_POST['Database']));
-					$Open_Config = fopen("../Config.php", "w");
+					
+					$Open_Locales = fopen("../Kernel/Config/Locales.php", "w");
+					fwrite($Open_Locales, "
+					<?php
+					\$Language = 'Fr';
+					?>");
+					fclose($Open_Locales);
+					
+					$File = dirname(__FILE__); 
+					$Link = 'http://' .$_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']); 
+					$Open_Server = fopen("../Kernel/Server.php", "w");
 					fwrite($Open_Config, "
 					<?php
+					\$File_Root = '$File'; 
+					\$Link_Root = '$Link'; 					
+					?>");
+					fclose($Open_Server);
 
+					$Open_SQL = fopen("../Kernel/SQL.php", "w");
+					fwrite($Open_Config, "
+					<?php
 					//Version of Caranille RPG
 					\$version = \"6.0.0\";
-					
 					\$bdd = new PDO('mysql:host=$Server;dbname=$Database', '$User', '$Password');
-						
 					?>");
-					fclose($Open_Config);
+					fclose($Open_SQL);
+					
 					if (file_exists("../Config.php"))
 					{
 						?>

@@ -1,40 +1,18 @@
-<?php
-session_start();
-$Config = '../Config.php';
-if (file_exists($Config)) 
-{
-	require_once("../Language/Words.php");
-	require_once("../Config.php");
-	require_once("../Refresh.php");
-}
-else
-{
-	?>
-	<script language="Javascript">
-	document.location.replace("Install/Index.php")
-	</script>
-	<?php
-}
-?>
-
 <!DOCTYPE html>
 <html>
 	<head>
 		<title>Caranille - Accueil</title>
 		<meta charset="utf-8" />
-		<link rel="stylesheet" media="screen" type="text/css" title="design" href="../Design/Design.css" />
+		<link rel="stylesheet" media="screen" type="text/css" title="design" href="<?php echo $_SESSION['Link_Root'] ."/Design/Design.css"; ?>"/>
 	</head>
 
 	<body>
-		<p>
-		<img src="../Design/Images/logo.png" alt="logo">
-		</p>
-
-		<nav>
-			<?php
-			require("../Templates/Left.php");
-			?>
-		</nav>
-
+	<p>
+	<img src="<?php echo $_SESSION['Link_Root'] ."/Design/Images/logo.png"; ?>">
+	</p>
+	
+	<nav>
+		<?php require_once($_SESSION['File_Root'] ."/HTML/Left.php"); ?>
+	</nav>
 		<section>
 			<article>

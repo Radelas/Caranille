@@ -1,9 +1,9 @@
 <?php
-if (isset($_SESSION['ID']))
+if (isset($_SESSION['Account']))
 {	
 	?>
-	<div class="important">RPG</div><br />
-	<a href="Main.php"><?php echo $Left_0; ?></a><br />
+	<div class="important">MMORPG</div><br />
+	<a href="index.php"><?php echo $Left_0; ?></a><br />
 	<a href="Story.php"><?php echo $Left_1; ?></a><br />
 	<a href="Map.php"><?php echo $Left_2; ?></a><br /><br />
 	<div class="important"><?php echo $Left_3; ?></div><br />
@@ -29,11 +29,11 @@ if (isset($_SESSION['ID']))
 		<?php
 	}
 }	
-//Si l'utilisateur n'est pas connectÃ©
+//Si l'utilisateur n'est pas connecté
 else
 {
 	?>
-	<div class="important">RPG</div><br />
+	<div class="important">MMORPG</div><br />
 	<a href="Main.php"><?php echo $Left_13; ?></a><br />
 	<a href="Presentation.php"><?php echo $Left_14; ?></a><br /><br />
 	<div class="important"><?php echo $Left_15; ?></div><br />
