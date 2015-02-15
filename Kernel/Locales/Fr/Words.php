@@ -231,10 +231,10 @@
 	$Install_4 = "Si vous n'acceptez pas la license d'utilisation, veuillez supprimer caranille";
 	$Install_5 = "Installation de caranille - Etape 2/5 (Configuration de la base de donnée)";
 	$Install_6 = "<p>Caranille à besoins d'une base de donnée pour stocker toutes les informations de votre jeu<br />en passant par les données des joueurs, des objets, des monstres etc...</p><p>Veuillez compléter le formulaire suivant avec les informations de connexion à votre base de donnée<br />Si vous possedez un hébergement mutualisé il vous suffit de vous connecter sur le site de votre prestataire<br />et de chercher les informations de votre base de donnée</p>";
-	$Install_7 = "Nom de votre base de donnée";
-	$Install_8 = "Adresse du serveur SQL";
-	$Install_9 = "Nom d'utilisateur";
-	$Install_10 = "Mot de passe";
+	$Install_7 = "Adresse de votre serveur SQL";
+	$Install_8 = "Nom d'utilisateur";
+	$Install_9 = "Mot de passe";
+	$Install_10 = "Nom de la base";
 	$Install_11 = "Créer la configuration du MMORPG";
 	$Install_12 = "Félicitation Le fichier de configuration à votre base de donnée à bien été crée<p>Ce fichier va permettre à Caranille de communiquer à votre base de donnée.<br />";
 	$Install_13 = "Continuer";
