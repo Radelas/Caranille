@@ -68,64 +68,62 @@ function SQL_Account_Connection($Account_Pseudo, $Account_Password)
 
 function SQL_Add_Account($Account_Pseudo, $Account_Password, $Account_Email)
 {
-    global $bdd;
-    global $Register_14;
-    global $Register_15;
-    global $Register_16;
-    
+	global $bdd;
+	global $Register_8;
+	global $Register_9;
+
 	$Pseudo_List_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts WHERE Account_Pseudo= ?");
 	$Pseudo_List_Query->execute(array($Account_Pseudo));
 	
 	$Pseudo_List = $Pseudo_List_Query->rowCount();
 	if ($Pseudo_List == 0)
 	{
-    	$Email_List_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts WHERE Account_Pseudo= ?");
-    	$Email_List_Query->execute(array($Account_Pseudo));
-    	
-    	$Email_List = $Email_List_Query->rowCount();
-    	if ($Email_List == 0)
-    	{
-			$Date = date('Y-m-d H:i:s');
-			$IP = $_SERVER["REMOTE_ADDR"];
-
-			$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES(
-			'', 
-			'0', 
-			:Pseudo, 
-			:Password, 
-			:Email, 
-			'1', 
-			'100', 
-			'0', 
-			'10', 
-			'0', 
-			'0', 
-			'0', 
-			'0', 
-			'0', 
-			'0', 
-			'0', 
-			'0', 
-			'1', 
-			'1', 
-			'Admin', 
-			:Date, 
-			:IP, 
-			'Authorized', 
-			'None')");
-
-			$Add_Account->execute(array(
-			'Pseudo' => $Account_Pseudo, 
-			'Password' => $Account_Password, 
-			'Email' => $Account_Email, 
-			'Date' => $Date, 
-			'IP' => $IP));
-    	    echo $Register_16;
-    	}
-    	else
-    	{
-    	    echo $Register_15;
-    	}
+	    $Email_List_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts WHERE Account_Pseudo= ?");
+	    $Email_List_Query->execute(array($Account_Pseudo));
+	    
+	    $Email_List = $Email_List_Query->rowCount();
+	    if ($Email_List == 0)
+	    {
+		$Date = date('Y-m-d H:i:s');
+		$IP = $_SERVER["REMOTE_ADDR"];
+	
+		$Add_Account = $bdd->prepare("INSERT INTO Caranille_Accounts VALUES(
+		'', 
+		'0', 
+		:Pseudo, 
+		:Password, 
+		:Email, 
+		'1', 
+		'100', 
+		'0', 
+		'10', 
+		'0', 
+		'0', 
+		'0', 
+		'0', 
+		'0', 
+		'0', 
+		'0', 
+		'0', 
+		'1', 
+		'1', 
+		'Admin', 
+		:Date, 
+		:IP, 
+		'Authorized', 
+		'None')");
+	
+		$Add_Account->execute(array(
+		'Pseudo' => $Account_Pseudo, 
+		'Password' => $Account_Password, 
+		'Email' => $Account_Email, 
+		'Date' => $Date, 
+		'IP' => $IP));
+		echo $Register_16;
+	 }
+	else
+	{
+		echo $Register_15;
 	}
 	else
 	{
