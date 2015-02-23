@@ -125,6 +125,7 @@ function SQL_Add_Account($Account_Pseudo, $Account_Password, $Account_Email)
 	{
 		echo $Register_15;
 	}
+	}
 	else
 	{
 		echo $Register_14;
