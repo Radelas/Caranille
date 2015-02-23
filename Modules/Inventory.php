@@ -144,7 +144,7 @@
 		}
 		if (isset($_POST['Armor']))
 		{
-			echo "Inventory_27<br /><br />";
+			echo "$Inventory_27<br /><br />";
 			echo '<table>';
 		
 				echo '<tr>';
