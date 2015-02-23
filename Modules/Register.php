@@ -10,10 +10,10 @@
 		echo "$Register_0<br /><br />";
 		echo "<div class=\"important\">$Register_1</div><br /><br />";
 		echo '<form method="POST" action="Register.php">';
-		echo "$Register_2<br /> <input type=\"text\" name=\"Pseudo\"><br /><br />";
-		echo "$Register_3<br /> <input type=\"password\" name=\"Password\"><br /><br />";
-		echo "$Register_4<br /> <input type=\"password\" name=\"Password_Confirm\"><br /><br />";
-		echo "$Register_5<br /> <input type=\"text\" name=\"Email\"><br /><br />";
+		echo "$Register_2<br /> <input type=\"text\" name=\"Account_Pseudo\"><br /><br />";
+		echo "$Register_3<br /> <input type=\"password\" name=\"Account_Password\"><br /><br />";
+		echo "$Register_4<br /> <input type=\"password\" name=\"Account_Password_Confirm\"><br /><br />";
+		echo "$Register_5<br /> <input type=\"text\" name=\"Account_Email\"><br /><br />";
 		echo '<iframe src="../LICENCE.txt"></iframe><br /><br />';
 		echo "<input type=\"checkbox\" name=\Licence\">$Register_6<br /><br />";
 		echo "<input type=\"submit\" name=\"Register\" value=\"$Register_7\">";
@@ -21,16 +21,18 @@
 	}	
 	if (isset($_POST['Register']))
 	{
-		$Pseudo = htmlspecialchars(addslashes($_POST['Pseudo']));
-		$Password = htmlspecialchars(addslashes($_POST['Password']));
+		$Account_Pseudo = htmlspecialchars(addslashes($_POST['Account_Pseudo']));
+		$Account_Password = htmlspecialchars(addslashes($_POST['Account_Password']));
 		if (isset($_POST['Pseudo']) && ($_POST['Password']) && ($_POST['Email']))
 		{
-			$Password = htmlspecialchars(addslashes($_POST['Password']));
-			$Password_Confirm = htmlspecialchars(addslashes($_POST['Password_Confirm']));
-			if ($Password == $Password_Confirm)
+			$Account_Password = htmlspecialchars(addslashes($_POST['Account_Password']));
+			$Account_Password_Confirm = htmlspecialchars(addslashes($_POST['Account_Password_Confirm']));
+			$Account_Email = htmlspecialchars(addslashes($_POST['Account_Email']));
+			if ($Account_Password == $Account_Password_Confirm)
 			{
 				if (isset($_POST['Licence']))
 				{
+					SQL_Add_Account($Account_Pseudo, $Account_Password, $Account_Email);
 					$Pseudo_List_Query = $bdd->prepare("SELECT * FROM Caranille_Accounts WHERE Account_Pseudo= ?");
 					$Pseudo_List_Query->execute(array($_POST['Pseudo']));
 
