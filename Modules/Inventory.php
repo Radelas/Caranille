@@ -41,6 +41,7 @@
 		if (isset($_POST['Weapon']))
 		{
 			echo "$Inventory_10";
+			echo '<table>'
 		
 				echo '<tr>';
 
@@ -73,7 +74,7 @@
 					echo '</td>';
 
 				echo '</tr>';
-		
+	
 			$Item_Query = $bdd->prepare("SELECT * FROM Caranille_Inventory, Caranille_Items
 			WHERE Inventory_Item_ID = Item_ID
 			AND Item_Type = 'Weapon'
